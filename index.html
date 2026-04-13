@@ -279,22 +279,108 @@
     color: var(--muted); width: 40px; height: 40px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; font-size: 16px; transition: all 0.2s;
-    text-decoration: none;
+    text-decoration: none; z-index: 50;
   }
   .scroll-top:hover { border-color: var(--accent-cvs); color: var(--accent-cvs); }
+
+  /* TABLE SCROLL WRAPPER (mobile) */
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
+  .table-scroll table.mini { min-width: 580px; }
+
+  /* HAMBURGER BUTTON (hidden on desktop) */
+  .hamburger {
+    display: none; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 8px; cursor: pointer;
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--muted); font-size: 16px; flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .hamburger:hover { color: var(--text); border-color: #484f57; }
+
+  /* SIDEBAR OVERLAY backdrop */
+  .sidebar-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+    z-index: 200; backdrop-filter: blur(2px);
+  }
+  .sidebar-overlay.show { display: block; }
+
+  /* ── MOBILE BREAKPOINT ─────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    /* Masthead */
+    .masthead { padding: 10px 14px; }
+    .masthead-row1 { margin-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+    .masthead-title { font-size: 15px; }
+    .masthead-sub { display: none; }
+    .toc-bar { gap: 6px; }
+    .toc-btn { font-size: 10px; padding: 3px 10px; }
+    .masthead-row2 { gap: 6px; }
+    .search-wrap { max-width: 100%; min-width: 120px; flex: 1 1 120px; }
+    .filter-divider { display: none; }
+    .filter-label { display: none; }
+    .filter-btn { font-size: 10px; padding: 2px 9px; }
+    .expand-btn { font-size: 10px; padding: 2px 9px; }
+    .hamburger { display: flex; }
+
+    /* Sidebar — off-canvas drawer */
+    .sidebar {
+      position: fixed; left: -260px; top: 0; width: 250px; height: 100vh;
+      z-index: 210; transition: left 0.28s cubic-bezier(.4,0,.2,1);
+      padding-top: 60px; border-right: 1px solid var(--border);
+    }
+    .sidebar.open { left: 0; }
+
+    /* Layout — full width */
+    .page-wrap { display: block; }
+    .content { padding: 20px 14px 80px; max-width: 100%; }
+
+    /* System headers */
+    .system-header { margin: 32px 0 20px; }
+    .system-title { font-size: 22px !important; }
+
+    /* Condition headers */
+    .condition-header { padding: 12px 14px; gap: 8px; }
+    .condition-name { font-size: 14px; }
+    .condition-num { font-size: 9px; min-width: 22px; }
+    .rank-badge { font-size: 9px; padding: 2px 7px; }
+
+    /* Condition body */
+    .condition-body { padding: 14px 12px 18px; }
+
+    /* Grids → single column */
+    .sections-grid { grid-template-columns: 1fr !important; gap: 10px; }
+    .section-box { padding: 11px 12px; }
+    .section-box ul li { font-size: 12.5px; }
+
+    /* HY box */
+    .hy-box { font-size: 12px; padding: 10px 12px; }
+    .hy-box ul li { font-size: 12px; }
+
+    /* Scroll-top button */
+    .scroll-top { bottom: 16px; right: 14px; width: 36px; height: 36px; font-size: 14px; }
+
+    /* Category labels */
+    .category-label { font-size: 9px; margin: 24px 0 12px; }
+  }
+
+  @media (max-width: 420px) {
+    .masthead-row1 { gap: 6px; }
+    .toc-bar { display: none; }
+    .condition-name { font-size: 13px; }
+  }
 </style>
 </head>
 <body>
 
 <div class="masthead">
   <div class="masthead-row1">
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
     <div>
       <div class="masthead-title">Year 3B Core Conditions</div>
       <div class="masthead-sub">Cardiovascular &amp; Respiratory — Comprehensive PBL Notes</div>
     </div>
     <div class="toc-bar">
-      <a href="#cvs" class="toc-btn cvs">❤ Cardiovascular</a>
-      <a href="#resp" class="toc-btn resp">🫁 Respiratory</a>
+      <a href="#cvs" class="toc-btn cvs">❤ CVS</a>
+      <a href="#resp" class="toc-btn resp">🫁 Resp</a>
     </div>
   </div>
   <div class="masthead-row2">
@@ -315,6 +401,7 @@
     <button class="expand-btn" id="expandAllBtn" onclick="toggleAllCards()">Expand All</button>
   </div>
 </div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
 <div class="page-wrap">
 
@@ -443,13 +530,13 @@
         <span class="chevron">▼</span>
       </div>
       <div class="condition-body">
-        <table class="mini">
+        <div class="table-scroll"><table class="mini">
           <tr><th>Type</th><th>ECG Features</th><th>Rate</th><th>Key Points</th></tr>
           <tr><td>Atrial Fibrillation (AF)</td><td>Absent P waves; irregularly irregular</td><td>Ventricular: 100–180</td><td>Most common sustained arrhythmia; stroke risk</td></tr>
           <tr><td>Atrial Flutter</td><td>Sawtooth waves (300 bpm); 2:1 or 3:1 block</td><td>Ventricular: 150 (2:1)</td><td>Often converts to AF; cavotricuspid isthmus ablation curative</td></tr>
           <tr><td>SVT / AVNRT</td><td>Narrow QRS; P buried in QRS or after</td><td>150–250</td><td>Vagal manoeuvres → adenosine → verapamil</td></tr>
           <tr><td>WPW Syndrome</td><td>Delta wave; short PR; broad QRS</td><td>Variable</td><td>Accessory pathway; avoid AV nodal agents if AF</td></tr>
-        </table>
+        </table></div>
         <div class="sections-grid" style="margin-top:16px">
           <div class="section-box">
             <div class="section-label sl-etio"><span class="icon">🧬</span> AF Risk Factors</div>
@@ -581,9 +668,11 @@
           <div class="section-box">
             <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
             <ul>
-              <li><strong>MONA+:</strong> Morphine, Oxygen (if SpO₂&lt;94%), Nitrates, Aspirin 300mg</li>
-              <li>P2Y12 inhibitor (ticagrelor/clopidogrel) — dual antiplatelet</li>
-              <li>Anticoagulation (heparin/fondaparinux)</li>
+              <li><strong>Immediate:</strong> Dual antiplatelet: Aspirin 300 mg STAT + P2Y12 inhibitor (ticagrelor preferred over clopidogrel unless high bleeding risk)</li>
+              <li>Anticoagulation: unfractionated heparin or fondaparinux</li>
+              <li>Oxygen only if SpO₂ &lt;94% (avoid routine O₂ — hyperoxia is harmful in normoxic MI)</li>
+              <li>Sublingual GTN for pain (avoid if hypotensive or RV infarction)</li>
+              <li>Morphine: use cautiously — reduces pain/anxiety but may delay absorption of oral P2Y12 inhibitors</li>
               <li><strong>STEMI:</strong> Primary PCI within 90 min (door-to-balloon time); thrombolysis if PCI unavailable</li>
               <li><strong>NSTEMI:</strong> Risk stratify (GRACE score); early PCI for high-risk</li>
               <li>β-blocker, ACE inhibitor, statin — secondary prevention</li>
@@ -593,13 +682,13 @@
         </div>
         <div class="section-box" style="margin-bottom:12px">
           <div class="section-label sl-comp"><span class="icon">⚠️</span> Complications by Time</div>
-          <table class="mini">
+          <div class="table-scroll"><table class="mini">
             <tr><th>Time</th><th>Complication</th><th>Mechanism</th></tr>
             <tr><td>&lt;24 hrs</td><td>Arrhythmia (most common), cardiogenic shock</td><td>Ischaemic myocardium; most common cause of early death</td></tr>
             <tr><td>1–3 days</td><td>Fibrinous pericarditis</td><td>Inflammatory reaction; friction rub, pleuritic chest pain</td></tr>
             <tr><td>4–7 days</td><td>Free wall rupture → tamponade; Papillary muscle rupture → acute MR; Septal rupture → VSD</td><td>Weakest point: necrotic myocardium during macrophage phase</td></tr>
             <tr><td>Weeks–months</td><td>Ventricular aneurysm; Mural thrombus → embolism; Dressler syndrome</td><td>Fibrous scarring; autoimmune pericarditis (Dressler)</td></tr>
-          </table>
+          </table></div>
         </div>
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
@@ -608,7 +697,7 @@
             <li>LAD = "widow maker" — most commonly involved vessel in MI</li>
             <li>Reperfusion injury: contraction band necrosis; calcium influx + free radicals</li>
             <li>Rupture most likely 4–7 days post-MI (macrophage digestion = weakest point)</li>
-            <li>Dressler syndrome: autoimmune pericarditis 2–8 weeks post-MI; treat with NSAIDs/colchicine</li>
+            <li>Dressler syndrome: autoimmune fibrinous pericarditis 1–8 weeks post-MI; treat with NSAIDs + colchicine; avoid anticoagulation</li>
           </ul>
         </div>
       </div>
@@ -814,14 +903,14 @@
         <span class="chevron">▼</span>
       </div>
       <div class="condition-body">
-        <table class="mini">
+        <div class="table-scroll"><table class="mini">
           <tr><th>Condition</th><th>Causes</th><th>Murmur</th><th>Key Features</th><th>Treatment</th></tr>
           <tr><td>Mitral Stenosis</td><td>Rheumatic fever (almost always); fish-mouth/button-hole deformity</td><td>Opening snap + mid-diastolic rumble; louder in expiration &amp; left lateral position</td><td>LA dilation → AF, pulmonary HTN, right HF; haemoptysis; malar flush</td><td>Diuretics; rate control; anticoagulation; balloon mitral valvuloplasty or valve replacement</td></tr>
           <tr><td>Mitral Regurgitation</td><td>MVP, IHD (papillary muscle), IE, LV dilation, rheumatic, annular calcification</td><td>Holosystolic blowing murmur; apex → axilla; louder with squatting/expiration</td><td>Volume overload → LA+LV dilation; eccentric hypertrophy; pulmonary oedema</td><td>ACEi (reduce afterload); diuretics; valve repair/replacement when LV dysfunction develops</td></tr>
           <tr><td>Mitral Valve Prolapse</td><td>Myxoid degeneration; Marfan, EDS; seen in 2–3% adults</td><td>Mid-systolic click ± late systolic murmur; click moves earlier with standing, later with squatting</td><td>Usually asymptomatic; rarely IE, arrhythmia, severe MR</td><td>Reassurance; β-blocker for symptoms; valve replacement if severe MR</td></tr>
           <tr><td>Aortic Stenosis</td><td>Calcification/fibrosis ("wear &amp; tear") &gt;60yrs; bicuspid AV (earlier); rheumatic</td><td>Ejection systolic (crescendo-decrescendo); right clavicle → carotids; slow-rising pulse; narrow pulse pressure</td><td>Triad: Angina, Syncope, Heart failure (bad prognosis each); concentric LVH; microangiopathic haemolytic anaemia</td><td>Transcatheter (TAVR) or surgical valve replacement after symptom onset; no medical treatment delays surgery</td></tr>
           <tr><td>Aortic Regurgitation</td><td>Root dilation (Marfan, syphilis, dissection) most common; IE, rheumatic, bicuspid AV</td><td>Early blowing diastolic murmur; LSE; wide pulse pressure; De Musset sign (head bobbing), Quincke pulse, water-hammer pulse</td><td>LV volume overload → eccentric hypertrophy → LV dilation; eventually heart failure</td><td>Valve replacement when LV dysfunction (EF&lt;50% or ESD&gt;50mm)</td></tr>
-        </table>
+        </table></div>
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
           <ul>
@@ -1060,12 +1149,12 @@
         <span class="chevron">▼</span>
       </div>
       <div class="condition-body">
-        <table class="mini">
+        <div class="table-scroll"><table class="mini">
           <tr><th>Type</th><th>Pathology</th><th>Causes</th><th>Clinical</th><th>Management</th></tr>
           <tr><td>Dilated (DCM)</td><td>4-chamber dilation; systolic dysfunction (↓EF); most common type</td><td>Idiopathic (most common), genetic (AD), Coxsackie B myocarditis, alcohol, doxorubicin, haemochromatosis, peripartum</td><td>Biventricular HF; MR/TR regurgitation; arrhythmia; mural thrombus; mitral regurgitation murmur</td><td>HF treatment (ACEi, β-blocker, MRA); ICD; heart transplant</td></tr>
           <tr><td>Hypertrophic (HCM)</td><td>Massive LV hypertrophy; diastolic dysfunction; myofibre disarray on biopsy; subaortic hypertrophy</td><td>Autosomal dominant; β-myosin heavy chain mutation (most common); also troponin T/I, myosin-binding protein C</td><td>Syncope with exercise (LVOTO); sudden cardiac death in young athletes; ejection systolic murmur (increases with Valsalva/standing, decreases with squatting)</td><td>β-blockers; avoid vigorous exercise; ICD; septal myectomy or alcohol septal ablation; disopyramide</td></tr>
           <tr><td>Restrictive (RCM)</td><td>↓Ventricular compliance; diastolic dysfunction; normal/near-normal EF; low voltage ECG</td><td>Amyloidosis (most common), sarcoidosis, haemochromatosis, Loeffler syndrome, endomyocardial fibrosis, radiation</td><td>Signs mimic constrictive pericarditis; biventricular HF symptoms; elevated filling pressures</td><td>Treat underlying cause; diuretics; transplant for refractory</td></tr>
-        </table>
+        </table></div>
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
           <ul>
@@ -1107,7 +1196,7 @@
               <li>Fever, malaise</li>
               <li><strong>ECG:</strong> Saddle-shaped (concave up) ST elevation in multiple leads (not territory-specific); PR depression</li>
               <li>Troponin may be mildly elevated (myopericarditis)</li>
-              <li><strong>Mx:</strong> NSAIDs + colchicine (standard); avoid anticoagulation; steroids if autoimmune</li>
+              <li><strong>Mx:</strong> NSAIDs (ibuprofen/aspirin) + colchicine (reduces recurrence); avoid anticoagulants if possible (risk of haemopericardium); steroids if autoimmune/refractory; rest from exercise for 3 months</li>
             </ul>
           </div>
           <div class="section-box">
@@ -1228,13 +1317,13 @@
           <div class="section-box">
             <div class="section-label sl-mx"><span class="icon">💊</span> Management (BTS/SIGN Stepwise)</div>
             <ul>
-              <li><strong>Step 1:</strong> SABA PRN (salbutamol)</li>
-              <li><strong>Step 2:</strong> Low-dose ICS (beclometasone)</li>
-              <li><strong>Step 3:</strong> ICS + LABA (formoterol/salmeterol)</li>
-              <li><strong>Step 4:</strong> Medium/high dose ICS + LABA</li>
-              <li><strong>Step 5:</strong> Add-on therapy: LAMA, anti-IgE (omalizumab), anti-IL-5 (mepolizumab), oral prednisolone</li>
-              <li><strong>Acute severe:</strong> O₂, salbutamol nebuliser (back-to-back), ipratropium, IV hydrocortisone/prednisolone, IV MgSO₄, consider ITU/intubation</li>
-              <li>Leukotriene receptor antagonist (montelukast): aspirin-sensitive asthma</li>
+              <li><strong>Step 1:</strong> SABA PRN (salbutamol) — use as reliever at all steps</li>
+              <li><strong>Step 2:</strong> Add low-dose ICS (beclometasone 200–400 mcg/day)</li>
+              <li><strong>Step 3:</strong> Add LABA to ICS (e.g. salmeterol or formoterol); if no response to LABA → stop LABA, increase ICS to medium dose; consider LTRA (montelukast)</li>
+              <li><strong>Step 4:</strong> Increase to medium/high-dose ICS + LABA; consider adding LTRA, theophylline, or LAMA (tiotropium)</li>
+              <li><strong>Step 5:</strong> Refer to specialist; consider biologics: anti-IgE (omalizumab), anti-IL-5 (mepolizumab/benralizumab), anti-IL-4/13 (dupilumab); or daily oral prednisolone (last resort)</li>
+              <li><strong>Acute severe:</strong> Back-to-back salbutamol nebulisers + ipratropium, IV/oral corticosteroids (prednisolone 40–50 mg or IV hydrocortisone), O₂ to SpO₂ 94–98%, IV MgSO₄ 1.2–2 g over 20 min; escalate to ITU if deteriorating</li>
+              <li>Leukotriene receptor antagonist (montelukast): particularly useful for aspirin-sensitive and exercise-induced asthma</li>
             </ul>
           </div>
         </div>
@@ -1299,7 +1388,7 @@
               <li><strong>Mild (FEV1 ≥80%):</strong> SABA PRN (salbutamol)</li>
               <li><strong>Moderate:</strong> LAMA (tiotropium) ± LABA</li>
               <li><strong>Severe with exacerbations:</strong> LAMA + LABA + ICS</li>
-              <li><strong>LTOT:</strong> PaO₂ &lt;7.3 kPa (55 mmHg); ≥15h/day; reduces mortality</li>
+              <li><strong>LTOT:</strong> Indicated if resting PaO₂ ≤7.3 kPa, or 7.3–8 kPa with cor pulmonale/polycythaemia/nocturnal hypoxaemia; use ≥15 h/day; reduces mortality</li>
               <li>Pulmonary rehabilitation: improves exercise tolerance and QoL</li>
               <li>Annual influenza vaccine + pneumococcal vaccine</li>
               <li>Roflumilast (PDE4 inhibitor): chronic bronchitis + frequent exacerbations</li>
@@ -1331,12 +1420,12 @@
         <span class="chevron">▼</span>
       </div>
       <div class="condition-body">
-        <table class="mini">
+        <div class="table-scroll"><table class="mini">
           <tr><th>Type</th><th>Pattern</th><th>Key Organisms</th><th>Features</th></tr>
           <tr><td>Lobar Pneumonia</td><td>Entire lobe consolidated</td><td>S. pneumoniae (95%); Klebsiella (alcoholics, aspiration)</td><td>Acute onset; fever; pleuritic pain; rusty sputum; neutrophilia; stages: congestion → red hepatisation → grey hepatisation → resolution</td></tr>
           <tr><td>Bronchopneumonia</td><td>Patchy, multifocal, bilateral; bronchiole-centred</td><td>S. aureus, H. influenzae, Klebsiella, Streptococcus pyogenes</td><td>Less acute; often secondary to viral URTI or hospital-acquired</td></tr>
           <tr><td>Atypical / Interstitial</td><td>Diffuse interstitial infiltrates; interstitium involved</td><td>Mycoplasma (most common; young adults; cold agglutinins), Legionella, Chlamydia, viruses</td><td>"Walking pneumonia"; mild prodrome; non-productive cough; minimal sputum; responds to macrolides (not β-lactams)</td></tr>
-        </table>
+        </table></div>
         <div class="sections-grid" style="margin-top:16px">
           <div class="section-box">
             <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features</div>
@@ -1409,8 +1498,9 @@
           <div class="section-box">
             <div class="section-label sl-mx"><span class="icon">💊</span> Treatment — RIPE</div>
             <ul>
-              <li><strong>2 months (intensive):</strong> Rifampicin + Isoniazid + Pyrazinamide + Ethambutol</li>
-              <li><strong>4 months (continuation):</strong> Rifampicin + Isoniazid</li>
+              <li><strong>2 months intensive phase:</strong> Rifampicin + Isoniazid + Pyrazinamide + Ethambutol (RIPE)</li>
+              <li><strong>4 months continuation phase:</strong> Rifampicin + Isoniazid (RI)</li>
+              <li>Total 6 months for pulmonary TB; 12 months for CNS/bone TB</li>
               <li><strong>Pyridoxine (B6):</strong> with isoniazid (prevents peripheral neuropathy)</li>
               <li>DOT (directly observed therapy): for adherence</li>
               <li>Notifiable disease (public health reporting mandatory)</li>
@@ -1444,14 +1534,14 @@
         <span class="chevron">▼</span>
       </div>
       <div class="condition-body">
-        <table class="mini">
+        <div class="table-scroll"><table class="mini">
           <tr><th>Type</th><th>Location</th><th>Aetiology</th><th>Paraneoplastic</th><th>Key Features</th></tr>
           <tr><td>Squamous Cell Carcinoma</td><td>Central; hilar</td><td>Strongly linked to smoking</td><td>PTHrP → hypercalcaemia; ectopic ADH</td><td>Cavitating; arises from bronchial metaplasia; slow-growing; can be keratin-producing</td></tr>
           <tr><td>Adenocarcinoma</td><td>Peripheral; subpleural</td><td>Most common in women/non-smokers; scar carcinoma; EGFR mutation (especially Asian non-smokers)</td><td>Hypertrophic pulmonary osteoarthropathy; clubbing</td><td>Most common type overall; ALK translocation; responds to erlotinib (EGFR), crizotinib (ALK)</td></tr>
           <tr><td>Small Cell Carcinoma (SCLC)</td><td>Central; peribronchial</td><td>Strongly linked to smoking; neuroendocrine origin</td><td>SIADH (ADH), Cushing (ACTH), Lambert-Eaton syndrome; most common cause of paraneoplastic syndromes</td><td>Most aggressive; usually metastatic at diagnosis; NOT suitable for surgery; responds to chemo+radio</td></tr>
           <tr><td>Large Cell Carcinoma</td><td>Peripheral</td><td>Smoking</td><td>Variable</td><td>Poorly differentiated; diagnosis of exclusion; poor prognosis</td></tr>
           <tr><td>Carcinoid</td><td>Central; bronchial</td><td>Not smoking-related; neuroendocrine</td><td>Carcinoid syndrome (flushing, diarrhoea — if metastatic)</td><td>Indolent; may be resectable; responds to octreotide</td></tr>
-        </table>
+        </table></div>
         <div class="sections-grid" style="margin-top:16px">
           <div class="section-box">
             <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Presentations</div>
@@ -1507,7 +1597,7 @@
           <div class="section-box">
             <div class="section-label sl-etio"><span class="icon">🧬</span> Risk Factors</div>
             <ul>
-              <li>Obesity (most important — neck circumference &gt;40cm in women, &gt;43cm in men)</li>
+              <li>Obesity (most important — neck circumference &gt;40 cm in men, &gt;35 cm in women)</li>
               <li>Male sex; age; postmenopausal women</li>
               <li>Retrognathia, macroglossia (acromegaly, hypothyroidism, Down syndrome)</li>
               <li>Alcohol, sedatives, smoking</li>
@@ -1767,10 +1857,10 @@
             <ul>
               <li>Systemic granulomatous disease; non-caseating granulomas</li>
               <li>Unknown antigen → CD4+ TH1 helper cell response → epithelioid granulomas</li>
-              <li>Granuloma macrophages produce 1-alpha hydroxylase → active vitamin D → hypercalcaemia/hypercalciuria</li>
-              <li>Most common in young African-American females; also common in Scandinavians</li>
-              <li>Asteroid bodies within giant cells (characteristic)</li>
-              <li>Negative tuberculin test (anergy)</li>
+              <li>Granuloma macrophages produce 1α-hydroxylase → active vitamin D (1,25-dihydroxyvitamin D) → hypercalcaemia/hypercalciuria</li>
+              <li>Most common in young adults aged 20–40; highest incidence in people of African descent and Northern Europeans (Scandinavians); slight female predominance</li>
+              <li>Asteroid bodies within giant cells (characteristic stellate inclusions)</li>
+              <li>Negative tuberculin test (cutaneous anergy) despite normal T-cell function</li>
             </ul>
           </div>
           <div class="section-box">
@@ -1954,49 +2044,65 @@
 <a href="#" class="scroll-top" title="Back to top">↑</a>
 
 <script>
-  /* ── TOGGLE a single card ─────────────────────────────────────── */
+  /* ── HELPERS ─────────────────────────────────────────────────── */
+  function mastheadH() {
+    return document.querySelector('.masthead').offsetHeight;
+  }
+
+  /* ── MOBILE SIDEBAR ──────────────────────────────────────────── */
+  function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const isOpen  = sidebar.classList.contains('open');
+    sidebar.classList.toggle('open', !isOpen);
+    overlay.classList.toggle('show', !isOpen);
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  }
+  function closeSidebar() {
+    document.querySelector('.sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  /* ── TOGGLE a single card ────────────────────────────────────── */
   function toggle(header) {
-    const body = header.nextElementSibling;
+    const body    = header.nextElementSibling;
     const chevron = header.querySelector('.chevron');
-    const isOpen = body.classList.contains('open');
+    const isOpen  = body.classList.contains('open');
     body.classList.toggle('open', !isOpen);
     header.classList.toggle('open', !isOpen);
     chevron.classList.toggle('open', !isOpen);
   }
 
-  /* ── OPEN card and scroll to it (used by sidebar links) ──────── */
+  /* ── OPEN card and scroll to it (sidebar links) ──────────────── */
   function openAndScrollTo(id, event) {
     if (event) event.preventDefault();
     const card = document.getElementById(id);
     if (!card) return;
-    const header = card.querySelector('.condition-header');
-    const body   = card.querySelector('.condition-body');
+    const header  = card.querySelector('.condition-header');
+    const body    = card.querySelector('.condition-body');
     const chevron = header.querySelector('.chevron');
-    // Ensure card is visible (not hidden by filter)
     card.style.display = '';
-    // Open if closed
     if (!body.classList.contains('open')) {
       body.classList.add('open');
       header.classList.add('open');
       chevron.classList.add('open');
     }
-    // Scroll after a tiny delay so display changes take effect
+    closeSidebar();
     setTimeout(() => {
-      const mastheadH = document.querySelector('.masthead').offsetHeight;
-      const top = card.getBoundingClientRect().top + window.scrollY - mastheadH - 12;
+      const top = card.getBoundingClientRect().top + window.scrollY - mastheadH() - 14;
       window.scrollTo({ top, behavior: 'smooth' });
-    }, 30);
+    }, 50);
   }
 
   /* ── EXPAND / COLLAPSE ALL ───────────────────────────────────── */
   let allExpanded = false;
   function toggleAllCards() {
     allExpanded = !allExpanded;
-    const btn = document.getElementById('expandAllBtn');
-    btn.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+    document.getElementById('expandAllBtn').textContent = allExpanded ? 'Collapse All' : 'Expand All';
     document.querySelectorAll('.condition:not([style*="display: none"])').forEach(card => {
-      const header = card.querySelector('.condition-header');
-      const body   = card.querySelector('.condition-body');
+      const header  = card.querySelector('.condition-header');
+      const body    = card.querySelector('.condition-body');
       const chevron = header.querySelector('.chevron');
       body.classList.toggle('open', allExpanded);
       header.classList.toggle('open', allExpanded);
@@ -2017,8 +2123,7 @@
   let searchQuery = '';
   function handleSearch(val) {
     searchQuery = val.trim().toLowerCase();
-    const clearBtn = document.getElementById('searchClear');
-    clearBtn.style.display = searchQuery ? 'block' : 'none';
+    document.getElementById('searchClear').style.display = searchQuery ? 'block' : 'none';
     applyFilters();
   }
   function clearSearch() {
@@ -2033,12 +2138,12 @@
     let visibleCount = 0;
     document.querySelectorAll('.condition').forEach(card => {
       const rankBadge = card.querySelector('.rank-badge');
-      const rankClass = rankBadge ? Array.from(rankBadge.classList).find(c => c.startsWith('r') && c !== 'rank-badge') : '';
+      const rankClass = rankBadge
+        ? Array.from(rankBadge.classList).find(c => /^r[123]$/.test(c))
+        : '';
       const name = (card.querySelector('.condition-name') || {}).textContent || '';
-
-      const rankMatch = activeFilter === 'all' || rankClass === activeFilter;
+      const rankMatch   = activeFilter === 'all' || rankClass === activeFilter;
       const searchMatch = !searchQuery || name.toLowerCase().includes(searchQuery);
-
       if (rankMatch && searchMatch) {
         card.style.display = '';
         visibleCount++;
@@ -2047,9 +2152,8 @@
       }
     });
 
-    // Show/hide system headers and category labels based on visible cards nearby
+    /* hide section headers that have no visible cards beneath them */
     document.querySelectorAll('.system-header, .category-label').forEach(el => {
-      // Find next sibling conditions (skip other labels)
       let sib = el.nextElementSibling;
       let hasVisible = false;
       while (sib && !sib.classList.contains('system-header')) {
@@ -2061,28 +2165,48 @@
       el.style.display = hasVisible ? '' : 'none';
     });
 
-    const noResults = document.getElementById('noResults');
-    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
   }
 
   /* ── SIDEBAR ACTIVE HIGHLIGHT ON SCROLL ─────────────────────── */
   const sidebarLinks = document.querySelectorAll('.sidebar-link');
   window.addEventListener('scroll', () => {
-    const mastheadH = document.querySelector('.masthead').offsetHeight;
+    const offset = mastheadH() + 24;
     let current = '';
     document.querySelectorAll('.condition').forEach(s => {
-      if (s.style.display !== 'none' && window.scrollY >= s.offsetTop - mastheadH - 20) {
-        current = s.id;
-      }
+      if (s.style.display !== 'none' && window.scrollY >= s.offsetTop - offset) current = s.id;
     });
     sidebarLinks.forEach(link => {
-      const isActive = link.getAttribute('href') === '#' + current;
-      link.style.color = isActive ? '#e6edf3' : '';
-      link.style.background = isActive ? 'rgba(255,255,255,0.04)' : '';
-      link.style.borderLeftColor = isActive
+      const active = link.getAttribute('href') === '#' + current;
+      link.style.color           = active ? '#e6edf3' : '';
+      link.style.background      = active ? 'rgba(255,255,255,0.04)' : '';
+      link.style.borderLeftColor = active
         ? (link.classList.contains('resp') ? '#52b0e0' : '#e05252')
         : '';
     });
+  });
+
+  /* ── SIDEBAR STICKY TOP — recalculate on resize ──────────────── */
+  function updateSidebarTop() {
+    const mh      = mastheadH();
+    const sidebar = document.querySelector('.sidebar');
+    if (window.innerWidth > 768) {
+      sidebar.style.top    = mh + 'px';
+      sidebar.style.height = `calc(100vh - ${mh}px)`;
+    } else {
+      sidebar.style.top    = '';
+      sidebar.style.height = '';
+    }
+  }
+  window.addEventListener('resize', () => {
+    updateSidebarTop();
+    if (window.innerWidth > 768) closeSidebar();
+  });
+
+  /* ── INIT ────────────────────────────────────────────────────── */
+  document.addEventListener('DOMContentLoaded', () => {
+    updateSidebarTop();
+    /* all cards start collapsed — nothing to open */
   });
 </script>
 </body>
