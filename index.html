@@ -2157,11 +2157,11 @@
       }
     });
 
-    /* hide section headers that have no visible cards beneath them */
+    /* hide section headers / category labels that have no visible cards beneath them */
     document.querySelectorAll('.system-header, .category-label').forEach(el => {
       let sib = el.nextElementSibling;
       let hasVisible = false;
-      while (sib && !sib.classList.contains('system-header')) {
+      while (sib && !sib.classList.contains('system-header') && !sib.classList.contains('category-label')) {
         if (sib.classList.contains('condition') && sib.style.display !== 'none') {
           hasVisible = true; break;
         }
