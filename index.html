@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 3B — CVS & Respiratory Core Conditions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2333;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent-cvs: #e05252;
+    --accent-resp: #52b0e0;
+    --accent-r1: #3fb950;
+    --accent-r2: #d29922;
+    --accent-r3: #8b949e;
+    --highlight: #ffd700;
+    --tag-bg: rgba(63,185,80,0.12);
+    --tag2-bg: rgba(210,153,34,0.12);
+    --tag3-bg: rgba(139,148,158,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* TOP HEADER */
+  .masthead {
+    background: linear-gradient(135deg, #0d1117 0%, #1a0a0a 50%, #0a101a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 40px 36px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .masthead-sub { font-size: 12px; color: var(--muted); margin-top: 2px; letter-spacing: 1px; text-transform: uppercase; }
+  .toc-bar { display: flex; gap: 10px; flex-wrap: wrap; }
+  .toc-btn {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); cursor: pointer; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .toc-btn:hover, .toc-btn.cvs { border-color: var(--accent-cvs); color: var(--accent-cvs); background: rgba(224,82,82,0.08); }
+  .toc-btn.resp { border-color: var(--accent-resp); color: var(--accent-resp); background: rgba(82,176,224,0.08); }
+
+  /* LAYOUT */
+  .page-wrap { display: flex; min-height: 100vh; }
+  .sidebar {
+    width: 230px; min-width: 230px; background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 24px 0;
+    position: sticky; top: 90px; height: calc(100vh - 90px);
+    overflow-y: auto;
+    font-size: 12.5px;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .sidebar-section { padding: 12px 16px 4px; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .sidebar-link {
+    display: block; padding: 5px 16px 5px 24px;
+    color: var(--muted); text-decoration: none; border-left: 2px solid transparent;
+    transition: all 0.15s; font-size: 12px;
+  }
+  .sidebar-link:hover { color: var(--text); border-left-color: var(--accent-cvs); background: rgba(255,255,255,0.03); }
+  .sidebar-link.resp:hover { border-left-color: var(--accent-resp); }
+  .sidebar-link .badge {
+    display: inline-block; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px;
+    margin-left: 4px; vertical-align: middle;
+  }
+  .badge.r1 { background: var(--tag-bg); color: var(--accent-r1); }
+  .badge.r2 { background: var(--tag2-bg); color: var(--accent-r2); }
+  .badge.r3 { background: var(--tag3-bg); color: var(--accent-r3); }
+
+  .content { flex: 1; padding: 40px 48px 80px; max-width: 960px; }
+
+  /* SYSTEM HEADERS */
+  .system-header {
+    display: flex; align-items: center; gap: 16px;
+    margin: 48px 0 32px;
+    padding-bottom: 16px; border-bottom: 2px solid var(--border);
+  }
+  .system-header:first-child { margin-top: 0; }
+  .system-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .system-dot.cvs { background: var(--accent-cvs); box-shadow: 0 0 12px var(--accent-cvs); }
+  .system-dot.resp { background: var(--accent-resp); box-shadow: 0 0 12px var(--accent-resp); }
+  .system-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; }
+  .system-title.cvs { color: var(--accent-cvs); }
+  .system-title.resp { color: var(--accent-resp); }
+
+  /* CATEGORY DIVIDERS */
+  .category-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); margin: 36px 0 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .category-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* CONDITION CARDS */
+  .condition {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .condition:hover { border-color: #484f57; }
+  .condition-header {
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    background: var(--surface2);
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s;
+  }
+  .condition-header:hover { background: #1f2937; }
+  .condition-header.open { border-bottom-color: var(--border); }
+  .condition-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600; color: var(--muted);
+    min-width: 28px;
+  }
+  .condition-name { flex: 1; font-size: 16px; font-weight: 700; font-family: 'Playfair Display', serif; }
+  .rank-badge {
+    font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .rank-badge.r1 { background: var(--tag-bg); color: var(--accent-r1); border: 1px solid rgba(63,185,80,0.3); }
+  .rank-badge.r2 { background: var(--tag2-bg); color: var(--accent-r2); border: 1px solid rgba(210,153,34,0.3); }
+  .rank-badge.r3 { background: var(--tag3-bg); color: var(--accent-r3); border: 1px solid rgba(139,148,158,0.3); }
+  .chevron { color: var(--muted); font-size: 12px; transition: transform 0.2s; }
+  .chevron.open { transform: rotate(180deg); }
+
+  .condition-body { padding: 20px 20px 24px; display: none; }
+  .condition-body.open { display: block; animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* SECTIONS INSIDE CARD */
+  .sections-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .sections-grid.wide { grid-template-columns: 1fr; }
+  @media (max-width: 700px) { .sections-grid { grid-template-columns: 1fr; } }
+  .section-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .section-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+  }
+  .section-label .icon { font-size: 13px; }
+  .section-box ul { list-style: none; padding: 0; }
+  .section-box ul li {
+    padding: 2px 0 2px 12px;
+    position: relative;
+    font-size: 13.5px;
+    color: #c9d1d9;
+  }
+  .section-box ul li::before {
+    content: '›'; position: absolute; left: 0;
+    color: var(--muted); font-size: 14px;
+  }
+  .section-box ul li strong { color: var(--text); font-weight: 600; }
+  .section-box p { font-size: 13.5px; color: #c9d1d9; }
+  .section-box p + p { margin-top: 6px; }
+
+  /* COLOR CODED SECTION LABELS */
+  .sl-etio { color: #a78bfa; }
+  .sl-path { color: #60a5fa; }
+  .sl-sx { color: #fb923c; }
+  .sl-signs { color: #f87171; }
+  .sl-dx { color: #34d399; }
+  .sl-mx { color: #fbbf24; }
+  .sl-comp { color: #f472b6; }
+  .sl-key { color: var(--highlight); }
+
+  /* KEY FACTS / HY BOX */
+  .hy-box {
+    background: rgba(255,215,0,0.05);
+    border: 1px solid rgba(255,215,0,0.25);
+    border-left: 3px solid var(--highlight);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+  .hy-box strong { color: var(--highlight); font-weight: 700; }
+  .hy-box ul { list-style: none; padding: 0; margin-top: 6px; }
+  .hy-box ul li { padding: 2px 0 2px 12px; position: relative; color: #e6c97a; }
+  .hy-box ul li::before { content: '★'; position: absolute; left: 0; font-size: 9px; color: var(--highlight); top: 5px; }
+
+  /* MINI TABLES */
+  table.mini { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 8px; }
+  table.mini th { background: var(--surface2); color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 6px 10px; text-align: left; }
+  table.mini td { padding: 5px 10px; border-bottom: 1px solid var(--border); color: #c9d1d9; vertical-align: top; }
+  table.mini tr:last-child td { border-bottom: none; }
+  table.mini td:first-child { color: var(--text); font-weight: 600; }
+
+  /* SCROLL TOP */
+  .scroll-top {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--muted); width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 16px; transition: all 0.2s;
+    text-decoration: none;
+  }
+  .scroll-top:hover { border-color: var(--accent-cvs); color: var(--accent-cvs); }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div>
+    <div class="masthead-title">Year 3B Core Conditions</div>
+    <div class="masthead-sub">Cardiovascular &amp; Respiratory — Comprehensive PBL Notes</div>
+  </div>
+  <div class="toc-bar">
+    <a href="#cvs" class="toc-btn cvs">❤ Cardiovascular</a>
+    <a href="#resp" class="toc-btn resp">🫁 Respiratory</a>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-section">Cardiovascular</div>
+    <a href="#brady" class="sidebar-link">Bradyarrhythmias <span class="badge r1">R1</span></a>
+    <a href="#atrial-tachy" class="sidebar-link">Atrial Tachyarrhythmias <span class="badge r1">R1</span></a>
+    <a href="#vt" class="sidebar-link">Ventricular Tachyarrhythmias <span class="badge r1">R1</span></a>
+    <a href="#acs" class="sidebar-link">ACS / MI <span class="badge r1">R1</span></a>
+    <a href="#stable-angina" class="sidebar-link">Stable Angina <span class="badge r1">R1</span></a>
+    <a href="#pvd" class="sidebar-link">Peripheral Vascular Disease <span class="badge r1">R1</span></a>
+    <a href="#aorta" class="sidebar-link">Aortic Aneurysm/Dissection <span class="badge r1">R1</span></a>
+    <a href="#htn" class="sidebar-link">Hypertension <span class="badge r1">R1</span></a>
+    <a href="#valve" class="sidebar-link">Mitral/Aortic Valve Disease <span class="badge r1">R1</span></a>
+    <a href="#chf" class="sidebar-link">Congestive Cardiac Failure <span class="badge r1">R1</span></a>
+    <a href="#pht" class="sidebar-link">Pulmonary Hypertension <span class="badge r2">R2</span></a>
+    <a href="#rf" class="sidebar-link">Rheumatic Fever <span class="badge r2">R2</span></a>
+    <a href="#ie" class="sidebar-link">Infective Endocarditis <span class="badge r2">R2</span></a>
+    <a href="#cm" class="sidebar-link">Cardiomyopathy <span class="badge r2">R2</span></a>
+    <a href="#peri" class="sidebar-link">Pericarditis/Tamponade <span class="badge r2">R2</span></a>
+    <a href="#myo" class="sidebar-link">Myocarditis <span class="badge r3">R3</span></a>
+    <div class="sidebar-section">Respiratory</div>
+    <a href="#asthma" class="sidebar-link resp">Asthma <span class="badge r1">R1</span></a>
+    <a href="#copd" class="sidebar-link resp">COPD <span class="badge r1">R1</span></a>
+    <a href="#pneumonia" class="sidebar-link resp">Pneumonia <span class="badge r1">R1</span></a>
+    <a href="#tb" class="sidebar-link resp">Tuberculosis <span class="badge r1">R1</span></a>
+    <a href="#lung-ca" class="sidebar-link resp">Lung Cancer <span class="badge r1">R1</span></a>
+    <a href="#osa" class="sidebar-link resp">Obstructive Sleep Apnoea <span class="badge r1">R1</span></a>
+    <a href="#ptx" class="sidebar-link resp">Pneumothorax <span class="badge r1">R1</span></a>
+    <a href="#eff" class="sidebar-link resp">Pleural Effusion <span class="badge r1">R1</span></a>
+    <a href="#bronch" class="sidebar-link resp">Bronchiectasis <span class="badge r2">R2</span></a>
+    <a href="#ipf" class="sidebar-link resp">Pulmonary Fibrosis <span class="badge r2">R2</span></a>
+    <a href="#sarc" class="sidebar-link resp">Sarcoidosis <span class="badge r2">R2</span></a>
+    <a href="#chest-trauma" class="sidebar-link resp">Chest Trauma <span class="badge r2">R2</span></a>
+    <a href="#empyema" class="sidebar-link resp">Empyema <span class="badge r2">R2</span></a>
+    <a href="#cf" class="sidebar-link resp">Cystic Fibrosis <span class="badge r3">R3</span></a>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- ============================================================ -->
+    <!--  CARDIOVASCULAR                                              -->
+    <!-- ============================================================ -->
+    <div id="cvs" class="system-header">
+      <div class="system-dot cvs"></div>
+      <div class="system-title cvs">Cardiovascular System</div>
+    </div>
+
+    <div class="category-label">Disorders of Heart Rate &amp; Rhythm</div>
+
+    <!-- BRADYARRHYTHMIAS -->
+    <div class="condition" id="brady">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-01</span>
+        <span class="condition-name">Bradyarrhythmias</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Aetiology</div>
+            <ul>
+              <li><strong>Sinus bradycardia:</strong> vagal tone ↑, hypothyroidism, athletes, inferior MI, drugs</li>
+              <li><strong>AV block 1st:</strong> prolonged PR (>200ms); benign</li>
+              <li><strong>AV block 2nd Mobitz I (Wenckebach):</strong> progressive PR lengthening → dropped beat; usually inferior MI</li>
+              <li><strong>AV block 2nd Mobitz II:</strong> sudden dropped beat; pre-syncope, progresses to complete block</li>
+              <li><strong>Complete heart block (3rd):</strong> atria and ventricles beat independently; inferior or anterior MI, Lyme disease, post-cardiac surgery</li>
+              <li><strong>Sick sinus syndrome:</strong> sinus node dysfunction; elderly</li>
+              <li><strong>Drugs:</strong> β-blockers, non-DHP CCBs (diltiazem, verapamil), digoxin, amiodarone</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Symptoms &amp; Signs</div>
+            <ul>
+              <li>Syncope / presyncope / dizziness</li>
+              <li>Fatigue, exercise intolerance</li>
+              <li>Dyspnoea</li>
+              <li>Cannon A waves (CHB) — atria contracting against closed TV</li>
+              <li>HR &lt;60 bpm; may be regular or irregular</li>
+              <li>Hypotension if haemodynamically compromised</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>ECG:</strong> key; determine block type</li>
+              <li>24hr Holter monitor (intermittent symptoms)</li>
+              <li>TFTs, electrolytes (K⁺, Ca²⁺, Mg²⁺)</li>
+              <li>Troponin/cardiac enzymes if MI suspected</li>
+              <li>Echo if structural disease suspected</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>Acute/unstable:</strong> Atropine IV (0.5–1 mg); transcutaneous pacing</li>
+              <li><strong>Mobitz II / CHB / symptomatic:</strong> Permanent pacemaker (PPM)</li>
+              <li>Stop offending drugs if iatrogenic</li>
+              <li>Treat underlying cause (e.g., thyroxine for hypothyroidism)</li>
+              <li>1st degree &amp; Wenckebach: usually no treatment needed</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>Inferior MI → AV block (RCA supplies AV node in 90%)</li>
+            <li>Anterior MI → complete block due to infranodal disease → poor prognosis</li>
+            <li>Mobitz II always needs pacing; Wenckebach usually does not</li>
+            <li>Cannon A waves = complete heart block hallmark</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ATRIAL TACHYARRHYTHMIAS -->
+    <div class="condition" id="atrial-tachy">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-02</span>
+        <span class="condition-name">Atrial Tachyarrhythmias</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <table class="mini">
+          <tr><th>Type</th><th>ECG Features</th><th>Rate</th><th>Key Points</th></tr>
+          <tr><td>Atrial Fibrillation (AF)</td><td>Absent P waves; irregularly irregular</td><td>Ventricular: 100–180</td><td>Most common sustained arrhythmia; stroke risk</td></tr>
+          <tr><td>Atrial Flutter</td><td>Sawtooth waves (300 bpm); 2:1 or 3:1 block</td><td>Ventricular: 150 (2:1)</td><td>Often converts to AF; cavotricuspid isthmus ablation curative</td></tr>
+          <tr><td>SVT / AVNRT</td><td>Narrow QRS; P buried in QRS or after</td><td>150–250</td><td>Vagal manoeuvres → adenosine → verapamil</td></tr>
+          <tr><td>WPW Syndrome</td><td>Delta wave; short PR; broad QRS</td><td>Variable</td><td>Accessory pathway; avoid AV nodal agents if AF</td></tr>
+        </table>
+        <div class="sections-grid" style="margin-top:16px">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> AF Risk Factors</div>
+            <ul>
+              <li>Hypertension (most common)</li>
+              <li>Ischaemic heart disease</li>
+              <li>Mitral valve disease</li>
+              <li>Heart failure</li>
+              <li>Thyrotoxicosis, alcohol ("holiday heart")</li>
+              <li>Post-cardiac surgery, pneumonia, PE</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> AF Management</div>
+            <ul>
+              <li><strong>Rate control:</strong> β-blocker, diltiazem, digoxin (if HF)</li>
+              <li><strong>Rhythm control:</strong> DC cardioversion, flecainide (if no structural disease), amiodarone</li>
+              <li><strong>Anticoagulation:</strong> CHA₂DS₂-VASc score → DOAC/warfarin (score ≥1 in men, ≥2 in women)</li>
+              <li><strong>Pulmonary vein isolation:</strong> catheter ablation for paroxysmal AF</li>
+              <li>Treat underlying cause</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>AF → LA dilation → mural thrombus → embolic stroke (esp. middle cerebral artery)</li>
+            <li>Adenosine terminates SVT but NOT AF/flutter</li>
+            <li>WPW + AF = AVOID digoxin, verapamil, adenosine → can → VF; use procainamide or DC cardioversion</li>
+            <li>CHA₂DS₂-VASc: CHF/HTN/Age≥75(×2)/DM/Stroke(×2)/Vascular disease/Age 65–74/Sex female</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- VENTRICULAR TACHYARRHYTHMIAS -->
+    <div class="condition" id="vt">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-03</span>
+        <span class="condition-name">Ventricular Tachyarrhythmias</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Types &amp; Causes</div>
+            <ul>
+              <li><strong>VT:</strong> ≥3 consecutive ventricular beats at &gt;100 bpm; wide QRS (>120ms)</li>
+              <li><strong>VF:</strong> chaotic; no coordinated contraction; cardiac arrest</li>
+              <li><strong>Torsades de Pointes:</strong> polymorphic VT on long QT (drugs, electrolytes, congenital)</li>
+              <li><strong>Causes:</strong> IHD/MI (most common), cardiomyopathy, electrolyte (↓K⁺, ↓Mg²⁺), long QT syndrome, Brugada syndrome, cocaine</li>
+              <li><strong>Sudden cardiac death:</strong> usually fatal VF; 90% have severe coronary atherosclerosis</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>Pulseless VT/VF:</strong> Defibrillation + CPR immediately (ALS protocol)</li>
+              <li><strong>Stable VT:</strong> Amiodarone IV; consider synchronized DC cardioversion</li>
+              <li><strong>Unstable VT:</strong> Synchronized DC cardioversion</li>
+              <li><strong>Torsades:</strong> IV MgSO₄; correct electrolytes; stop QT-prolonging drugs</li>
+              <li><strong>Long-term:</strong> ICD (implantable cardioverter-defibrillator) for high-risk patients</li>
+              <li>Amiodarone — chronic suppression</li>
+              <li>Treat underlying cause</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>Most common early complication of MI = arrhythmia (within first 24hrs)</li>
+            <li>VF is the most common cause of sudden cardiac death</li>
+            <li>Hypertrophic cardiomyopathy = most common cause of sudden cardiac death in young athletes</li>
+            <li>QT-prolonging drugs: quinidine, sotalol, amiodarone, haloperidol, azithromycin, chloroquine</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-label">Coronary Heart Disease</div>
+
+    <!-- ACS -->
+    <div class="condition" id="acs">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-04</span>
+        <span class="condition-name">Acute Coronary Syndrome / Myocardial Infarction</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Pathophysiology</div>
+            <ul>
+              <li>Atherosclerotic plaque rupture → platelet aggregation → thrombus formation</li>
+              <li><strong>UA:</strong> partial occlusion → no necrosis</li>
+              <li><strong>NSTEMI:</strong> partial occlusion → subendocardial necrosis; ST depression or T wave changes</li>
+              <li><strong>STEMI:</strong> complete occlusion → transmural necrosis; ST elevation</li>
+              <li><strong>LAD (45%):</strong> anterior wall + anterior septum</li>
+              <li><strong>RCA (30%):</strong> posterior wall, posterior septum, papillary muscles</li>
+              <li><strong>LCx (25%):</strong> lateral wall</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Symptoms &amp; Signs</div>
+            <ul>
+              <li>Severe crushing central chest pain &gt;20 min</li>
+              <li>Radiates to left arm, jaw, neck</li>
+              <li>Diaphoresis, nausea, vomiting</li>
+              <li>Dyspnoea, pallor, cold clammy skin</li>
+              <li>NOT relieved by GTN</li>
+              <li>Silent MI: common in diabetics and elderly</li>
+              <li>Signs: tachycardia, hypotension (cardiogenic shock), 4th heart sound, S3 in HF</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations &amp; Biomarkers</div>
+            <ul>
+              <li><strong>Troponin I:</strong> gold standard; rises 2–4h, peaks 24h, normal by 7–10 days</li>
+              <li><strong>CK-MB:</strong> useful for reinfarction; rises 4–6h, peaks 24h, normal by 72h</li>
+              <li>Myoglobin: earliest but non-specific</li>
+              <li><strong>ECG:</strong> STEMI (ST elevation), NSTEMI (ST depression/T wave inversion), new LBBB</li>
+              <li>CXR: pulmonary oedema</li>
+              <li>Echo: wall motion abnormalities</li>
+              <li>Coronary angiography: definitive for STEMI</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>MONA+:</strong> Morphine, Oxygen (if SpO₂&lt;94%), Nitrates, Aspirin 300mg</li>
+              <li>P2Y12 inhibitor (ticagrelor/clopidogrel) — dual antiplatelet</li>
+              <li>Anticoagulation (heparin/fondaparinux)</li>
+              <li><strong>STEMI:</strong> Primary PCI within 90 min (door-to-balloon time); thrombolysis if PCI unavailable</li>
+              <li><strong>NSTEMI:</strong> Risk stratify (GRACE score); early PCI for high-risk</li>
+              <li>β-blocker, ACE inhibitor, statin — secondary prevention</li>
+              <li>Cardiac rehabilitation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-box" style="margin-bottom:12px">
+          <div class="section-label sl-comp"><span class="icon">⚠️</span> Complications by Time</div>
+          <table class="mini">
+            <tr><th>Time</th><th>Complication</th><th>Mechanism</th></tr>
+            <tr><td>&lt;24 hrs</td><td>Arrhythmia (most common), cardiogenic shock</td><td>Ischaemic myocardium; most common cause of early death</td></tr>
+            <tr><td>1–3 days</td><td>Fibrinous pericarditis</td><td>Inflammatory reaction; friction rub, pleuritic chest pain</td></tr>
+            <tr><td>4–7 days</td><td>Free wall rupture → tamponade; Papillary muscle rupture → acute MR; Septal rupture → VSD</td><td>Weakest point: necrotic myocardium during macrophage phase</td></tr>
+            <tr><td>Weeks–months</td><td>Ventricular aneurysm; Mural thrombus → embolism; Dressler syndrome</td><td>Fibrous scarring; autoimmune pericarditis (Dressler)</td></tr>
+          </table>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>Troponin I = most sensitive AND specific for MI (gold standard)</li>
+            <li>LAD = "widow maker" — most commonly involved vessel in MI</li>
+            <li>Reperfusion injury: contraction band necrosis; calcium influx + free radicals</li>
+            <li>Rupture most likely 4–7 days post-MI (macrophage digestion = weakest point)</li>
+            <li>Dressler syndrome: autoimmune pericarditis 2–8 weeks post-MI; treat with NSAIDs/colchicine</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- STABLE ANGINA -->
+    <div class="condition" id="stable-angina">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-05</span>
+        <span class="condition-name">Chronic Ischaemia / Stable Angina</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Pathophysiology &amp; Types</div>
+            <ul>
+              <li><strong>Stable angina:</strong> &gt;70% stenosis → supply-demand mismatch on exertion; NO necrosis; ST depression on ECG; relieved by rest/GTN</li>
+              <li><strong>Unstable angina:</strong> Rest pain; plaque rupture + partial thrombosis; ST depression; high risk of MI</li>
+              <li><strong>Prinzmetal (vasospastic) angina:</strong> Coronary vasospasm; ST elevation at rest; relieved by GTN/CCBs</li>
+              <li><strong>Chronic IHD:</strong> Gradual myocardial damage → CHF</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>Acute:</strong> Sublingual GTN (glyceryl trinitrate) spray</li>
+              <li><strong>Long-term symptom control:</strong> β-blocker (first-line) OR rate-limiting CCB; long-acting nitrates; nicorandil; ivabradine</li>
+              <li><strong>Anti-platelet:</strong> Aspirin 75mg daily; statin</li>
+              <li><strong>ACE inhibitor:</strong> if DM or LV dysfunction</li>
+              <li><strong>Revascularisation:</strong> PCI or CABG if refractory or multi-vessel disease</li>
+              <li>Risk factor modification (smoking, hypertension, DM, dyslipidaemia)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-label">Vascular Disease</div>
+
+    <!-- PVD -->
+    <div class="condition" id="pvd">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-06</span>
+        <span class="condition-name">Peripheral Vascular Disease</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Aetiology &amp; RF</div>
+            <ul>
+              <li>Atherosclerosis of peripheral arteries (aorto-iliac, femoro-popliteal most common)</li>
+              <li>Risk factors: smoking (strongest), DM, hypertension, hyperlipidaemia, age, male sex</li>
+              <li>Often coexists with CAD and cerebrovascular disease</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features — Fontaine Classification</div>
+            <ul>
+              <li><strong>Stage I:</strong> Asymptomatic; ABPI &lt;0.9</li>
+              <li><strong>Stage II:</strong> Intermittent claudication — calf pain on walking, relieved by rest</li>
+              <li><strong>Stage III:</strong> Rest pain — forefoot pain at night, relieved hanging leg down</li>
+              <li><strong>Stage IV:</strong> Tissue loss — ulcers, gangrene (critical limb ischaemia)</li>
+              <li>Signs: absent pulses, pallor, cool, dependent rubor, hair loss, shiny skin, slow cap refill</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>ABPI (Ankle-Brachial Pressure Index):</strong> &lt;0.9 = PAD; &lt;0.5 = critical ischaemia</li>
+              <li>Duplex USS: assess stenosis</li>
+              <li>CT/MR angiography</li>
+              <li>Formal angiography pre-intervention</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>Medical:</strong> Smoking cessation, antiplatelet (aspirin/clopidogrel), statin, BP control, DM management</li>
+              <li><strong>Exercise:</strong> Supervised exercise program (claudication) — first-line</li>
+              <li><strong>Cilostazol:</strong> phosphodiesterase inhibitor for claudication</li>
+              <li><strong>Revascularisation:</strong> Angioplasty ± stenting or bypass surgery (rest pain/critical ischaemia)</li>
+              <li><strong>Amputation:</strong> last resort for non-viable limb</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AORTIC ANEURYSM/DISSECTION -->
+    <div class="condition" id="aorta">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-07</span>
+        <span class="condition-name">Aortic Aneurysm / Dissection</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Aortic Aneurysm</div>
+            <ul>
+              <li><strong>AAA (Abdominal):</strong> &gt;3 cm; infrarenal most common; atherosclerosis, smoking, hypertension; M:F = 6:1; screening USS at 65yrs in men</li>
+              <li><strong>Thoracic:</strong> hypertension, cystic medial necrosis (Marfan, EDS), syphilis ("tree-bark" aorta)</li>
+              <li>Sx: usually asymptomatic; pulsatile abdominal mass; back/abdominal pain</li>
+              <li><strong>Ruptured AAA:</strong> triad: hypotension + pulsatile mass + back pain; surgical emergency; 80% mortality</li>
+              <li>Repair: elective at ≥5.5 cm (EVAR or open); emergency open repair if ruptured</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Aortic Dissection</div>
+            <ul>
+              <li>Intimal tear → blood dissects through media</li>
+              <li><strong>Stanford A:</strong> involves ascending aorta; surgical emergency; mortality 1–2%/hour if untreated</li>
+              <li><strong>Stanford B:</strong> descending aorta only; medical management (unless complications)</li>
+              <li><strong>Risk factors:</strong> hypertension (most common), Marfan syndrome, bicuspid aortic valve, cocaine, trauma</li>
+              <li><strong>Symptoms:</strong> sudden tearing/ripping chest pain radiating to back; pulse deficit; BP difference between arms &gt;20mmHg; aortic regurgitation murmur</li>
+              <li><strong>Ix:</strong> CT aortogram (gold standard); CXR: widened mediastinum</li>
+              <li><strong>Mx:</strong> Type A → urgent surgery; Type B → IV labetalol (target SBP 100–120)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>Marfan syndrome → cystic medial necrosis → aortic root dilation → type A dissection + aortic regurgitation</li>
+            <li>Syphilis → obliterative endarteritis of vasa vasorum → medial necrosis → "tree-bark" thoracic aorta</li>
+            <li>AAA most common complication = rupture; other = thromboembolism, ureteric obstruction</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- HYPERTENSION -->
+    <div class="condition" id="htn">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-08</span>
+        <span class="condition-name">Hypertension</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Classification &amp; Causes</div>
+            <ul>
+              <li><strong>Primary (essential) 95%:</strong> genetic + environmental; no identifiable cause</li>
+              <li><strong>Secondary 5%:</strong> renal artery stenosis, CKD, primary hyperaldosteronism (Conn), phaeochromocytoma, Cushing, coarctation, drugs (COCP, NSAIDs)</li>
+              <li><strong>Grade 1:</strong> BP 140–159/90–99</li>
+              <li><strong>Grade 2:</strong> BP 160–179/100–109</li>
+              <li><strong>Grade 3/Severe:</strong> ≥180/110</li>
+              <li><strong>Hypertensive emergency:</strong> severely elevated BP + end-organ damage (hypertensive encephalopathy, AKI, aortic dissection, acute LVF)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-comp"><span class="icon">⚠️</span> Target Organ Damage</div>
+            <ul>
+              <li><strong>Heart:</strong> LVH, IHD, heart failure, AF</li>
+              <li><strong>Brain:</strong> stroke, hypertensive encephalopathy</li>
+              <li><strong>Kidney:</strong> arteriolonephrosclerosis → CKD; malignant HTN → fibrinoid necrosis → "flea-bitten" kidney</li>
+              <li><strong>Eye:</strong> hypertensive retinopathy (AV nipping, haemorrhages, papilloedema)</li>
+              <li><strong>Aorta:</strong> atherosclerosis, dissection, aneurysm</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management (NICE Stepwise)</div>
+            <ul>
+              <li><strong>Step 1 (&lt;55yrs or CKD/DM):</strong> ACEi (or ARB if intolerant)</li>
+              <li><strong>Step 1 (≥55yrs or Afro-Caribbean):</strong> CCB</li>
+              <li><strong>Step 2:</strong> ACEi + CCB</li>
+              <li><strong>Step 3:</strong> ACEi + CCB + thiazide-like diuretic (indapamide)</li>
+              <li><strong>Step 4 (resistant):</strong> Add spironolactone; or α-blocker or β-blocker</li>
+              <li>Lifestyle: DASH diet, weight loss, exercise, ↓salt, ↓alcohol, smoking cessation</li>
+              <li><strong>Hypertensive emergency:</strong> IV labetalol or sodium nitroprusside (ICU); reduce slowly</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li>ABPM (ambulatory BP monitoring): confirm diagnosis</li>
+              <li>Urine dipstick (protein/blood), serum creatinine, eGFR</li>
+              <li>Fasting glucose, lipids</li>
+              <li>ECG: LVH (S in V1 + R in V5 &gt;35mm)</li>
+              <li>Echo if symptomatic</li>
+              <li>Renal USS, aldosterone:renin ratio, urinary catecholamines if secondary suspected</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-label">Valvular Heart Disease</div>
+
+    <!-- VALVE DISEASE -->
+    <div class="condition" id="valve">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-09</span>
+        <span class="condition-name">Mitral / Aortic Valve Disease</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <table class="mini">
+          <tr><th>Condition</th><th>Causes</th><th>Murmur</th><th>Key Features</th><th>Treatment</th></tr>
+          <tr><td>Mitral Stenosis</td><td>Rheumatic fever (almost always); fish-mouth/button-hole deformity</td><td>Opening snap + mid-diastolic rumble; louder in expiration &amp; left lateral position</td><td>LA dilation → AF, pulmonary HTN, right HF; haemoptysis; malar flush</td><td>Diuretics; rate control; anticoagulation; balloon mitral valvuloplasty or valve replacement</td></tr>
+          <tr><td>Mitral Regurgitation</td><td>MVP, IHD (papillary muscle), IE, LV dilation, rheumatic, annular calcification</td><td>Holosystolic blowing murmur; apex → axilla; louder with squatting/expiration</td><td>Volume overload → LA+LV dilation; eccentric hypertrophy; pulmonary oedema</td><td>ACEi (reduce afterload); diuretics; valve repair/replacement when LV dysfunction develops</td></tr>
+          <tr><td>Mitral Valve Prolapse</td><td>Myxoid degeneration; Marfan, EDS; seen in 2–3% adults</td><td>Mid-systolic click ± late systolic murmur; click moves earlier with standing, later with squatting</td><td>Usually asymptomatic; rarely IE, arrhythmia, severe MR</td><td>Reassurance; β-blocker for symptoms; valve replacement if severe MR</td></tr>
+          <tr><td>Aortic Stenosis</td><td>Calcification/fibrosis ("wear &amp; tear") &gt;60yrs; bicuspid AV (earlier); rheumatic</td><td>Ejection systolic (crescendo-decrescendo); right clavicle → carotids; slow-rising pulse; narrow pulse pressure</td><td>Triad: Angina, Syncope, Heart failure (bad prognosis each); concentric LVH; microangiopathic haemolytic anaemia</td><td>Transcatheter (TAVR) or surgical valve replacement after symptom onset; no medical treatment delays surgery</td></tr>
+          <tr><td>Aortic Regurgitation</td><td>Root dilation (Marfan, syphilis, dissection) most common; IE, rheumatic, bicuspid AV</td><td>Early blowing diastolic murmur; LSE; wide pulse pressure; De Musset sign (head bobbing), Quincke pulse, water-hammer pulse</td><td>LV volume overload → eccentric hypertrophy → LV dilation; eventually heart failure</td><td>Valve replacement when LV dysfunction (EF&lt;50% or ESD&gt;50mm)</td></tr>
+        </table>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>Mitral Stenosis: Only common valvular lesion still mostly caused by rheumatic fever</li>
+            <li>AS triad: Angina → Syncope → Heart failure (survival 5yr → 3yr → 2yr without intervention)</li>
+            <li>MVP: click moves EARLIER with standing/Valsalva (LV smaller), LATER with squatting (LV larger)</li>
+            <li>AR: widened pulse pressure; diastolic BP decreases (regurgitation), systolic BP increases (↑SV)</li>
+            <li>Rheumatic fever causes mitral stenosis (not regurgitation) in the chronic phase</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-label">Myocardial Disease</div>
+
+    <!-- CHF -->
+    <div class="condition" id="chf">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-10</span>
+        <span class="condition-name">Congestive Cardiac Failure</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Left Heart Failure</div>
+            <ul>
+              <li><strong>Causes:</strong> IHD/MI (most common), hypertension, dilated cardiomyopathy, valvular disease (MR, AS, AR), myocarditis</li>
+              <li><strong>Symptoms:</strong> dyspnoea, paroxysmal nocturnal dyspnoea (PND), orthopnoea</li>
+              <li><strong>Signs:</strong> bibasal crackles, S3 gallop, tachycardia, displaced apex beat</li>
+              <li>Pulmonary oedema → "heart failure cells" (haemosiderin-laden macrophages)</li>
+              <li>Reduced renal perfusion → RAAS activation → fluid retention → worsens HF</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Right Heart Failure</div>
+            <ul>
+              <li><strong>Causes:</strong> Left HF (most common); cor pulmonale (COPD); congenital heart disease; tricuspid/pulmonary valve disease; PE</li>
+              <li><strong>Symptoms:</strong> peripheral oedema, abdominal bloating, anorexia</li>
+              <li><strong>Signs:</strong> JVD (raised JVP), peripheral pitting oedema, hepatomegaly ("nutmeg liver"), ascites, pleural effusion</li>
+              <li>Cor pulmonale = RV failure secondary to lung disease/pulmonary HTN</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>BNP/NT-proBNP:</strong> elevated; confirms HF and guides therapy</li>
+              <li><strong>Echo:</strong> most important; EF &lt;40% = HFrEF; EF ≥50% = HFpEF</li>
+              <li>CXR: cardiomegaly, upper lobe diversion, Kerley B lines, bat-wing pulmonary oedema</li>
+              <li>ECG: LVH, AF, LBBB</li>
+              <li>Bloods: FBC, U&amp;E, TFTs, LFTs, iron studies, troponin</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management (HFrEF)</div>
+            <ul>
+              <li><strong>ACEi (or ARB):</strong> first-line; reduce mortality</li>
+              <li><strong>β-blocker:</strong> bisoprolol, carvedilol; reduce mortality</li>
+              <li><strong>Mineralocorticoid antagonist:</strong> spironolactone/eplerenone; reduce mortality</li>
+              <li><strong>SGLT2 inhibitor:</strong> empagliflozin/dapagliflozin; reduce hospitalisation</li>
+              <li><strong>ARNI:</strong> sacubitril/valsartan — superior to ACEi</li>
+              <li><strong>Diuretics:</strong> furosemide — symptom relief (not mortality benefit)</li>
+              <li>Device therapy: ICD, CRT (cardiac resynchronisation) for selected patients</li>
+              <li>HFpEF: treat underlying cause; diuretics for symptoms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PULMONARY HTN -->
+    <div class="condition" id="pht">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-11</span>
+        <span class="condition-name">Pulmonary Hypertension</span>
+        <span class="rank-badge r2">R2</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Classification</div>
+            <ul>
+              <li><strong>Definition:</strong> Mean PAP &gt;25 mmHg at rest (normal ~10 mmHg)</li>
+              <li><strong>Group 1 (PAH):</strong> Idiopathic (primary); young women; BMPR2 mutation; connective tissue disease</li>
+              <li><strong>Group 2:</strong> Left heart disease (most common); post-capillary</li>
+              <li><strong>Group 3:</strong> Lung disease/hypoxia (COPD, ILD, OSA) — cor pulmonale</li>
+              <li><strong>Group 4:</strong> Chronic thromboembolic (CTEPH)</li>
+              <li><strong>Group 5:</strong> Multifactorial (sarcoidosis, haematological)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Investigations &amp; Management</div>
+            <ul>
+              <li><strong>Ix:</strong> Right heart catheterisation (gold standard), Echo (screening), CXR (enlarged pulmonary arteries), PFTs, V/Q scan (CTEPH)</li>
+              <li><strong>PAH targeted therapy:</strong> endothelin receptor antagonists (bosentan), PDE5 inhibitors (sildenafil), prostacyclins (iloprost)</li>
+              <li>Anticoagulation (CTEPH + idiopathic PAH)</li>
+              <li>Pulmonary endarterectomy (CTEPH)</li>
+              <li>Lung transplant (severe refractory PAH)</li>
+              <li>Treat underlying cause (Groups 2–5)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>Pathology: atherosclerosis of pulmonary trunk, smooth muscle hypertrophy, intimal fibrosis, plexiform lesions (severe)</li>
+            <li>Primary PAH = young women + BMPR2 mutation</li>
+            <li>COPD → hypoxic vasoconstriction → pulmonary HTN → cor pulmonale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- RHEUMATIC FEVER -->
+    <div class="condition" id="rf">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-12</span>
+        <span class="condition-name">Rheumatic Fever / Rheumatic Heart Disease</span>
+        <span class="rank-badge r2">R2</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Pathophysiology</div>
+            <ul>
+              <li>Systemic complication of Group A β-haemolytic Streptococcal (GAS) pharyngitis</li>
+              <li>2–3 weeks after "strep throat"</li>
+              <li><strong>Mechanism:</strong> Molecular mimicry — GAS M protein resembles human cardiac proteins → autoimmune reaction</li>
+              <li>Affects children 5–15 years of age</li>
+              <li>Pathology: Aschoff bodies (granulomas) in myocardium; Anitschkow cells (pathognomonic)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Diagnosis: Jones Criteria</div>
+            <ul>
+              <li><strong>Major criteria (SPECS):</strong></li>
+              <li>Sydenham chorea (involuntary movements)</li>
+              <li>Pancarditis (pericarditis, myocarditis, endocarditis)</li>
+              <li>Erythema marginatum (migratory skin rash)</li>
+              <li>Subcutaneous nodules</li>
+              <li>Polyarthritis (migratory, large joints)</li>
+              <li><strong>Minor criteria:</strong> fever, raised ESR/CRP, prolonged PR</li>
+              <li><strong>Diagnosis:</strong> Evidence of prior GAS + 2 major OR 1 major + 2 minor</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-comp"><span class="icon">⚠️</span> Chronic Rheumatic Heart Disease</div>
+            <ul>
+              <li>Develops years to decades after acute RF</li>
+              <li>Fibrosis and scarring of valve leaflets + fusion of commissures</li>
+              <li><strong>Mitral stenosis:</strong> most common chronic lesion</li>
+              <li>Also: MR, AS (fusion of cusps), AR</li>
+              <li>Risk of AF, pulmonary HTN, IE</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>Acute:</strong> Benzylpenicillin (eradicate GAS); NSAIDs (arthritis); aspirin/steroids (carditis)</li>
+              <li><strong>Secondary prophylaxis:</strong> Monthly IM penicillin G for 5–10 years (or lifetime if valve disease) to prevent recurrence</li>
+              <li>Treat cardiac complications as they arise</li>
+              <li>Most common cause of death in acute RF = cardiac failure secondary to myocarditis</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFECTIVE ENDOCARDITIS -->
+    <div class="condition" id="ie">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-13</span>
+        <span class="condition-name">Infective Endocarditis</span>
+        <span class="rank-badge r2">R2</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Organisms</div>
+            <ul>
+              <li><strong>Streptococcus viridans:</strong> most common overall; subacute; dental procedures; infects previously damaged valves</li>
+              <li><strong>Staphylococcus aureus:</strong> most common in IVDU; acute; infects normal valves; aggressive</li>
+              <li><strong>Streptococcus bovis/gallolyticus:</strong> associated with colon cancer</li>
+              <li><strong>HACEK organisms:</strong> Haemophilus, Aggregatibacter, Cardiobacterium, Eikenella, Kingella; gram-negative; culture-negative</li>
+              <li><strong>IVDU:</strong> right-sided (tricuspid); S. aureus; septic pulmonary emboli</li>
+              <li><strong>Prosthetic valves:</strong> S. epidermidis (coagulase negative Staph)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features (FROM JANE)</div>
+            <ul>
+              <li><strong>F</strong>ever (most common), chills, night sweats</li>
+              <li><strong>R</strong>oth spots (retinal haemorrhages with pale centre)</li>
+              <li><strong>O</strong>sler nodes (painful, fingertip/toenail; immune complex)</li>
+              <li><strong>M</strong>urmur (new or changed regurgitant murmur)</li>
+              <li><strong>J</strong>aneway lesions (painless, palms/soles; septic emboli)</li>
+              <li><strong>A</strong>naemia of chronic disease</li>
+              <li><strong>N</strong>ail bed splinter haemorrhages</li>
+              <li><strong>E</strong>mboli: stroke, renal infarction, splenomegaly</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Diagnosis: Duke Criteria</div>
+            <ul>
+              <li><strong>Major:</strong> Positive blood cultures (x2), Echo evidence (vegetation/abscess)</li>
+              <li><strong>Minor:</strong> Predisposing condition, fever, vascular phenomena, immunological phenomena, single positive culture</li>
+              <li><strong>Definite IE:</strong> 2 major OR 1 major + 3 minor OR 5 minor</li>
+              <li>Echo: TOE (transoesophageal) superior to TTE</li>
+              <li>Blood cultures: 3 sets from different sites before antibiotics</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>Native valve (Strep):</strong> IV penicillin + gentamicin x 4 weeks</li>
+              <li><strong>Native valve (Staph):</strong> IV flucloxacillin x 4–6 weeks; MRSA → vancomycin</li>
+              <li><strong>Prosthetic valve:</strong> prolonged antibiotics (6+ weeks); surgery often needed</li>
+              <li><strong>Surgery indications:</strong> refractory HF, abscess, persistent sepsis, large vegetation, fungal IE</li>
+              <li>Prophylaxis: previously recommended for dental procedures in high-risk patients (now not routinely recommended in most guidelines)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARDIOMYOPATHY -->
+    <div class="condition" id="cm">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-14</span>
+        <span class="condition-name">Cardiomyopathy</span>
+        <span class="rank-badge r2">R2</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <table class="mini">
+          <tr><th>Type</th><th>Pathology</th><th>Causes</th><th>Clinical</th><th>Management</th></tr>
+          <tr><td>Dilated (DCM)</td><td>4-chamber dilation; systolic dysfunction (↓EF); most common type</td><td>Idiopathic (most common), genetic (AD), Coxsackie B myocarditis, alcohol, doxorubicin, haemochromatosis, peripartum</td><td>Biventricular HF; MR/TR regurgitation; arrhythmia; mural thrombus; mitral regurgitation murmur</td><td>HF treatment (ACEi, β-blocker, MRA); ICD; heart transplant</td></tr>
+          <tr><td>Hypertrophic (HCM)</td><td>Massive LV hypertrophy; diastolic dysfunction; myofibre disarray on biopsy; subaortic hypertrophy</td><td>Autosomal dominant; β-myosin heavy chain mutation (most common); also troponin T/I, myosin-binding protein C</td><td>Syncope with exercise (LVOTO); sudden cardiac death in young athletes; ejection systolic murmur (increases with Valsalva/standing, decreases with squatting)</td><td>β-blockers; avoid vigorous exercise; ICD; septal myectomy or alcohol septal ablation; disopyramide</td></tr>
+          <tr><td>Restrictive (RCM)</td><td>↓Ventricular compliance; diastolic dysfunction; normal/near-normal EF; low voltage ECG</td><td>Amyloidosis (most common), sarcoidosis, haemochromatosis, Loeffler syndrome, endomyocardial fibrosis, radiation</td><td>Signs mimic constrictive pericarditis; biventricular HF symptoms; elevated filling pressures</td><td>Treat underlying cause; diuretics; transplant for refractory</td></tr>
+        </table>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>HCM murmur: LOUDER with Valsalva/standing (↓LV preload → smaller LV → worse LVOTO)</li>
+            <li>HCM murmur: SOFTER with squatting (↑LV preload → bigger LV → less obstruction)</li>
+            <li>DCM: Coxsackie B = most common viral cause; lymphocytic infiltrate on biopsy</li>
+            <li>Amyloid = most common cause of restrictive cardiomyopathy</li>
+            <li>HCM = most common cause of sudden cardiac death in young athletes (not DCM)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERICARDITIS -->
+    <div class="condition" id="peri">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-15</span>
+        <span class="condition-name">Acute Pericarditis / Effusion / Tamponade</span>
+        <span class="rank-badge r2">R2</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Pericarditis — Causes</div>
+            <ul>
+              <li><strong>Viral (most common):</strong> Coxsackie B, Echovirus, EBV, influenza; "idiopathic" usually viral</li>
+              <li>Post-MI: fibrinous pericarditis (1–3 days); Dressler syndrome (autoimmune, 2–8 weeks)</li>
+              <li>Uraemia (fibrinous → "bread and butter")</li>
+              <li>Autoimmune: SLE, rheumatoid arthritis</li>
+              <li>Bacterial (purulent), TB (haemorrhagic), malignancy</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Pericarditis — Features</div>
+            <ul>
+              <li>Sharp pleuritic chest pain; worse lying flat, leaning forward relieves</li>
+              <li>Pericardial friction rub (pathognomonic)</li>
+              <li>Fever, malaise</li>
+              <li><strong>ECG:</strong> Saddle-shaped (concave up) ST elevation in multiple leads (not territory-specific); PR depression</li>
+              <li>Troponin may be mildly elevated (myopericarditis)</li>
+              <li><strong>Mx:</strong> NSAIDs + colchicine (standard); avoid anticoagulation; steroids if autoimmune</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Cardiac Tamponade</div>
+            <ul>
+              <li>Fluid accumulation in pericardial space → ↑intrapericardial pressure → compression of heart</li>
+              <li>As little as 200mL if rapid; up to 2L if slow accumulation</li>
+              <li><strong>Beck's Triad:</strong> JVP elevated, hypotension, muffled heart sounds</li>
+              <li><strong>Pulsus paradoxus:</strong> &gt;10 mmHg fall in SBP during inspiration</li>
+              <li>ECG: low voltage + electrical alternans</li>
+              <li>Echo: RA/RV diastolic collapse</li>
+              <li><strong>Mx:</strong> Pericardiocentesis (needle aspiration) — emergency</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-comp"><span class="icon">⚠️</span> Constrictive Pericarditis</div>
+            <ul>
+              <li>TB or pyogenic → fibrous thickening + calcification of pericardium</li>
+              <li>Prevents cardiac filling → mimics right HF</li>
+              <li>Kussmaul sign (JVP rises on inspiration)</li>
+              <li>CXR: pericardial calcification</li>
+              <li><strong>Mx:</strong> Pericardiectomy (definitive)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MYOCARDITIS -->
+    <div class="condition" id="myo">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">CVS-16</span>
+        <span class="condition-name">Myocarditis</span>
+        <span class="rank-badge r3">R3</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Aetiology</div>
+            <ul>
+              <li><strong>Viral (most common):</strong> Coxsackie B (most common), CMV, EBV, Adenovirus, COVID-19</li>
+              <li>Bacterial: diphtheria, Lyme disease (Borrelia)</li>
+              <li>Rheumatic fever (pancarditis)</li>
+              <li>Autoimmune, drugs (clozapine, chemotherapy)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Features &amp; Management</div>
+            <ul>
+              <li>Chest pain (pleuritic), dyspnoea, palpitations, fever</li>
+              <li>Elevated troponin; raised ESR/CRP</li>
+              <li>ECG: non-specific ST/T changes; arrhythmias → sudden death</li>
+              <li>Echo: ventricular dysfunction; dilated</li>
+              <li>MRI: gold standard for diagnosis (myocardial oedema, late gadolinium enhancement)</li>
+              <li><strong>Biopsy:</strong> lymphocytic infiltrate</li>
+              <li><strong>Mx:</strong> Supportive; rest; HF treatment; avoid NSAIDs; immunosuppression for certain causes</li>
+              <li><strong>Long-term complication:</strong> dilated cardiomyopathy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!--  RESPIRATORY                                                 -->
+    <!-- ============================================================ -->
+    <div id="resp" class="system-header">
+      <div class="system-dot resp"></div>
+      <div class="system-title resp">Respiratory System</div>
+    </div>
+
+    <div class="category-label">Obstructive Pulmonary Diseases</div>
+
+    <!-- ASTHMA -->
+    <div class="condition" id="asthma">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-01</span>
+        <span class="condition-name">Asthma</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Pathophysiology</div>
+            <ul>
+              <li>Reversible airway bronchoconstriction; chronic airway inflammation</li>
+              <li><strong>Atopic (extrinsic):</strong> Type I hypersensitivity (IgE-mediated); TH2 response; IL-4 (→IgE), IL-5 (→eosinophils), IL-13</li>
+              <li>Early phase: mast cell degranulation → histamine, leukotrienes C4/D4/E4 → bronchoconstriction</li>
+              <li>Late phase: eosinophilic infiltration → major basic protein → epithelial damage</li>
+              <li><strong>Non-atopic:</strong> exercise, aspirin (COX-1 → ↑leukotrienes), cold air, viral infections, occupational</li>
+              <li><strong>Histology:</strong> SM hypertrophy, goblet cell hyperplasia, BM thickening, eosinophils, Curschmann spirals, Charcot-Leyden crystals</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Symptoms &amp; Signs</div>
+            <ul>
+              <li>Episodic dyspnoea, wheeze, cough (worse at night/early morning), chest tightness</li>
+              <li>Triggers: allergens, exercise, viral URTI, cold air, smoke</li>
+              <li>Signs: expiratory wheeze, prolonged expiration, hyperinflation</li>
+              <li><strong>Severe attack:</strong> SpO₂ &lt;92%, tachycardia &gt;110, RR &gt;25, PEFR 33–50% predicted</li>
+              <li><strong>Life-threatening:</strong> silent chest, cyanosis, bradycardia, exhaustion, PEFR &lt;33%</li>
+              <li>Status asthmaticus: severe, prolonged attack unresponsive to bronchodilators</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li>Spirometry: ↓FEV1, ↓FVC, ↓FEV1/FVC (&lt;0.7) — obstructive; &gt;12% and &gt;200mL improvement after bronchodilator = reversibility</li>
+              <li>PEFR: diurnal variation &gt;20% = asthma</li>
+              <li>FeNO (fractional exhaled nitric oxide): elevated in eosinophilic asthma</li>
+              <li>CXR: hyperinflation; rule out other causes</li>
+              <li>Skin prick tests / specific IgE (RAST) if atopic</li>
+              <li>ABG: acute severe — initially ↑pH, ↓pCO₂; normalising CO₂ in attack = DANGER (tiring)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management (BTS/SIGN Stepwise)</div>
+            <ul>
+              <li><strong>Step 1:</strong> SABA PRN (salbutamol)</li>
+              <li><strong>Step 2:</strong> Low-dose ICS (beclometasone)</li>
+              <li><strong>Step 3:</strong> ICS + LABA (formoterol/salmeterol)</li>
+              <li><strong>Step 4:</strong> Medium/high dose ICS + LABA</li>
+              <li><strong>Step 5:</strong> Add-on therapy: LAMA, anti-IgE (omalizumab), anti-IL-5 (mepolizumab), oral prednisolone</li>
+              <li><strong>Acute severe:</strong> O₂, salbutamol nebuliser (back-to-back), ipratropium, IV hydrocortisone/prednisolone, IV MgSO₄, consider ITU/intubation</li>
+              <li>Leukotriene receptor antagonist (montelukast): aspirin-sensitive asthma</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>Aspirin-sensitive asthma: aspirin → ↓PGE2 (anti-inflammatory) + ↑leukotrienes → bronchoconstriction; treat with leukotriene antagonists</li>
+            <li>Charcot-Leyden crystals = eosinophil-derived; Curschmann spirals = shed airway epithelium</li>
+            <li>Normalising CO₂ during asthma attack = impending respiratory failure</li>
+            <li>Exacerbating factors: ABCDE — Aspirin/NSAIDs, Beta-blockers, Cats/allergens, Dust/Dairy, Exercise</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- COPD -->
+    <div class="condition" id="copd">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-02</span>
+        <span class="condition-name">Chronic Obstructive Pulmonary Disease (COPD)</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Chronic Bronchitis</div>
+            <ul>
+              <li><strong>Definition:</strong> Productive cough ≥3 consecutive months for ≥2 consecutive years</li>
+              <li>Strongly associated with smoking; also air pollution, occupational dust</li>
+              <li>Histology: hypertrophy of bronchial mucous glands; Reid index &gt;50% (normal &lt;40%)</li>
+              <li><strong>"Blue bloater":</strong> cyanosis due to CO₂ retention; ↑PaCO₂, ↓PaO₂; oedema</li>
+              <li>Hypoxic drive (dangerous to give high-flow O₂)</li>
+              <li>Cor pulmonale; secondary polycythaemia</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Emphysema</div>
+            <ul>
+              <li>Abnormal permanent enlargement of airspaces with destruction of alveolar walls; ↓elastic recoil</li>
+              <li>Mechanism: ↑elastase (from neutrophils/macrophages recruited by smoking) overwhelms α1-antitrypsin → alveolar destruction</li>
+              <li><strong>Centrilobular:</strong> respiratory bronchioles; upper lobes; cigarette smoking</li>
+              <li><strong>Panacinar:</strong> entire acinus; α1-antitrypsin (α1AT) deficiency; lower lobes; PiZZ homozygous</li>
+              <li><strong>"Pink puffer":</strong> pursed-lip breathing; barrel chest; hyperresonance; reduced BS</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>Spirometry:</strong> ↓FEV1, ↓FVC, FEV1/FVC &lt;0.7 (no reversibility &gt;12%); ↑TLC, ↑RV (air trapping)</li>
+              <li>CXR: hyperinflation, flattened diaphragm, increased AP diameter, bullae</li>
+              <li>HRCT: shows type and extent of emphysema; bullae</li>
+              <li>ABG: chronic respiratory acidosis (↑CO₂, ↑HCO₃, ↓pH in late disease)</li>
+              <li>α1AT levels (if young, non-smoker)</li>
+              <li>Echo (assess for cor pulmonale)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>Most important:</strong> Smoking cessation (only intervention that slows progression)</li>
+              <li><strong>Mild (FEV1 ≥80%):</strong> SABA PRN (salbutamol)</li>
+              <li><strong>Moderate:</strong> LAMA (tiotropium) ± LABA</li>
+              <li><strong>Severe with exacerbations:</strong> LAMA + LABA + ICS</li>
+              <li><strong>LTOT:</strong> PaO₂ &lt;7.3 kPa (55 mmHg); ≥15h/day; reduces mortality</li>
+              <li>Pulmonary rehabilitation: improves exercise tolerance and QoL</li>
+              <li>Annual influenza vaccine + pneumococcal vaccine</li>
+              <li>Roflumilast (PDE4 inhibitor): chronic bronchitis + frequent exacerbations</li>
+              <li>Surgery: bullectomy, LVRS, transplant</li>
+              <li><strong>Acute exacerbation:</strong> Controlled O₂ (24–28%), nebulised SABA + SAMA, oral prednisolone, antibiotics if purulent sputum, consider NIV (BiPAP) if pH &lt;7.35</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>α1-antitrypsin deficiency: panacinar emphysema (lower lobes) + hepatic cirrhosis; PiZZ genotype; liver disease due to misfolded protein accumulation in hepatocytes</li>
+            <li>COPD → chronic respiratory acidosis: ↓pH, ↑HCO₃, ↑CO₂ (metabolic compensation)</li>
+            <li>O₂ in COPD: target SpO₂ 88–92% (hypoxic drive; high-flow O₂ can suppress drive → CO₂ narcosis)</li>
+            <li>Caplan syndrome: COPD + RA → large pulmonary nodules</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-label">Respiratory Infections</div>
+
+    <!-- PNEUMONIA -->
+    <div class="condition" id="pneumonia">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-03</span>
+        <span class="condition-name">Pneumonia</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <table class="mini">
+          <tr><th>Type</th><th>Pattern</th><th>Key Organisms</th><th>Features</th></tr>
+          <tr><td>Lobar Pneumonia</td><td>Entire lobe consolidated</td><td>S. pneumoniae (95%); Klebsiella (alcoholics, aspiration)</td><td>Acute onset; fever; pleuritic pain; rusty sputum; neutrophilia; stages: congestion → red hepatisation → grey hepatisation → resolution</td></tr>
+          <tr><td>Bronchopneumonia</td><td>Patchy, multifocal, bilateral; bronchiole-centred</td><td>S. aureus, H. influenzae, Klebsiella, Streptococcus pyogenes</td><td>Less acute; often secondary to viral URTI or hospital-acquired</td></tr>
+          <tr><td>Atypical / Interstitial</td><td>Diffuse interstitial infiltrates; interstitium involved</td><td>Mycoplasma (most common; young adults; cold agglutinins), Legionella, Chlamydia, viruses</td><td>"Walking pneumonia"; mild prodrome; non-productive cough; minimal sputum; responds to macrolides (not β-lactams)</td></tr>
+        </table>
+        <div class="sections-grid" style="margin-top:16px">
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features</div>
+            <ul>
+              <li>Fever, rigors, productive cough, dyspnoea</li>
+              <li>Pleuritic chest pain (if pleuritis)</li>
+              <li>Signs: crackles, bronchial breathing, dullness to percussion, ↑vocal resonance</li>
+              <li><strong>Legionella:</strong> elderly, immunocompromised; diarrhoea, hyponatraemia, high fever; urinary antigen test</li>
+              <li><strong>Klebsiella:</strong> alcoholics/malnourished; "currant jelly" sputum; cavitating, upper lobe</li>
+              <li><strong>PCP (Pneumocystis jirovecii):</strong> HIV (CD4&lt;200); "ground-glass" on CT; non-productive cough; treat with co-trimoxazole (high dose)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>CURB-65 score:</strong> Confusion, Urea &gt;7, RR≥30, BP SBP&lt;90/DBP≤60, Age≥65 (1 point each)</li>
+              <li>Score 0–1: home oral amoxicillin</li>
+              <li>Score 2: hospital; oral amoxicillin + clarithromycin</li>
+              <li>Score 3–5: IV antibiotics; consider ICU</li>
+              <li><strong>CAP:</strong> amoxicillin ± clarithromycin (atypical cover)</li>
+              <li><strong>HAP/VAP:</strong> broad spectrum (pip-tazo, co-amoxiclav)</li>
+              <li>O₂ to maintain SpO₂ &gt;94%; IV fluids; physiotherapy</li>
+              <li>Pneumococcal vaccine; influenza vaccine</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TB -->
+    <div class="condition" id="tb">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-04</span>
+        <span class="condition-name">Tuberculosis</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Primary TB</div>
+            <ul>
+              <li>Initial infection with <em>Mycobacterium tuberculosis</em>; airborne droplets</li>
+              <li>Ghon focus: caseating granuloma in lower lobes (subpleural)</li>
+              <li>Ghon complex: Ghon focus + hilar lymph node involvement → fibrosis + calcification</li>
+              <li>Usually asymptomatic → positive TST/IGRA</li>
+              <li>May disseminate in immunocompromised: miliary TB</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Secondary (Reactivation) TB</div>
+            <ul>
+              <li>Reactivation of latent TB; triggered by immunosuppression (HIV most important), malnutrition, DM, aging</li>
+              <li>Apex of lung (high O₂ tension + poor lymphatics)</li>
+              <li>Cavitary lesions of caseous necrosis</li>
+              <li><strong>Symptoms:</strong> Fever, night sweats, weight loss, productive cough, haemoptysis</li>
+              <li>Systemic spread: meningitis, Pott disease (vertebrae), renal TB (sterile pyuria), cervical lymphadenopathy (scrofula)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>Screening:</strong> Mantoux TST (PPD); IGRA (Quantiferon-TB Gold — preferred if BCG vaccinated)</li>
+              <li><strong>Active disease:</strong> 3× early morning sputum for AFB smear + culture (6–8 weeks) + NAAT/PCR (rapid)</li>
+              <li>CXR: apical cavitation; calcified Ghon complex; miliary pattern (millet-seed nodules)</li>
+              <li>Biopsy: caseating granulomas with Langhans giant cells</li>
+              <li>HIV test (all TB patients)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Treatment — RIPE</div>
+            <ul>
+              <li><strong>2 months (intensive):</strong> Rifampicin + Isoniazid + Pyrazinamide + Ethambutol</li>
+              <li><strong>4 months (continuation):</strong> Rifampicin + Isoniazid</li>
+              <li><strong>Pyridoxine (B6):</strong> with isoniazid (prevents peripheral neuropathy)</li>
+              <li>DOT (directly observed therapy): for adherence</li>
+              <li>Notifiable disease (public health reporting mandatory)</li>
+              <li>Contact tracing and prophylaxis for close contacts (LTBI treatment)</li>
+              <li><strong>MDR-TB:</strong> resistant to rifampicin + isoniazid; use second-line agents; 18–24 months</li>
+              <li><strong>Side effects:</strong> Rifampicin (orange urine, hepatotoxicity, enzyme inducer), INH (peripheral neuropathy, hepatitis), PZA (hyperuricaemia/gout), EMB (optic neuritis — check vision)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>Caseating granulomas = hallmark of TB (vs non-caseating in sarcoidosis)</li>
+            <li>Secondary TB = APEX; miliary TB = haematogenous spread; Pott's disease = spinal TB (L1 most common)</li>
+            <li>Sterile pyuria = renal TB until proven otherwise</li>
+            <li>Isoniazid → peripheral neuropathy prevented by pyridoxine (B6)</li>
+            <li>Ethambutol → optic neuritis (check visual acuity + colour vision before starting)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-label">Tumours of Bronchus &amp; Lung</div>
+
+    <!-- LUNG CANCER -->
+    <div class="condition" id="lung-ca">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-05</span>
+        <span class="condition-name">Lung Cancer</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <table class="mini">
+          <tr><th>Type</th><th>Location</th><th>Aetiology</th><th>Paraneoplastic</th><th>Key Features</th></tr>
+          <tr><td>Squamous Cell Carcinoma</td><td>Central; hilar</td><td>Strongly linked to smoking</td><td>PTHrP → hypercalcaemia; ectopic ADH</td><td>Cavitating; arises from bronchial metaplasia; slow-growing; can be keratin-producing</td></tr>
+          <tr><td>Adenocarcinoma</td><td>Peripheral; subpleural</td><td>Most common in women/non-smokers; scar carcinoma; EGFR mutation (especially Asian non-smokers)</td><td>Hypertrophic pulmonary osteoarthropathy; clubbing</td><td>Most common type overall; ALK translocation; responds to erlotinib (EGFR), crizotinib (ALK)</td></tr>
+          <tr><td>Small Cell Carcinoma (SCLC)</td><td>Central; peribronchial</td><td>Strongly linked to smoking; neuroendocrine origin</td><td>SIADH (ADH), Cushing (ACTH), Lambert-Eaton syndrome; most common cause of paraneoplastic syndromes</td><td>Most aggressive; usually metastatic at diagnosis; NOT suitable for surgery; responds to chemo+radio</td></tr>
+          <tr><td>Large Cell Carcinoma</td><td>Peripheral</td><td>Smoking</td><td>Variable</td><td>Poorly differentiated; diagnosis of exclusion; poor prognosis</td></tr>
+          <tr><td>Carcinoid</td><td>Central; bronchial</td><td>Not smoking-related; neuroendocrine</td><td>Carcinoid syndrome (flushing, diarrhoea — if metastatic)</td><td>Indolent; may be resectable; responds to octreotide</td></tr>
+        </table>
+        <div class="sections-grid" style="margin-top:16px">
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Presentations</div>
+            <ul>
+              <li><strong>Local:</strong> Cough, haemoptysis, dyspnoea, wheeze, recurrent pneumonia (obstruction)</li>
+              <li><strong>SVC syndrome:</strong> facial/arm oedema, JVD, headache, dyspnoea; from SVC compression</li>
+              <li><strong>Pancoast tumour:</strong> apical tumour → Horner syndrome (ptosis, miosis, anhidrosis) + brachial plexus involvement (shoulder pain, hand weakness)</li>
+              <li><strong>Hoarseness:</strong> left RLN (recurrent laryngeal nerve) compression</li>
+              <li><strong>Phrenic nerve:</strong> diaphragm elevation (CXR)</li>
+              <li>Pleural effusion (often bloody = malignancy until proven otherwise)</li>
+              <li>Weight loss, fatigue, finger clubbing</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations &amp; Staging</div>
+            <ul>
+              <li>CXR: hilar mass, consolidation, atelectasis, pleural effusion</li>
+              <li>CT chest/abdomen/pelvis: staging</li>
+              <li>PET-CT: assess metastases</li>
+              <li>Bronchoscopy + biopsy (central); CT-guided biopsy (peripheral)</li>
+              <li>Sputum cytology</li>
+              <li><strong>TNM staging:</strong> T (tumour size/local extension), N (lymph nodes), M (metastases)</li>
+              <li>Molecular testing: EGFR, ALK, ROS1, PD-L1 (guides targeted/immunotherapy)</li>
+              <li>Screening: low-dose CT for ≥20 pack-year smokers aged 50–80 yrs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>15% 5-year overall survival (presents late)</li>
+            <li>Most common lung cancer metastasis site: adrenal gland</li>
+            <li>SCLC: ADH → SIADH; ACTH → Cushing; anti-VGCC → Lambert-Eaton myasthenic syndrome</li>
+            <li>SqCC: PTHrP → hypercalcaemia (NOT true PTH)</li>
+            <li>Adenocarcinoma: EGFR mutation → erlotinib; ALK translocation → crizotinib</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-label">Upper Airway / Sleep Disorders</div>
+
+    <!-- OSA -->
+    <div class="condition" id="osa">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-06</span>
+        <span class="condition-name">Obstructive Sleep Apnoea (OSA)</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Risk Factors</div>
+            <ul>
+              <li>Obesity (most important — neck circumference &gt;40cm in women, &gt;43cm in men)</li>
+              <li>Male sex; age; postmenopausal women</li>
+              <li>Retrognathia, macroglossia (acromegaly, hypothyroidism, Down syndrome)</li>
+              <li>Alcohol, sedatives, smoking</li>
+              <li>Nasal obstruction, enlarged tonsils/adenoids</li>
+              <li>Family history</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features</div>
+            <ul>
+              <li>Loud snoring; witnessed apnoeas (partner reports cessation of breathing)</li>
+              <li>Excessive daytime somnolence (Epworth Sleepiness Scale ≥10)</li>
+              <li>Morning headaches (hypercapnia)</li>
+              <li>Nocturia, dry mouth, impotence, poor concentration/memory</li>
+              <li>Signs: obesity, large neck, retrognathia, crowded oropharynx</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-comp"><span class="icon">⚠️</span> Complications</div>
+            <ul>
+              <li>Hypertension (most common complication; non-dipping pattern)</li>
+              <li>Atrial fibrillation</li>
+              <li>Pulmonary hypertension → cor pulmonale</li>
+              <li>Coronary artery disease, stroke</li>
+              <li>Type 2 diabetes mellitus</li>
+              <li>Road traffic accidents (somnolence)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Investigations &amp; Management</div>
+            <ul>
+              <li><strong>Diagnosis:</strong> Polysomnography (overnight sleep study); AHI (apnoea-hypopnoea index): mild 5–14, moderate 15–30, severe &gt;30</li>
+              <li>Home sleep test: alternative if uncomplicated</li>
+              <li><strong>Lifestyle:</strong> Weight loss (most effective long-term), avoid alcohol/sedatives, sleep position</li>
+              <li><strong>CPAP (continuous positive airway pressure):</strong> first-line treatment; prevents airway collapse</li>
+              <li><strong>Mandibular advancement device:</strong> mild-moderate OSA</li>
+              <li>Surgery: tonsillectomy, uvulopalatopharyngoplasty (selected cases)</li>
+              <li>Treat hypothyroidism/acromegaly if underlying cause</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-label">Diseases of the Pleura</div>
+
+    <!-- PNEUMOTHORAX -->
+    <div class="condition" id="ptx">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-07</span>
+        <span class="condition-name">Pneumothorax</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Types &amp; Causes</div>
+            <ul>
+              <li><strong>Primary spontaneous:</strong> No underlying lung disease; tall thin young men; rupture of apical bleb; trachea shifts to SIDE of collapse</li>
+              <li><strong>Secondary spontaneous:</strong> Underlying lung disease (COPD, asthma, TB, CF, Marfan, EDS, PCP); higher morbidity</li>
+              <li><strong>Tension pneumothorax:</strong> Penetrating chest wall injury (one-way valve mechanism); air enters but can't exit; tracheal deviation AWAY from side of injury; LIFE-THREATENING</li>
+              <li><strong>Iatrogenic:</strong> CVP line, thoracocentesis, positive pressure ventilation, biopsy</li>
+              <li><strong>Traumatic:</strong> rib fractures, penetrating injury</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features &amp; Management</div>
+            <ul>
+              <li>Sudden onset pleuritic chest pain; dyspnoea</li>
+              <li>Signs: ↓air entry, hyperresonance, ↓VF on affected side</li>
+              <li><strong>CXR:</strong> Visible lung edge; no lung markings beyond; expiratory film accentuates</li>
+              <li><strong>Tension PTX:</strong> Beck-like triad + tracheal shift; hypoxia + hypotension = emergency → immediate needle decompression (2nd ICS, MCL), then chest drain</li>
+              <li><strong>Small (&lt;2cm rim):</strong> Observe; discharge with advice</li>
+              <li><strong>Large/symptomatic:</strong> Aspiration (14G cannula, 2nd ICS MCL) — first-line; if fails → intercostal drain (ICD)</li>
+              <li><strong>Secondary PTX:</strong> Lower threshold for drain; admit all</li>
+              <li>Recurrence: VATS pleurodesis/pleurectomy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLEURAL EFFUSION -->
+    <div class="condition" id="eff">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-08</span>
+        <span class="condition-name">Pleural Effusion</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Light's Criteria (Exudate if ≥1 met)</div>
+            <ul>
+              <li>Pleural fluid protein / serum protein &gt;0.5</li>
+              <li>Pleural fluid LDH / serum LDH &gt;0.6</li>
+              <li>Pleural fluid LDH &gt;2/3 upper limit of normal serum LDH</li>
+              <li><strong>Transudate causes:</strong> Heart failure (most common), cirrhosis (hepatic hydrothorax), nephrotic syndrome, hypoalbuminaemia, hypothyroidism</li>
+              <li><strong>Exudate causes:</strong> Malignancy (most common in adults), parapneumonic, TB, PE, rheumatoid arthritis, SLE, pancreatitis, mesothelioma</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features</div>
+            <ul>
+              <li>Dyspnoea, cough, pleuritic chest pain (if inflammatory)</li>
+              <li>Signs: stony dull to percussion (↑↑ compared to consolidation), absent breath sounds, ↓VF, ↓TVF</li>
+              <li>Tracheal deviation away from massive effusion</li>
+              <li>Mesothelioma: recurrent hemorrhagic effusion, asbestos history</li>
+              <li>CXR: blunting of costophrenic angle (&gt;200mL); meniscus sign; complete opacification (massive)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li>USS: confirms fluid; guides thoracocentesis</li>
+              <li>Pleural tap (thoracocentesis): send for protein, LDH, pH, glucose, cytology, MC&amp;S, AFB</li>
+              <li>pH &lt;7.2 = complicated parapneumonic/empyema → drain urgently</li>
+              <li>Glucose &lt;3.3: empyema, malignancy, RA (very low), TB</li>
+              <li>Bloody: malignancy, PE, trauma, TB</li>
+              <li>Milky/turbid: chylothorax (lymphatics) or pseudochylothorax</li>
+              <li>CT chest: identify malignancy, PE; pleural biopsy if TB/malignancy suspected</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li>Treat underlying cause (e.g., diuretics for heart failure)</li>
+              <li><strong>Therapeutic aspiration:</strong> if symptomatic (up to 1–1.5L per session)</li>
+              <li><strong>Intercostal drain:</strong> malignant, parapneumonic, large symptomatic effusion</li>
+              <li><strong>Malignant:</strong> pleurodesis (talc) if recurrent; indwelling pleural catheter</li>
+              <li>Surgical decortication for complex/loculated</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category-label">Interstitial Pulmonary Disease</div>
+
+    <!-- BRONCHIECTASIS -->
+    <div class="condition" id="bronch">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-09</span>
+        <span class="condition-name">Bronchiectasis</span>
+        <span class="rank-badge r2">R2</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Aetiology</div>
+            <ul>
+              <li><strong>Most common causes:</strong></li>
+              <li>Cystic fibrosis (most common in young)</li>
+              <li>Post-infective: TB, measles, whooping cough, bacterial pneumonia</li>
+              <li>Immunodeficiency (hypogammaglobulinaemia)</li>
+              <li>Primary ciliary dyskinesia (Kartagener syndrome: bronchiectasis + situs inversus + infertility)</li>
+              <li>Allergic bronchopulmonary aspergillosis (ABPA)</li>
+              <li>Tumour/foreign body (localised)</li>
+              <li>Rheumatoid arthritis, IBD</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Features &amp; Management</div>
+            <ul>
+              <li>Chronic productive cough (large volumes of foul-smelling purulent sputum)</li>
+              <li>Dyspnoea, haemoptysis</li>
+              <li>Recurrent lower respiratory tract infections</li>
+              <li>Signs: coarse inspiratory crackles (basal &gt; apical except TB-related); clubbing</li>
+              <li><strong>Imaging:</strong> CXR: "tram-track" lines (thickened bronchial walls); CT: "signet ring" sign (airway &gt; adjacent vessel)</li>
+              <li><strong>Mx:</strong> Chest physiotherapy (airway clearance); nebulised hypertonic saline; antibiotics for exacerbations (cover Pseudomonas if colonised); long-term azithromycin (anti-inflammatory); bronchodilators; treat underlying cause</li>
+              <li>Complications: cor pulmonale, haemoptysis, secondary amyloidosis (AA)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PULMONARY FIBROSIS -->
+    <div class="condition" id="ipf">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-10</span>
+        <span class="condition-name">Pulmonary Fibrosis</span>
+        <span class="rank-badge r2">R2</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Causes</div>
+            <ul>
+              <li><strong>Idiopathic (IPF = UIP):</strong> most common; older men; TGF-β from injured pneumocytes → fibrosis; temporal heterogeneity on biopsy</li>
+              <li><strong>Connective tissue disease:</strong> RA, SLE, systemic sclerosis, dermatomyositis</li>
+              <li><strong>Drugs:</strong> amiodarone, bleomycin, methotrexate, nitrofurantoin, radiation</li>
+              <li><strong>Pneumoconioses:</strong> asbestosis (lower lobe), silicosis (upper lobe, nodules), coal dust, berylliosis</li>
+              <li><strong>Hypersensitivity pneumonitis:</strong> extrinsic allergic alveolitis (bird fancier's lung, farmer's lung)</li>
+              <li>Sarcoidosis</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features</div>
+            <ul>
+              <li>Progressive dyspnoea on exertion; dry non-productive cough</li>
+              <li>Bilateral fine inspiratory "Velcro" crackles (basal)</li>
+              <li>Clubbing</li>
+              <li>Signs of right HF (late)</li>
+              <li>Cyanosis (late)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>PFTs — Restrictive pattern:</strong> ↓FEV1, ↓↓FVC, FEV1/FVC normal or ↑; ↓TLC, ↓DLCO (gas transfer)</li>
+              <li><strong>HRCT:</strong> IPF = bilateral subpleural, basal-predominant honeycombing ± traction bronchiectasis; "ground-glass" in NSIP</li>
+              <li>CXR: bilateral lower zone reticulonodular shadowing; "honeycomb lung" (end-stage)</li>
+              <li>ANA, ENA, RF (screen for CTD)</li>
+              <li>Bronchoalveolar lavage; surgical lung biopsy if diagnosis uncertain</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>IPF:</strong> Pirfenidone or Nintedanib (antifibrotic agents — slow progression; do not improve PF); lung transplant (definitive)</li>
+              <li>Treat underlying cause (stop offending drugs, treat CTD)</li>
+              <li>Pulmonary rehabilitation, O₂ (if hypoxic)</li>
+              <li>Prednisolone for hypersensitivity pneumonitis (acute); remove exposure</li>
+              <li>Prognosis: IPF — mean survival 4–6 years from diagnosis</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>IPF = UIP (usual interstitial pneumonia) — temporal heterogeneity = fibrosis of DIFFERENT ages on same biopsy</li>
+            <li>Restrictive: ↓FEV1, ↓FVC, FEV1/FVC NORMAL or ↑ (contrast to obstructive where it's ↓)</li>
+            <li>Asbestosis: lower lobe fibrosis + pleural plaques; ↑risk of mesothelioma AND bronchogenic carcinoma (smoking synergistic)</li>
+            <li>Silicosis: upper lobe eggshell calcification of hilar nodes; ↑TB risk</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SARCOIDOSIS -->
+    <div class="condition" id="sarc">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-11</span>
+        <span class="condition-name">Sarcoidosis</span>
+        <span class="rank-badge r2">R2</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Pathophysiology</div>
+            <ul>
+              <li>Systemic granulomatous disease; non-caseating granulomas</li>
+              <li>Unknown antigen → CD4+ TH1 helper cell response → epithelioid granulomas</li>
+              <li>Granuloma macrophages produce 1-alpha hydroxylase → active vitamin D → hypercalcaemia/hypercalciuria</li>
+              <li>Most common in young African-American females; also common in Scandinavians</li>
+              <li>Asteroid bodies within giant cells (characteristic)</li>
+              <li>Negative tuberculin test (anergy)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Multisystem Manifestations</div>
+            <ul>
+              <li><strong>Lung (most common):</strong> Bilateral hilar lymphadenopathy (BHL), restrictive lung disease, dry cough, dyspnoea</li>
+              <li><strong>Eye:</strong> Anterior uveitis (painful red eye), lacrimal gland swelling, conjunctival nodules</li>
+              <li><strong>Skin:</strong> Erythema nodosum (tender red nodules, shins — acute); lupus pernio (violaceous plaques on face — chronic); cutaneous nodules</li>
+              <li><strong>Heart:</strong> Heart block, arrhythmias, cardiomyopathy</li>
+              <li><strong>Neuro:</strong> Facial nerve palsy (VII), meningitis, diabetes insipidus</li>
+              <li><strong>MSK:</strong> Polyarthritis, bone cysts (Perthes-Jüngling)</li>
+              <li>Heerfordt syndrome: uveitis + parotid swelling + facial palsy + fever</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>CXR staging:</strong> 0=normal; I=BHL; II=BHL+parenchymal; III=parenchymal only; IV=fibrosis</li>
+              <li>↑Serum ACE (not specific but useful for monitoring)</li>
+              <li>↑Calcium (serum and urine)</li>
+              <li>↑ESR, polyclonal hypergammaglobulinaemia</li>
+              <li>Negative Mantoux / IGRA (anergy)</li>
+              <li><strong>Definitive:</strong> Biopsy showing non-caseating granulomas (exclude TB/fungal)</li>
+              <li>24h urine calcium; ECG (heart block)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li>Often resolves spontaneously (stage I = 60–80% resolution)</li>
+              <li><strong>Steroids (prednisolone):</strong> indicated for significant organ involvement (symptomatic lung, cardiac, neuro, uveitis, hypercalcaemia)</li>
+              <li>Steroid-sparing agents: methotrexate, azathioprine, hydroxychloroquine</li>
+              <li>Monitor with PFTs, CXR, ACE levels</li>
+              <li>Prognosis: most cases resolve within 2–5 years; 20% chronic/progressive</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHEST TRAUMA -->
+    <div class="condition" id="chest-trauma">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-12</span>
+        <span class="condition-name">Chest Injury / Flail Chest / Rib Fracture</span>
+        <span class="rank-badge r2">R2</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Types of Chest Injury</div>
+            <ul>
+              <li><strong>Rib fractures:</strong> most common thoracic injury; localised pain + bony crepitus; splinting → atelectasis → pneumonia; rib 1–3 fractures → great vessel/brachial plexus injury; rib 10–12 → liver/spleen injury</li>
+              <li><strong>Flail chest:</strong> ≥3 consecutive ribs fractured in ≥2 places → floating segment; paradoxical movement (segment moves IN on inspiration); hypoventilation → hypoxia → hypercapnia; LIFE-THREATENING</li>
+              <li><strong>Pneumothorax:</strong> open (sucking chest wound) or closed</li>
+              <li><strong>Haemothorax:</strong> blood in pleural space; dull to percussion; treat with chest drain</li>
+              <li><strong>Pulmonary contusion:</strong> alveolar haemorrhage/oedema; worsens over 24–48h; treat supportively</li>
+              <li><strong>Traumatic aortic injury:</strong> widened mediastinum on CXR; deceleration injury; CT aortogram</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>ATLS approach:</strong> ABCDE; manage life-threatening injuries first</li>
+              <li><strong>Rib fractures:</strong> adequate analgesia (most important to prevent hypoventilation); NSAIDs, opioids, intercostal nerve block, epidural; incentive spirometry; physiotherapy</li>
+              <li><strong>Flail chest:</strong> O₂; adequate analgesia; if severe → intubation + IPPV (intermittent positive pressure ventilation) + PEEP; surgical rib fixation may be considered</li>
+              <li><strong>Open pneumothorax:</strong> three-sided occlusive dressing (flutter-valve); then formal chest drain</li>
+              <li><strong>Tension pneumothorax:</strong> immediate needle decompression (do NOT wait for CXR)</li>
+              <li>Massive haemothorax (&gt;1.5L or &gt;200mL/hr): chest drain; surgical exploration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMPYEMA -->
+    <div class="condition" id="empyema">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-13</span>
+        <span class="condition-name">Empyema</span>
+        <span class="rank-badge r2">R2</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Aetiology</div>
+            <ul>
+              <li>Pus in the pleural space</li>
+              <li><strong>Causes:</strong> Parapneumonic (most common — complication of pneumonia), post-surgical, trauma, oesophageal rupture, haematogenous spread</li>
+              <li>Organisms: Streptococcus, Staph aureus, Gram-negatives (Klebsiella, E. coli), anaerobes</li>
+              <li>TB empyema (haemorrhagic)</li>
+              <li>Stages: exudative → fibropurulent → organising (fibrous peel formation)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Features &amp; Management</div>
+            <ul>
+              <li>Fever persisting despite antibiotics; pleuritic chest pain; dyspnoea</li>
+              <li>Signs: dull to percussion, ↓breath sounds, constitutional symptoms</li>
+              <li>Pleural fluid: pH &lt;7.2, glucose &lt;3.3 mmol/L, ↑LDH, frank pus, positive culture</li>
+              <li>USS: loculated fluid; CT: pleural enhancement (split pleura sign)</li>
+              <li><strong>Management:</strong> IV antibiotics; intercostal drain (ASAP if pH &lt;7.2); intrapleural fibrinolytics (alteplase + DNase) for loculated; VATS (video-assisted thoracoscopic surgery) or surgical decortication if fails</li>
+              <li>Complications: trapped lung, bronchopleural fistula, sepsis</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CYSTIC FIBROSIS -->
+    <div class="condition" id="cf">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-14</span>
+        <span class="condition-name">Cystic Fibrosis</span>
+        <span class="rank-badge r3">R3</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Pathophysiology</div>
+            <ul>
+              <li>Autosomal recessive; CFTR (cystic fibrosis transmembrane conductance regulator) gene mutation</li>
+              <li><strong>ΔF508 (delta-F508):</strong> most common mutation (70%); deletion of phenylalanine at position 508 → protein misfolding → degraded before reaching cell surface</li>
+              <li>Defective Cl⁻ channel → ↓Cl⁻ and water secretion → ↑Na⁺ and water absorption → thick, viscous secretions</li>
+              <li>Affects all exocrine glands: lungs, pancreas, intestine, vas deferens, sweat glands</li>
+              <li>Sweat glands: ↑Cl⁻ in sweat (can't reabsorb); diagnostic</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features</div>
+            <ul>
+              <li><strong>Lung:</strong> Recurrent pulmonary infections (Staph aureus early; Pseudomonas aeruginosa later = poor prognosis); bronchiectasis; pneumothorax; haemoptysis; respiratory failure</li>
+              <li><strong>GI:</strong> Meconium ileus (neonates — first presentation); pancreatic exocrine insufficiency → malabsorption, steatorrhoea, fat-soluble vitamin deficiency (A, D, E, K); CF-related diabetes; biliary cirrhosis</li>
+              <li><strong>Reproductive:</strong> Male infertility (absent/obstructed vas deferens — congenital bilateral absence CBAVD)</li>
+              <li>Finger clubbing; failure to thrive; salty sweat (parents notice kissing)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>Sweat test:</strong> Cl⁻ &gt;60 mmol/L (diagnostic); borderline 40–60</li>
+              <li>Newborn screening: immunoreactive trypsinogen (IRT) → then genetic testing</li>
+              <li>Genetic testing: confirm mutation (&gt;2000 CFTR mutations known)</li>
+              <li>Spirometry: obstructive pattern (bronchiectasis); ↓FEV1/FVC</li>
+              <li>Sputum culture (monitor colonisation)</li>
+              <li>CXR/CT: bronchiectasis, hyperinflation, consolidation</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>Airway clearance:</strong> Chest physiotherapy (twice daily), nebulised hypertonic saline, nebulised dornase alfa (DNase — breaks down mucus)</li>
+              <li><strong>Antibiotics:</strong> IV anti-pseudomonal (meropenem + colistin or tobramycin) for exacerbations; nebulised tobramycin/colistin for Pseudomonas colonisation; prophylactic azithromycin</li>
+              <li><strong>CFTR modulators (precision medicine):</strong> Ivacaftor (CFTR potentiator, G551D mutation); Elexacaftor/Tezacaftor/Ivacaftor (Trikafta — works for ΔF508; approved &gt;12yrs)</li>
+              <li>Pancreatic enzyme replacement (Creon with all meals); fat-soluble vitamins</li>
+              <li>Nutritional support (high calorie diet)</li>
+              <li>CF-related diabetes: insulin</li>
+              <li>Lung transplant (bilateral sequential): end-stage; median survival now &gt;50 years with CFTR modulators</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>ΔF508 = most common mutation; protein misfolding → not trafficked to cell surface</li>
+            <li>Sweat Cl⁻ &gt;60 mmol/L = diagnostic (normal &lt;40)</li>
+            <li>Early infection: S. aureus; Late chronic infection: Pseudomonas aeruginosa (mucoid) = poor prognosis</li>
+            <li>Male infertility: CBAVD (congenital bilateral absence of vas deferens) — can be diagnosed in adulthood</li>
+            <li>Trikafta (elexacaftor/tezacaftor/ivacaftor) is a breakthrough — works for 90% of CF patients with ≥1 ΔF508 allele</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<a href="#" class="scroll-top" title="Back to top">↑</a>
+
+<script>
+  function toggle(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.chevron');
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    header.classList.toggle('open', !isOpen);
+    chevron.classList.toggle('open', !isOpen);
+  }
+
+  // Auto-open all conditions
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.condition-header').forEach(h => toggle(h));
+  });
+
+  // Highlight active sidebar link on scroll
+  const sections = document.querySelectorAll('.condition');
+  const sidebarLinks = document.querySelectorAll('.sidebar-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    sidebarLinks.forEach(link => {
+      link.style.color = '';
+      link.style.borderLeftColor = '';
+      if (link.getAttribute('href') === '#' + current) {
+        link.style.color = '#e6edf3';
+        link.style.borderLeftColor = link.classList.contains('resp') ? '#52b0e0' : '#e05252';
+      }
+    });
+  });
+</script>
+</body>
+</html>
