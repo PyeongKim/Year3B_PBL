@@ -37,26 +37,82 @@
   .masthead {
     background: linear-gradient(135deg, #0d1117 0%, #1a0a0a 50%, #0a101a 100%);
     border-bottom: 1px solid var(--border);
-    padding: 48px 40px 36px;
+    padding: 14px 28px;
     position: sticky;
     top: 0;
     z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
   }
-  .masthead-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
-  .masthead-sub { font-size: 12px; color: var(--muted); margin-top: 2px; letter-spacing: 1px; text-transform: uppercase; }
-  .toc-bar { display: flex; gap: 10px; flex-wrap: wrap; }
+  .masthead-row1 {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    margin-bottom: 10px;
+  }
+  .masthead-row2 {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .masthead-title { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+  .masthead-sub { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+  .toc-bar { display: flex; gap: 8px; flex-wrap: wrap; }
   .toc-btn {
     font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
-    padding: 5px 14px; border-radius: 20px; border: 1px solid var(--border);
+    padding: 4px 13px; border-radius: 20px; border: 1px solid var(--border);
     background: transparent; color: var(--muted); cursor: pointer; text-decoration: none;
-    transition: all 0.2s;
+    transition: all 0.2s; display: inline-flex; align-items: center; gap: 5px;
   }
-  .toc-btn:hover, .toc-btn.cvs { border-color: var(--accent-cvs); color: var(--accent-cvs); background: rgba(224,82,82,0.08); }
-  .toc-btn.resp { border-color: var(--accent-resp); color: var(--accent-resp); background: rgba(82,176,224,0.08); }
+  .toc-btn:hover { border-color: #484f57; color: var(--text); }
+  .toc-btn.cvs, .toc-btn.cvs:hover { border-color: var(--accent-cvs); color: var(--accent-cvs); background: rgba(224,82,82,0.08); }
+  .toc-btn.resp, .toc-btn.resp:hover { border-color: var(--accent-resp); color: var(--accent-resp); background: rgba(82,176,224,0.08); }
+
+  /* SEARCH */
+  .search-wrap { position: relative; flex: 1; max-width: 320px; }
+  .search-wrap input {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 20px; padding: 5px 14px 5px 34px; color: var(--text);
+    font-size: 12.5px; font-family: 'Source Sans 3', sans-serif;
+    outline: none; transition: border-color 0.2s;
+  }
+  .search-wrap input::placeholder { color: var(--muted); }
+  .search-wrap input:focus { border-color: #484f57; }
+  .search-wrap .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 13px; pointer-events: none; }
+  .search-clear {
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+    color: var(--muted); cursor: pointer; font-size: 14px; display: none;
+    background: none; border: none; padding: 0; line-height: 1;
+  }
+  .search-clear:hover { color: var(--text); }
+
+  /* RANK FILTER BUTTONS */
+  .filter-bar { display: flex; gap: 6px; align-items: center; }
+  .filter-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+  .filter-btn {
+    font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 20px;
+    border: 1px solid var(--border); background: transparent; cursor: pointer;
+    transition: all 0.2s; letter-spacing: 0.3px;
+  }
+  .filter-btn.all { color: var(--muted); }
+  .filter-btn.all.active { color: var(--text); border-color: #484f57; background: rgba(255,255,255,0.06); }
+  .filter-btn.f-r1 { color: var(--accent-r1); }
+  .filter-btn.f-r1.active { border-color: var(--accent-r1); background: rgba(63,185,80,0.12); }
+  .filter-btn.f-r2 { color: var(--accent-r2); }
+  .filter-btn.f-r2.active { border-color: var(--accent-r2); background: rgba(210,153,34,0.12); }
+  .filter-btn.f-r3 { color: var(--accent-r3); }
+  .filter-btn.f-r3.active { border-color: var(--accent-r3); background: rgba(139,148,158,0.12); }
+
+  /* Divider for filter bar */
+  .filter-divider { width: 1px; height: 18px; background: var(--border); margin: 0 4px; }
+
+  /* Expand/collapse all */
+  .expand-btn {
+    font-size: 11px; font-weight: 600; padding: 3px 12px; border-radius: 20px;
+    border: 1px solid var(--border); background: transparent; color: var(--muted);
+    cursor: pointer; transition: all 0.2s; letter-spacing: 0.3px;
+  }
+  .expand-btn:hover { color: var(--text); border-color: #484f57; }
+
+  /* No results */
+  .no-results {
+    text-align: center; color: var(--muted); padding: 60px 20px;
+    font-size: 14px; display: none;
+  }
 
   /* LAYOUT */
   .page-wrap { display: flex; min-height: 100vh; }
@@ -64,7 +120,7 @@
     width: 230px; min-width: 230px; background: var(--surface);
     border-right: 1px solid var(--border);
     padding: 24px 0;
-    position: sticky; top: 90px; height: calc(100vh - 90px);
+    position: sticky; top: 100px; height: calc(100vh - 100px);
     overflow-y: auto;
     font-size: 12.5px;
   }
@@ -101,7 +157,9 @@
   .system-dot.resp { background: var(--accent-resp); box-shadow: 0 0 12px var(--accent-resp); }
   .system-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; }
   .system-title.cvs { color: var(--accent-cvs); }
+  .system-title.cvs:hover { opacity: 0.82; }
   .system-title.resp { color: var(--accent-resp); }
+  .system-title.resp:hover { opacity: 0.82; }
 
   /* CATEGORY DIVIDERS */
   .category-label {
@@ -229,13 +287,32 @@
 <body>
 
 <div class="masthead">
-  <div>
-    <div class="masthead-title">Year 3B Core Conditions</div>
-    <div class="masthead-sub">Cardiovascular &amp; Respiratory — Comprehensive PBL Notes</div>
+  <div class="masthead-row1">
+    <div>
+      <div class="masthead-title">Year 3B Core Conditions</div>
+      <div class="masthead-sub">Cardiovascular &amp; Respiratory — Comprehensive PBL Notes</div>
+    </div>
+    <div class="toc-bar">
+      <a href="#cvs" class="toc-btn cvs">❤ Cardiovascular</a>
+      <a href="#resp" class="toc-btn resp">🫁 Respiratory</a>
+    </div>
   </div>
-  <div class="toc-bar">
-    <a href="#cvs" class="toc-btn cvs">❤ Cardiovascular</a>
-    <a href="#resp" class="toc-btn resp">🫁 Respiratory</a>
+  <div class="masthead-row2">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search conditions…" oninput="handleSearch(this.value)">
+      <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
+    </div>
+    <div class="filter-divider"></div>
+    <div class="filter-bar">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-btn all active" onclick="setFilter('all', this)">All</button>
+      <button class="filter-btn f-r1" onclick="setFilter('r1', this)">R1</button>
+      <button class="filter-btn f-r2" onclick="setFilter('r2', this)">R2</button>
+      <button class="filter-btn f-r3" onclick="setFilter('r3', this)">R3</button>
+    </div>
+    <div class="filter-divider"></div>
+    <button class="expand-btn" id="expandAllBtn" onclick="toggleAllCards()">Expand All</button>
   </div>
 </div>
 
@@ -244,48 +321,49 @@
   <!-- SIDEBAR -->
   <nav class="sidebar">
     <div class="sidebar-section">Cardiovascular</div>
-    <a href="#brady" class="sidebar-link">Bradyarrhythmias <span class="badge r1">R1</span></a>
-    <a href="#atrial-tachy" class="sidebar-link">Atrial Tachyarrhythmias <span class="badge r1">R1</span></a>
-    <a href="#vt" class="sidebar-link">Ventricular Tachyarrhythmias <span class="badge r1">R1</span></a>
-    <a href="#acs" class="sidebar-link">ACS / MI <span class="badge r1">R1</span></a>
-    <a href="#stable-angina" class="sidebar-link">Stable Angina <span class="badge r1">R1</span></a>
-    <a href="#pvd" class="sidebar-link">Peripheral Vascular Disease <span class="badge r1">R1</span></a>
-    <a href="#aorta" class="sidebar-link">Aortic Aneurysm/Dissection <span class="badge r1">R1</span></a>
-    <a href="#htn" class="sidebar-link">Hypertension <span class="badge r1">R1</span></a>
-    <a href="#valve" class="sidebar-link">Mitral/Aortic Valve Disease <span class="badge r1">R1</span></a>
-    <a href="#chf" class="sidebar-link">Congestive Cardiac Failure <span class="badge r1">R1</span></a>
-    <a href="#pht" class="sidebar-link">Pulmonary Hypertension <span class="badge r2">R2</span></a>
-    <a href="#rf" class="sidebar-link">Rheumatic Fever <span class="badge r2">R2</span></a>
-    <a href="#ie" class="sidebar-link">Infective Endocarditis <span class="badge r2">R2</span></a>
-    <a href="#cm" class="sidebar-link">Cardiomyopathy <span class="badge r2">R2</span></a>
-    <a href="#peri" class="sidebar-link">Pericarditis/Tamponade <span class="badge r2">R2</span></a>
-    <a href="#myo" class="sidebar-link">Myocarditis <span class="badge r3">R3</span></a>
+    <a href="#brady" class="sidebar-link" onclick="openAndScrollTo('brady',event)">Bradyarrhythmias <span class="badge r1">R1</span></a>
+    <a href="#atrial-tachy" class="sidebar-link" onclick="openAndScrollTo('atrial-tachy',event)">Atrial Tachyarrhythmias <span class="badge r1">R1</span></a>
+    <a href="#vt" class="sidebar-link" onclick="openAndScrollTo('vt',event)">Ventricular Tachyarrhythmias <span class="badge r1">R1</span></a>
+    <a href="#acs" class="sidebar-link" onclick="openAndScrollTo('acs',event)">ACS / MI <span class="badge r1">R1</span></a>
+    <a href="#stable-angina" class="sidebar-link" onclick="openAndScrollTo('stable-angina',event)">Stable Angina <span class="badge r1">R1</span></a>
+    <a href="#pvd" class="sidebar-link" onclick="openAndScrollTo('pvd',event)">Peripheral Vascular Disease <span class="badge r1">R1</span></a>
+    <a href="#aorta" class="sidebar-link" onclick="openAndScrollTo('aorta',event)">Aortic Aneurysm/Dissection <span class="badge r1">R1</span></a>
+    <a href="#htn" class="sidebar-link" onclick="openAndScrollTo('htn',event)">Hypertension <span class="badge r1">R1</span></a>
+    <a href="#valve" class="sidebar-link" onclick="openAndScrollTo('valve',event)">Mitral/Aortic Valve Disease <span class="badge r1">R1</span></a>
+    <a href="#chf" class="sidebar-link" onclick="openAndScrollTo('chf',event)">Congestive Cardiac Failure <span class="badge r1">R1</span></a>
+    <a href="#pht" class="sidebar-link" onclick="openAndScrollTo('pht',event)">Pulmonary Hypertension <span class="badge r2">R2</span></a>
+    <a href="#rf" class="sidebar-link" onclick="openAndScrollTo('rf',event)">Rheumatic Fever <span class="badge r2">R2</span></a>
+    <a href="#ie" class="sidebar-link" onclick="openAndScrollTo('ie',event)">Infective Endocarditis <span class="badge r2">R2</span></a>
+    <a href="#cm" class="sidebar-link" onclick="openAndScrollTo('cm',event)">Cardiomyopathy <span class="badge r2">R2</span></a>
+    <a href="#peri" class="sidebar-link" onclick="openAndScrollTo('peri',event)">Pericarditis/Tamponade <span class="badge r2">R2</span></a>
+    <a href="#myo" class="sidebar-link" onclick="openAndScrollTo('myo',event)">Myocarditis <span class="badge r3">R3</span></a>
     <div class="sidebar-section">Respiratory</div>
-    <a href="#asthma" class="sidebar-link resp">Asthma <span class="badge r1">R1</span></a>
-    <a href="#copd" class="sidebar-link resp">COPD <span class="badge r1">R1</span></a>
-    <a href="#pneumonia" class="sidebar-link resp">Pneumonia <span class="badge r1">R1</span></a>
-    <a href="#tb" class="sidebar-link resp">Tuberculosis <span class="badge r1">R1</span></a>
-    <a href="#lung-ca" class="sidebar-link resp">Lung Cancer <span class="badge r1">R1</span></a>
-    <a href="#osa" class="sidebar-link resp">Obstructive Sleep Apnoea <span class="badge r1">R1</span></a>
-    <a href="#ptx" class="sidebar-link resp">Pneumothorax <span class="badge r1">R1</span></a>
-    <a href="#eff" class="sidebar-link resp">Pleural Effusion <span class="badge r1">R1</span></a>
-    <a href="#bronch" class="sidebar-link resp">Bronchiectasis <span class="badge r2">R2</span></a>
-    <a href="#ipf" class="sidebar-link resp">Pulmonary Fibrosis <span class="badge r2">R2</span></a>
-    <a href="#sarc" class="sidebar-link resp">Sarcoidosis <span class="badge r2">R2</span></a>
-    <a href="#chest-trauma" class="sidebar-link resp">Chest Trauma <span class="badge r2">R2</span></a>
-    <a href="#empyema" class="sidebar-link resp">Empyema <span class="badge r2">R2</span></a>
-    <a href="#cf" class="sidebar-link resp">Cystic Fibrosis <span class="badge r3">R3</span></a>
+    <a href="#asthma" class="sidebar-link resp" onclick="openAndScrollTo('asthma',event)">Asthma <span class="badge r1">R1</span></a>
+    <a href="#copd" class="sidebar-link resp" onclick="openAndScrollTo('copd',event)">COPD <span class="badge r1">R1</span></a>
+    <a href="#pneumonia" class="sidebar-link resp" onclick="openAndScrollTo('pneumonia',event)">Pneumonia <span class="badge r1">R1</span></a>
+    <a href="#tb" class="sidebar-link resp" onclick="openAndScrollTo('tb',event)">Tuberculosis <span class="badge r1">R1</span></a>
+    <a href="#lung-ca" class="sidebar-link resp" onclick="openAndScrollTo('lung-ca',event)">Lung Cancer <span class="badge r1">R1</span></a>
+    <a href="#osa" class="sidebar-link resp" onclick="openAndScrollTo('osa',event)">Obstructive Sleep Apnoea <span class="badge r1">R1</span></a>
+    <a href="#ptx" class="sidebar-link resp" onclick="openAndScrollTo('ptx',event)">Pneumothorax <span class="badge r1">R1</span></a>
+    <a href="#eff" class="sidebar-link resp" onclick="openAndScrollTo('eff',event)">Pleural Effusion <span class="badge r1">R1</span></a>
+    <a href="#bronch" class="sidebar-link resp" onclick="openAndScrollTo('bronch',event)">Bronchiectasis <span class="badge r2">R2</span></a>
+    <a href="#ipf" class="sidebar-link resp" onclick="openAndScrollTo('ipf',event)">Pulmonary Fibrosis <span class="badge r2">R2</span></a>
+    <a href="#sarc" class="sidebar-link resp" onclick="openAndScrollTo('sarc',event)">Sarcoidosis <span class="badge r2">R2</span></a>
+    <a href="#chest-trauma" class="sidebar-link resp" onclick="openAndScrollTo('chest-trauma',event)">Chest Trauma <span class="badge r2">R2</span></a>
+    <a href="#empyema" class="sidebar-link resp" onclick="openAndScrollTo('empyema',event)">Empyema <span class="badge r2">R2</span></a>
+    <a href="#cf" class="sidebar-link resp" onclick="openAndScrollTo('cf',event)">Cystic Fibrosis <span class="badge r3">R3</span></a>
   </nav>
 
   <!-- MAIN CONTENT -->
   <main class="content">
+    <div class="no-results" id="noResults">No conditions match your search.</div>
 
     <!-- ============================================================ -->
     <!--  CARDIOVASCULAR                                              -->
     <!-- ============================================================ -->
     <div id="cvs" class="system-header">
       <div class="system-dot cvs"></div>
-      <div class="system-title cvs">Cardiovascular System</div>
+      <a href="#cvs" class="system-title cvs" style="text-decoration:none;">Cardiovascular System</a>
     </div>
 
     <div class="category-label">Disorders of Heart Rate &amp; Rhythm</div>
@@ -1099,7 +1177,7 @@
     <!-- ============================================================ -->
     <div id="resp" class="system-header">
       <div class="system-dot resp"></div>
-      <div class="system-title resp">Respiratory System</div>
+      <a href="#resp" class="system-title resp" style="text-decoration:none;">Respiratory System</a>
     </div>
 
     <div class="category-label">Obstructive Pulmonary Diseases</div>
@@ -1876,6 +1954,7 @@
 <a href="#" class="scroll-top" title="Back to top">↑</a>
 
 <script>
+  /* ── TOGGLE a single card ─────────────────────────────────────── */
   function toggle(header) {
     const body = header.nextElementSibling;
     const chevron = header.querySelector('.chevron');
@@ -1885,26 +1964,124 @@
     chevron.classList.toggle('open', !isOpen);
   }
 
-  // Auto-open all conditions
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.condition-header').forEach(h => toggle(h));
-  });
+  /* ── OPEN card and scroll to it (used by sidebar links) ──────── */
+  function openAndScrollTo(id, event) {
+    if (event) event.preventDefault();
+    const card = document.getElementById(id);
+    if (!card) return;
+    const header = card.querySelector('.condition-header');
+    const body   = card.querySelector('.condition-body');
+    const chevron = header.querySelector('.chevron');
+    // Ensure card is visible (not hidden by filter)
+    card.style.display = '';
+    // Open if closed
+    if (!body.classList.contains('open')) {
+      body.classList.add('open');
+      header.classList.add('open');
+      chevron.classList.add('open');
+    }
+    // Scroll after a tiny delay so display changes take effect
+    setTimeout(() => {
+      const mastheadH = document.querySelector('.masthead').offsetHeight;
+      const top = card.getBoundingClientRect().top + window.scrollY - mastheadH - 12;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }, 30);
+  }
 
-  // Highlight active sidebar link on scroll
-  const sections = document.querySelectorAll('.condition');
+  /* ── EXPAND / COLLAPSE ALL ───────────────────────────────────── */
+  let allExpanded = false;
+  function toggleAllCards() {
+    allExpanded = !allExpanded;
+    const btn = document.getElementById('expandAllBtn');
+    btn.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+    document.querySelectorAll('.condition:not([style*="display: none"])').forEach(card => {
+      const header = card.querySelector('.condition-header');
+      const body   = card.querySelector('.condition-body');
+      const chevron = header.querySelector('.chevron');
+      body.classList.toggle('open', allExpanded);
+      header.classList.toggle('open', allExpanded);
+      chevron.classList.toggle('open', allExpanded);
+    });
+  }
+
+  /* ── RANK FILTER ─────────────────────────────────────────────── */
+  let activeFilter = 'all';
+  function setFilter(rank, btn) {
+    activeFilter = rank;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  /* ── SEARCH ──────────────────────────────────────────────────── */
+  let searchQuery = '';
+  function handleSearch(val) {
+    searchQuery = val.trim().toLowerCase();
+    const clearBtn = document.getElementById('searchClear');
+    clearBtn.style.display = searchQuery ? 'block' : 'none';
+    applyFilters();
+  }
+  function clearSearch() {
+    const input = document.getElementById('searchInput');
+    input.value = '';
+    handleSearch('');
+    input.focus();
+  }
+
+  /* ── APPLY BOTH FILTERS ──────────────────────────────────────── */
+  function applyFilters() {
+    let visibleCount = 0;
+    document.querySelectorAll('.condition').forEach(card => {
+      const rankBadge = card.querySelector('.rank-badge');
+      const rankClass = rankBadge ? Array.from(rankBadge.classList).find(c => c.startsWith('r') && c !== 'rank-badge') : '';
+      const name = (card.querySelector('.condition-name') || {}).textContent || '';
+
+      const rankMatch = activeFilter === 'all' || rankClass === activeFilter;
+      const searchMatch = !searchQuery || name.toLowerCase().includes(searchQuery);
+
+      if (rankMatch && searchMatch) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Show/hide system headers and category labels based on visible cards nearby
+    document.querySelectorAll('.system-header, .category-label').forEach(el => {
+      // Find next sibling conditions (skip other labels)
+      let sib = el.nextElementSibling;
+      let hasVisible = false;
+      while (sib && !sib.classList.contains('system-header')) {
+        if (sib.classList.contains('condition') && sib.style.display !== 'none') {
+          hasVisible = true; break;
+        }
+        sib = sib.nextElementSibling;
+      }
+      el.style.display = hasVisible ? '' : 'none';
+    });
+
+    const noResults = document.getElementById('noResults');
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  /* ── SIDEBAR ACTIVE HIGHLIGHT ON SCROLL ─────────────────────── */
   const sidebarLinks = document.querySelectorAll('.sidebar-link');
   window.addEventListener('scroll', () => {
+    const mastheadH = document.querySelector('.masthead').offsetHeight;
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    document.querySelectorAll('.condition').forEach(s => {
+      if (s.style.display !== 'none' && window.scrollY >= s.offsetTop - mastheadH - 20) {
+        current = s.id;
+      }
     });
     sidebarLinks.forEach(link => {
-      link.style.color = '';
-      link.style.borderLeftColor = '';
-      if (link.getAttribute('href') === '#' + current) {
-        link.style.color = '#e6edf3';
-        link.style.borderLeftColor = link.classList.contains('resp') ? '#52b0e0' : '#e05252';
-      }
+      const isActive = link.getAttribute('href') === '#' + current;
+      link.style.color = isActive ? '#e6edf3' : '';
+      link.style.background = isActive ? 'rgba(255,255,255,0.04)' : '';
+      link.style.borderLeftColor = isActive
+        ? (link.classList.contains('resp') ? '#52b0e0' : '#e05252')
+        : '';
     });
   });
 </script>
