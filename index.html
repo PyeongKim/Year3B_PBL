@@ -265,6 +265,36 @@
   .hy-box ul li { padding: 2px 0 2px 12px; position: relative; color: #e6c97a; }
   .hy-box ul li::before { content: '★'; position: absolute; left: 0; font-size: 9px; color: var(--highlight); top: 5px; }
 
+  /* CDRIA POINT BOX */
+  .cdria-box {
+    background: rgba(56,189,248,0.05);
+    border: 1px solid rgba(56,189,248,0.25);
+    border-left: 3px solid #38bdf8;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .cdria-box .cdria-header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+  }
+  .cdria-box .cdria-tag {
+    font-size: 9px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    background: rgba(56,189,248,0.15); color: #38bdf8;
+    border: 1px solid rgba(56,189,248,0.35); border-radius: 3px;
+    padding: 2px 7px;
+  }
+  .cdria-box .cdria-title { color: #7dd3fc; font-weight: 700; font-size: 13px; }
+  .cdria-box ul { list-style: none; padding: 0; }
+  .cdria-box ul li { padding: 2px 0 2px 14px; position: relative; color: #bae6fd; font-size: 13px; }
+  .cdria-box ul li::before { content: '◆'; position: absolute; left: 0; font-size: 7px; color: #38bdf8; top: 6px; }
+  .cdria-box ul li strong { color: #e0f2fe; font-weight: 700; }
+  .cdria-box .cdria-note { font-size: 11px; color: #7dd3fc; margin-top: 8px; font-style: italic; opacity: 0.8; }
+  @media (max-width: 768px) {
+    .cdria-box { font-size: 12px; padding: 10px 12px; }
+    .cdria-box ul li { font-size: 12px; }
+  }
+
   /* MINI TABLES */
   table.mini { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 8px; }
   table.mini th { background: var(--surface2); color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 6px 10px; text-align: left; }
@@ -518,6 +548,18 @@
             <li>Cannon A waves = complete heart block hallmark</li>
           </ul>
         </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — ECG Approach to Heart Blocks & Bradycardia</span></div>
+          <ul>
+            <li><strong>ECG recognition:</strong> 1st degree = PR &gt;200ms (5 little squares). Marked if &gt;300ms. Usually a normal variant or drugs — not clinically significant alone.</li>
+            <li><strong>2nd degree Mobitz I (Wenckebach):</strong> PR progressively lengthens → dropped beat. Causes: beta-blockers, CCBs, athletes, increased vagal tone, inferior AMI. Usually benign — AV node suppression is often reversible. Low risk of progressing to complete block. Manage with atropine if symptomatic; rarely needs pacemaker.</li>
+            <li><strong>2nd degree Mobitz II:</strong> Normal PR → normal PR → sudden dropped beat, no PR lengthening. Causes: anterior AMI, cardiac surgery, infiltrative disease (amyloidosis), autoimmune (SLE), beta-blockers, CCBs, hyperkalaemia. Level of block is below AV node (His-Purkinje) — structural damage. Risk of asystole ~35%/year. <strong>ADMIT. Monitor. Pacemaker.</strong></li>
+            <li><strong>3rd degree (Complete Heart Block):</strong> No relationship between P waves and QRS. Ventricular rate 30–40 bpm. Presents with severe bradycardia, dizziness worse on exertion, or collapse. Causes: inferior AMI, beta-blockers, CCBs, digoxin. HIGH risk of asystole and sudden cardiac death. <strong>ADMIT! MONITOR. Pacemaker.</strong></li>
+            <li><strong>Clinical rule:</strong> "1st and Mobitz I = not so bad; Mobitz II and 3rd degree = BAD." Any symptomatic block warrants admission and monitoring.</li>
+            <li><strong>Palpitations differential for slow/skipped beats:</strong> Most likely — sinus bradycardia ± ventricular ectopic; Serious — CHB or Mobitz II; Atypical — vagal response, drug-induced, hypothyroidism, hypothermia, elite athlete</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 5 (Approach to ECGs)</p>
+        </div>
       </div>
     </div>
 
@@ -569,6 +611,20 @@
             <li>CHA₂DS₂-VASc: CHF/HTN/Age≥75(×2)/DM/Stroke(×2)/Vascular disease/Age 65–74/Sex female</li>
           </ul>
         </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Clinical Approach to Tachyarrhythmias</span></div>
+          <ul>
+            <li><strong>History framework — think Predisposing / Precipitating / Complicating:</strong></li>
+            <li><strong>Predisposing:</strong> Ever had this before? Known AF or SVT? On medications for it? How did they stop it last time?</li>
+            <li><strong>Precipitating:</strong> Infection screen (fever, focal sx); medication compliance; ETOH; caffeine; illicit drugs; hyperthyroid symptoms; PE risk screen</li>
+            <li><strong>Complicating:</strong> SOB, chest pain (already covered); focal neuro symptoms for stroke — but only ask if it sounds like AF; ischaemic events if tachycardia with underlying IHD</li>
+            <li><strong>ECG approach (in order):</strong> Is it fast? → Narrow or Broad? → Regular or Irregular? → P waves present? — Top 3 narrow complex tachycardia: Sinus tach / SVT / Rapid AF. "Broad = more concerning; Narrow = less concerning"</li>
+            <li><strong>Rapid AF (RAF) 6-step management:</strong> [1] Rate control + Ix/Rx reversible causes [2] Most self-revert within 12–24hrs [3] DCR if unstable/not responding [4] CHADSVASC for anticoagulation [5] Admit if ongoing reversible causes [6] Consult Cardiology if unsure</li>
+            <li><strong>SVT management:</strong> Valsalva / carotid sinus massage first → if fails: Adenosine (large bore IV in cubital fossa, defib pads on, warn patient — they will feel awful briefly)</li>
+            <li><strong>Type II AMI:</strong> Troponin rise caused by a non-ischaemic primary issue (e.g. prolonged SVT causing rate-related strain, sepsis, severe HF) — not a true plaque rupture event; always discuss with Cardiology if uncertain</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — Disco Series Ep. 2 (Cardiac Conditions Revisited)</p>
+        </div>
       </div>
     </div>
 
@@ -613,6 +669,17 @@
             <li>Hypertrophic cardiomyopathy = most common cause of sudden cardiac death in young athletes</li>
             <li>QT-prolonging drugs: quinidine, sotalol, amiodarone, haloperidol, azithromycin, chloroquine</li>
           </ul>
+        </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Broad Complex Tachycardia, Brugada & Torsades</span></div>
+          <ul>
+            <li><strong>Golden rule on ECG:</strong> "Broad = Bad? Narrow = Not so bad?" — any broad complex tachycardia must be treated as VT until proven otherwise. Most common tachyarrhythmia is sinus tachycardia; conscious VT = broad, regular, patient still conscious.</li>
+            <li><strong>VF is an arrest state</strong> — patients don't present with palpitations; they present with cardiac arrest. A conscious patient chatting to you is not in VF.</li>
+            <li><strong>Torsades de Pointes (Long QT):</strong> QTc &gt;440ms (men) / &gt;460ms (women) = prolonged QT. QTc &gt;500ms = significant risk of torsades. Causes: congenital, hypokalaemia, hypocalcaemia, drug overdoses (see QT-prolonging drugs). ECG: polymorphic VT twisting around isoelectric line. Treatment: IV MgSO₄; defibrillation if unstable; ICD long term. Correct electrolytes; stop culprit drugs.</li>
+            <li><strong>Brugada Syndrome:</strong> Sodium channel mutation; structurally normal heart. High risk of sudden cardiac death via VF/VT. Diagnosis requires: [1] "Coved" ST elevation in V1–V3 AND [2] ≥1 of: documented VF/polymorphic VT, FHx sudden cardiac death &lt;45, syncope, nocturnal agonal respiration. Management: ICD.</li>
+            <li><strong>Ventricular ectopics:</strong> Single premature wide complex with no preceding P wave; usually isolated and benign; can mimic ST elevation — look for consistency and absence of P wave to distinguish.</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 5 (Approach to ECGs)</p>
         </div>
       </div>
     </div>
@@ -700,6 +767,21 @@
             <li>Dressler syndrome: autoimmune fibrinous pericarditis 1–8 weeks post-MI; treat with NSAIDs + colchicine; avoid anticoagulation</li>
           </ul>
         </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Clinical Approach to Chest Pain / ACS</span></div>
+          <ul>
+            <li><strong>Chest pain history:</strong> When did it start? Where is it? Radiation (neck/jaw/arm/back/abdomen)? Constant or intermittent? Severity 0–10? Worse with movement, deep breath, palpation, or exertion? Character (sharp/dull/heavy/pressure/stabbing)?</li>
+            <li><strong>Associated features to screen:</strong> Sweating, Vomiting, SOB, Palpitations, Dizziness, Calf pain/swelling, Cough, Fevers</li>
+            <li><strong>Cardiac risk stratification:</strong> DM, HTN, hypercholesterolaemia, FHx of AMI/angina/stents/bypasses, smoking. Indian/Sri Lankan ethnicity is an independent risk factor. Biggest RF = having had it before.</li>
+            <li><strong>ECG — 1st question:</strong> "Is it a STEMI?" STEMI = ST elevation &gt;1 little square (&gt;2 squares in V2/V3), in ≥2 contiguous leads, that is NEW, with active chest pain</li>
+            <li><strong>ECG — 2nd question:</strong> "Could it be a NSTEMI?" → ST depression or T inversion in arterial distribution; are changes evolving (dynamic)? Check OLD ECG then do SERIAL ECGs. <em>You CANNOT diagnose NSTEMI on ECG alone — prove it with serial troponins.</em></li>
+            <li><strong>Beware:</strong> Diabetic and possibly female silent AMI — may have no classic chest pain</li>
+            <li><strong>Management mnemonic — "I'm Acting General Manager ABCD Cath":</strong> IV access; Aspirin + GTN + Morphine (pain relief) → Atorvastatin, Beta-blocker, Clexane (LMWH), DAPT (Clopidogrel or Ticagrelor) → Cath lab</li>
+            <li><strong>STEMI vs NSTEMI — the only real difference is time to Cath:</strong> STEMI → &lt;90 min; NSTEMI → within 24hrs</li>
+            <li><strong>Explaining to patients (5 steps):</strong> [1] Check their understanding [2] Explain what's happening to the body (normal vs what's happening to them) [3] Tie in each symptom [4] Explain each investigation and medication/procedure and how it helps [5] Check understanding and invite questions</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — Disco Series Ep. 2 (Cardiac Conditions Revisited) + The Toolbox 1</p>
+        </div>
       </div>
     </div>
 
@@ -733,6 +815,16 @@
               <li>Risk factor modification (smoking, hypertension, DM, dyslipidaemia)</li>
             </ul>
           </div>
+        </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — IHD/Angina Pattern Recognition & Wellen's Syndrome</span></div>
+          <ul>
+            <li><strong>Classic IHD/angina pattern (Red Flags):</strong> Central or left-sided chest pressure/heaviness radiating to arm, neck, jaw or back; establish ONSET and DURATION; NOT worse with deep inspiration or palpation; worse with exertion; associated N/V, SOB, dizziness. Risk factor profile: personal hx IHD/HTN/cholesterol/DM, FHx, smoking. Note: Indian/Sri Lankan ethnicity is an independent risk factor for IHD.</li>
+            <li><strong>ECG approach:</strong> ST depression = subendocardial ischaemia (stable or unstable angina). Compare with old ECG — is this NEW? Serial ECGs to look for dynamic change.</li>
+            <li><strong>Wellen's Syndrome (must not miss):</strong> Requires [1] biphasic or deeply inverted T waves in V2/V3 on ECG AND [2] history of recent chest pain that has since resolved. Highly specific for a critical stenosis of the LAD. <strong>ADMIT for urgent angiogram. Do NOT perform a stress test</strong> — risk of precipitating MI.</li>
+            <li><strong>Treatment rule:</strong> Use GTN as a diagnostic/therapeutic tool — significant relief of chest pain after sublingual GTN supports an ischaemic cause. If no relief, broaden your differential.</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 1 (Red Flags: Chest Pain) + The Toolbox 5 (Approach to ECGs)</p>
         </div>
       </div>
     </div>
@@ -801,30 +893,25 @@
       <div class="condition-body">
         <div class="sections-grid">
           <div class="section-box">
-            <div class="section-label sl-etio"><span class="icon">🧬</span> Aortic Aneurysm — Aetiology & Symptoms</div>
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Aortic Aneurysm</div>
             <ul>
-              <li><strong>AAA (Abdominal):</strong> dilatation &gt;3 cm; infrarenal most common; atherosclerosis, smoking, hypertension; M:F = 6:1; screening USS at 65 yrs in men</li>
+              <li><strong>AAA (Abdominal):</strong> &gt;3 cm; infrarenal most common; atherosclerosis, smoking, hypertension; M:F = 6:1; screening USS at 65yrs in men</li>
               <li><strong>Thoracic:</strong> hypertension, cystic medial necrosis (Marfan, EDS), syphilis ("tree-bark" aorta)</li>
-              <li><strong>Symptoms — intact AAA:</strong> usually asymptomatic; may cause dull central/back pain; pulsatile expansile epigastric mass on exam</li>
-              <li><strong>Symptomatic (expanding):</strong> new/worsening back or abdominal pain → urgent investigation; may mimic renal colic</li>
-              <li><strong>Ruptured AAA triad:</strong> sudden severe back/abdominal pain + hypotension + pulsatile abdominal mass; surgical emergency; 80% overall mortality</li>
-              <li><strong>Thoracic aneurysm symptoms:</strong> chest/back pain; hoarseness (recurrent laryngeal nerve); dysphagia; stridor; SVC syndrome; aortic regurgitation murmur</li>
-              <li><strong>Repair:</strong> elective at ≥5.5 cm (EVAR or open surgery); emergency open repair if ruptured</li>
+              <li>Sx: usually asymptomatic; pulsatile abdominal mass; back/abdominal pain</li>
+              <li><strong>Ruptured AAA:</strong> triad: hypotension + pulsatile mass + back pain; surgical emergency; 80% mortality</li>
+              <li>Repair: elective at ≥5.5 cm (EVAR or open); emergency open repair if ruptured</li>
             </ul>
           </div>
           <div class="section-box">
-            <div class="section-label sl-sx"><span class="icon">💬</span> Aortic Dissection — Symptoms & Management</div>
+            <div class="section-label sl-path"><span class="icon">🔬</span> Aortic Dissection</div>
             <ul>
-              <li>Intimal tear → blood dissects through media of aortic wall forming false lumen</li>
-              <li><strong>Stanford A:</strong> ascending aorta ± arch involved; surgical emergency; mortality 1–2%/hour if untreated</li>
-              <li><strong>Stanford B:</strong> descending aorta only (distal to left subclavian); medical management unless complicated</li>
-              <li><strong>Risk factors:</strong> hypertension (most common), Marfan/EDS, bicuspid aortic valve, pregnancy (3rd trimester), cocaine, deceleration trauma</li>
-              <li><strong>Pain:</strong> sudden onset severe tearing/ripping pain; anterior chest (type A) or interscapular back pain (type B); maximal at onset (distinguishes from MI)</li>
-              <li><strong>Vascular signs:</strong> pulse deficit or BP differential &gt;20 mmHg between arms; unequal radial pulses</li>
-              <li><strong>Aortic regurgitation:</strong> early diastolic murmur if ascending aorta involved</li>
-              <li><strong>Neurological:</strong> stroke, Horner syndrome, paraplegia (spinal artery involvement)</li>
-              <li><strong>Investigations:</strong> CT aortogram (gold standard); CXR — widened mediastinum (&gt;8 cm), loss of aortic knuckle, pleural effusion (L&gt;R); ECG to exclude MI; TOE if CT unavailable</li>
-              <li><strong>Management:</strong> Type A → emergency surgical repair; Type B → IV labetalol, target SBP 100–120 mmHg; analgesia</li>
+              <li>Intimal tear → blood dissects through media</li>
+              <li><strong>Stanford A:</strong> involves ascending aorta; surgical emergency; mortality 1–2%/hour if untreated</li>
+              <li><strong>Stanford B:</strong> descending aorta only; medical management (unless complications)</li>
+              <li><strong>Risk factors:</strong> hypertension (most common), Marfan syndrome, bicuspid aortic valve, cocaine, trauma</li>
+              <li><strong>Symptoms:</strong> sudden tearing/ripping chest pain radiating to back; pulse deficit; BP difference between arms &gt;20mmHg; aortic regurgitation murmur</li>
+              <li><strong>Ix:</strong> CT aortogram (gold standard); CXR: widened mediastinum</li>
+              <li><strong>Mx:</strong> Type A → urgent surgery; Type B → IV labetalol (target SBP 100–120)</li>
             </ul>
           </div>
         </div>
@@ -835,6 +922,17 @@
             <li>Syphilis → obliterative endarteritis of vasa vasorum → medial necrosis → "tree-bark" thoracic aorta</li>
             <li>AAA most common complication = rupture; other = thromboembolism, ureteric obstruction</li>
           </ul>
+        </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Aortic Dissection: Clinical Pearls</span></div>
+          <ul>
+            <li><strong>Incidence:</strong> Rare — approximately 3 per 100,000 per year</li>
+            <li><strong>Mortality without treatment:</strong> Type A → ~50% die within 3 days; Type B → ~10% die within a month</li>
+            <li><strong>Clinical red flags to trigger suspicion:</strong> Tearing/ripping severe chest pain radiating through to the back, or to neck/head/shoulders; BP difference between arms (&gt;20 mmHg) or radio-radial delay; hypertensive patient; ± focal neurology (stroke from carotid involvement)</li>
+            <li><strong>Key rule:</strong> If you think it, you must rule it out — CT Thoracic Angiogram is the investigation of choice</li>
+            <li><strong>Management summary:</strong> Type A → urgent surgery; Type B → BP control (IV labetalol, target SBP 100–120 mmHg)</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — Disco Series Ep. 2 + The Toolbox 1 (Red Flags: Chest Pain)</p>
         </div>
       </div>
     </div>
@@ -925,6 +1023,16 @@
             <li>AR: widened pulse pressure; diastolic BP decreases (regurgitation), systolic BP increases (↑SV)</li>
             <li>Rheumatic fever causes mitral stenosis (not regurgitation) in the chronic phase</li>
           </ul>
+        </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Aortic Stenosis & LBBB on ECG</span></div>
+          <ul>
+            <li><strong>AS clinical pattern to recognise:</strong> Typical exertional chest pain with SOB and/or dizziness — these symptoms are progressive. Key red flag: this is a valvular cause of chest pain; listen for the ejection systolic murmur at the right upper sternal border radiating to the carotids on examination.</li>
+            <li><strong>LBBB and AS:</strong> LBBB is a known cause of new LBBB on ECG. A new LBBB is almost always pathological — check OLD ECGs. If LBBB is new in the context of chest pain, treat as STEMI-equivalent until proven otherwise (Sgarbossa's criteria apply).</li>
+            <li><strong>ECG in LBBB — Appropriate Discordance:</strong> In leads with a negative QRS, ST segments appear elevated (normal for BBB, NOT a STEMI). In leads with positive QRS, ST segments appear depressed. This is normal for the block and can mimic ischaemia. Use Sgarbossa's criteria to identify true STEMI in the context of LBBB.</li>
+            <li><strong>Key LBBB rule:</strong> [1] Wide QRS → look at V1 and V6 (LBBB = 'W' in V1 + 'M' in V6; RBBB = 'M' in V1 + 'W'/slurred S in V6). [2] A NEW LBBB = pathological until proven otherwise. [3] Cannot diagnose STEMI by normal rules if BBB present — apply Sgarbossa's criteria.</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 1 (Red Flags: Chest Pain) + The Toolbox 5 (Approach to ECGs)</p>
         </div>
       </div>
     </div>
@@ -1170,6 +1278,18 @@
             <li>HCM = most common cause of sudden cardiac death in young athletes (not DCM)</li>
           </ul>
         </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — HCM: Clinical Pattern & ECG</span></div>
+          <ul>
+            <li><strong>HCM clinical presentation pattern:</strong> Exertional chest pain, SOB, dizziness, palpitations, or collapse in a young person. Prevalence 1 in 500; annual mortality 1–2%. Number 1 cause of sudden cardiac death in young people.</li>
+            <li><strong>Genetics:</strong> ~60% is a genetic disorder, primarily autosomal dominant. Causes issues through decreased cardiac output (LVOTO or poor filling), mitral regurgitation, or arrhythmias.</li>
+            <li><strong>ECG findings:</strong> LVH (tall R waves in chest/limb leads) + narrow Q waves inferiorly or laterally. If you see this pattern in a young patient with exertional collapse → think HCM.</li>
+            <li><strong>Definitive diagnosis:</strong> Echocardiogram for LV wall thickness (septum &gt;15mm or ASH).</li>
+            <li><strong>Management:</strong> Beta-blockers or Ca channel blockers (symptom control); ICD for high-risk patients (hx of VT/VF, FHx sudden death, massive hypertrophy, syncope); septal myectomy or alcohol septal ablation if LVOTO refractory to medication.</li>
+            <li><strong>Key clinical exam rule:</strong> Mid-systolic ejection murmur at LSE — gets louder with Valsalva/standing and softer with squatting (dynamic obstruction).</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 5 (Approach to ECGs: Special Patterns)</p>
+        </div>
       </div>
     </div>
 
@@ -1226,6 +1346,15 @@
               <li><strong>Mx:</strong> Pericardiectomy (definitive)</li>
             </ul>
           </div>
+        </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Pericardial Tamponade: Red Flags</span></div>
+          <ul>
+            <li><strong>Pattern to recognise (from chest pain differentials):</strong> Pleuritic chest pain; pain worse in certain positions (sitting forward relieves); tachycardia; SOBOE; hypotension</li>
+            <li><strong>Risk factor screen:</strong> Concurrent viral-type illness; pregnancy; known malignancy; autoimmune conditions (SLE, RA, scleroderma)</li>
+            <li><strong>Key clinical rule:</strong> Any patient with pleuritic chest pain + haemodynamic instability (tachycardia + hypotension) + muffled heart sounds → suspect tamponade and act immediately</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 1 (Red Flags: Chest Pain)</p>
         </div>
       </div>
     </div>
@@ -1457,6 +1586,17 @@
             </ul>
           </div>
         </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Pneumonia Pattern Recognition</span></div>
+          <ul>
+            <li><strong>Classic pattern (often pleuritic chest pain in older patients):</strong> Pain worse with coughing or deep inspiration; productive cough (note productive vs non-productive); fever; ±haemoptysis; SOB; vomiting/rigors</li>
+            <li><strong>Key differentiator from ACS:</strong> Pneumonia chest pain is pleuritic (worse with deep breath and movement) — ACS pain is NOT worse with inspiration or palpation</li>
+            <li><strong>Risk stratify for atypical vs CAP:</strong> Is there known COPD or CCF? (clarify their baseline SOB vs current). Immunocompromised? Recent hospitalisation/travel?</li>
+            <li><strong>Investigation approach:</strong> CXR (consolidation, exclude PTX), FBE (neutrophilia = bacterial), CRP, sputum M/C/S, urine Legionella/pneumococcal antigen if severe</li>
+            <li><strong>Differentials not to miss in chest pain + fever:</strong> PE (pleuritic pain + tachycardia/hypoxia + risk factors), empyema (persistent fever despite antibiotics)</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 1 (Red Flags: Chest Pain)</p>
+        </div>
       </div>
     </div>
 
@@ -1682,6 +1822,16 @@
               <li>Recurrence: VATS pleurodesis/pleurectomy</li>
             </ul>
           </div>
+        </div>
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Pneumothorax Pattern Recognition</span></div>
+          <ul>
+            <li><strong>Classic primary spontaneous PTX profile:</strong> "Tall thin young man" — often has been exercising or riding a bike; sudden pleuritic chest pain + dyspnoea; may be a recreational drug user (marijuana, ice, speed)</li>
+            <li><strong>Key history clues:</strong> Past history of same (biggest single risk factor); sudden onset; pain is pleuritic (worse on inspiration and movement)</li>
+            <li><strong>Do not miss in chest pain workup:</strong> PTX is a life-threatening diagnosis in the chest pain differential — always get a CXR; CXR is sufficient to diagnose in most cases</li>
+            <li><strong>Tension PTX rule:</strong> Do NOT wait for CXR if patient is haemodynamically unstable with absent breath sounds + tracheal deviation — immediate needle decompression</li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 1 (Red Flags: Chest Pain)</p>
         </div>
       </div>
     </div>
