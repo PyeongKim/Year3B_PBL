@@ -402,9 +402,107 @@
     .toc-bar { display: none; }
     .condition-name { font-size: 13px; }
   }
+
+  /* ── LOGIN OVERLAY ───────────────────────────────────────────── */
+  #login-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: linear-gradient(135deg, #0a0d12 0%, #0d1117 50%, #0a0d12 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .login-card {
+    width: 100%; max-width: 360px; padding: 40px 36px 36px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+  }
+  .login-logo {
+    text-align: center; margin-bottom: 28px;
+  }
+  .login-logo .title {
+    font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900;
+    color: var(--text); letter-spacing: -0.3px; display: block; margin-bottom: 4px;
+  }
+  .login-logo .sub {
+    font-size: 11px; color: var(--muted); letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  .login-dots {
+    display: flex; justify-content: center; gap: 8px; margin-bottom: 28px;
+  }
+  .login-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+  }
+  .login-dot.cvs { background: var(--accent-cvs); box-shadow: 0 0 8px var(--accent-cvs); }
+  .login-dot.resp { background: var(--accent-resp); box-shadow: 0 0 8px var(--accent-resp); }
+  .login-dot.hep { background: var(--accent-hep); box-shadow: 0 0 8px var(--accent-hep); }
+  .login-field { margin-bottom: 14px; }
+  .login-field label {
+    display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .login-field input {
+    width: 100%; background: var(--bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px; color: var(--text);
+    font-size: 14px; font-family: 'Source Sans 3', sans-serif;
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .login-field input:focus {
+    border-color: #52b0e0; box-shadow: 0 0 0 3px rgba(82,176,224,0.15);
+  }
+  .login-btn {
+    width: 100%; margin-top: 20px; padding: 11px;
+    background: linear-gradient(135deg, #1e3a5f 0%, #1a3a4a 100%);
+    border: 1px solid #52b0e0; border-radius: 8px;
+    color: #7dc3e8; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.2s; font-family: 'Source Sans 3', sans-serif;
+  }
+  .login-btn:hover {
+    background: linear-gradient(135deg, #254a7a 0%, #205060 100%);
+    color: #a8d8f0; box-shadow: 0 4px 16px rgba(82,176,224,0.2);
+  }
+  .login-btn:active { transform: scale(0.98); }
+  .login-error {
+    margin-top: 12px; padding: 9px 12px; border-radius: 6px;
+    background: rgba(224,82,82,0.1); border: 1px solid rgba(224,82,82,0.3);
+    color: #f87171; font-size: 12.5px; text-align: center; display: none;
+  }
+  .login-note {
+    margin-top: 20px; font-size: 11px; color: #484f57;
+    text-align: center; line-height: 1.5;
+  }
+  @media (max-width: 420px) {
+    .login-card { padding: 32px 22px 28px; margin: 16px; }
+  }
 </style>
 </head>
 <body>
+<div id="login-overlay">
+  <div class="login-card">
+    <div class="login-logo">
+      <span class="title">Year 3B Notes</span>
+      <span class="sub">CVS · Respiratory · Hepatobiliary</span>
+    </div>
+    <div class="login-dots">
+      <div class="login-dot cvs"></div>
+      <div class="login-dot resp"></div>
+      <div class="login-dot hep"></div>
+    </div>
+    <div class="login-field">
+      <label for="login-id">Username</label>
+      <input type="text" id="login-id" placeholder="Enter username" autocomplete="username" autofocus>
+    </div>
+    <div class="login-field">
+      <label for="login-pw">Password</label>
+      <input type="password" id="login-pw" placeholder="Enter password" autocomplete="current-password">
+    </div>
+    <button class="login-btn" onclick="doLogin()">Sign In</button>
+    <div class="login-error" id="login-error">Incorrect username or password</div>
+    <p class="login-note">Personal study notes — authorised access only</p>
+  </div>
+</div>
+
 
 <div class="masthead">
   <div class="masthead-row1">
@@ -3123,9 +3221,33 @@
   });
 
   /* ── INIT ────────────────────────────────────────────────────── */
+/* ── LOGIN ───────────────────────────────────────────────────── */
+  function doLogin() {
+    const id = document.getElementById('login-id').value.trim();
+    const pw = document.getElementById('login-pw').value;
+    const err = document.getElementById('login-error');
+    if (id === 'admin' && pw === 'pbl') {
+      sessionStorage.setItem('pbl_auth', '1');
+      document.getElementById('login-overlay').style.display = 'none';
+      err.style.display = 'none';
+    } else {
+      err.style.display = 'block';
+      document.getElementById('login-pw').value = '';
+      document.getElementById('login-pw').focus();
+    }
+  }
+  /* Allow Enter key to submit */
   document.addEventListener('DOMContentLoaded', () => {
     updateSidebarTop();
-    /* all cards start collapsed — nothing to open */
+    /* Check session */
+    if (sessionStorage.getItem('pbl_auth') === '1') {
+      const ov = document.getElementById('login-overlay');
+      if (ov) ov.style.display = 'none';
+    }
+    ['login-id','login-pw'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+    });
   });
 </script>
 </body>
