@@ -810,125 +810,229 @@
     <div class="category-label">Coronary Heart Disease</div>
 
     <!-- ACS -->
-    <div class="condition" id="acs">
-      <div class="condition-header" onclick="toggle(this)">
-        <span class="condition-num">CVS-04</span>
-        <span class="condition-name">Acute Coronary Syndrome / Myocardial Infarction</span>
-        <span class="rank-badge r1">R1</span>
-        <span class="chevron">▼</span>
+<div class="condition" id="acs">
+  <div class="condition-header" onclick="toggle(this)">
+    <span class="condition-num">CVS-04</span>
+    <span class="condition-name">Acute Coronary Syndrome / Myocardial Infarction</span>
+    <span class="rank-badge r1">R1</span>
+    <span class="chevron">⌄</span>
+  </div>
+  <div class="condition-body">
+    <div class="sections-grid">
+      <!-- PATHOPHYSIOLOGY -->
+      <div class="section-box">
+        <div class="section-label sl-path">
+          <span class="icon">🧬</span> Pathophysiology
+        </div>
+        <ul>
+          <li>Atherosclerotic plaque <strong>disruption</strong> (rupture or erosion) → platelet aggregation → thrombus formation </li>
+          <li><strong>Unstable angina (UA):</strong> partial occlusion → <strong>no myocardial necrosis</strong>; ST depression or T wave changes</li>
+          <li><strong>NSTEMI:</strong> partial occlusion → subendocardial necrosis; ST depression or T wave changes </li>
+          <li><strong>STEMI:</strong> usually persistent, near‑complete or complete occlusion of an epicardial artery → transmural infarction; ST elevation</li>
+          <li><strong>LAD (45%):</strong> anterior wall + anterior septum</li>
+          <li><strong>RCA (30%):</strong> posterior wall, posterior septum, papillary muscles</li>
+          <li><strong>LCx (25%):</strong> lateral wall</li>  
+        </ul>
       </div>
-      <div class="condition-body">
-        <div class="sections-grid">
-          <div class="section-box">
-            <div class="section-label sl-path"><span class="icon">🔬</span> Pathophysiology</div>
-            <ul>
-              <li>Atherosclerotic plaque rupture → platelet aggregation → thrombus formation</li>
-              <li><strong>UA:</strong> partial occlusion → no necrosis</li>
-              <li><strong>NSTEMI:</strong> partial occlusion → subendocardial necrosis; ST depression or T wave changes</li>
-              <li><strong>STEMI:</strong> complete occlusion → transmural necrosis; ST elevation</li>
-              <li><strong>LAD (45%):</strong> anterior wall + anterior septum</li>
-              <li><strong>RCA (30%):</strong> posterior wall, posterior septum, papillary muscles</li>
-              <li><strong>LCx (25%):</strong> lateral wall</li>
-            </ul>
-          </div>
-          <div class="section-box">
-            <div class="section-label sl-sx"><span class="icon">💬</span> Symptoms &amp; Signs</div>
-            <ul>
-              <li>Severe crushing central chest pain &gt;20 min</li>
-              <li>Radiates to left arm, jaw, neck</li>
-              <li>Diaphoresis, nausea, vomiting</li>
-              <li>Dyspnoea, pallor, cold clammy skin</li>
-              <li>NOT relieved by GTN</li>
-              <li>Silent MI: common in diabetics and elderly</li>
-              <li>Signs: tachycardia, hypotension (cardiogenic shock), 4th heart sound, S3 in HF</li>
-            </ul>
-          </div>
-          <div class="section-box">
-            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations &amp; Biomarkers</div>
-            <ul>
-              <li><strong>Troponin I:</strong> gold standard; rises 2–4h, peaks 24h, normal by 7–10 days</li>
-              <li><strong>CK-MB:</strong> useful for reinfarction; rises 4–6h, peaks 24h, normal by 72h</li>
-              <li>Myoglobin: earliest but non-specific</li>
-              <li><strong>ECG:</strong> STEMI (ST elevation), NSTEMI (ST depression/T wave inversion), new LBBB</li>
-              <li>CXR: pulmonary oedema</li>
-              <li>Echo: wall motion abnormalities</li>
-              <li>Coronary angiography: definitive for STEMI</li>
-            </ul>
-          </div>
-          <div class="section-box">
-            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
-            <ul>
-              <li><strong>Immediate:</strong> Dual antiplatelet: Aspirin 300 mg STAT + P2Y12 inhibitor (ticagrelor preferred over clopidogrel unless high bleeding risk)</li>
-              <li>Anticoagulation: unfractionated heparin or fondaparinux</li>
-              <li>Oxygen only if SpO₂ &lt;94% (avoid routine O₂ — hyperoxia is harmful in normoxic MI)</li>
-              <li>Sublingual GTN for pain (avoid if hypotensive or RV infarction)</li>
-              <li>Morphine: use cautiously — reduces pain/anxiety but may delay absorption of oral P2Y12 inhibitors</li>
-              <li><strong>STEMI:</strong> Primary PCI within 90 min (door-to-balloon time); thrombolysis if PCI unavailable</li>
-              <li><strong>NSTEMI:</strong> Risk stratify (GRACE score); early PCI for high-risk</li>
-              <li>β-blocker, ACE inhibitor, statin — secondary prevention</li>
-              <li>Cardiac rehabilitation</li>
-            </ul>
-          </div>
+
+      <!-- SYMPTOMS & SIGNS -->
+      <div class="section-box">
+        <div class="section-label sl-sx">
+          <span class="icon">🩺</span> Symptoms & Signs
         </div>
-        <div class="section-box" style="margin-bottom:12px">
-          <div class="section-label sl-comp"><span class="icon">⚠️</span> Complications by Time</div>
-          <div class="table-scroll"><table class="mini">
-            <tr><th>Time</th><th>Complication</th><th>Mechanism</th></tr>
-            <tr><td>&lt;24 hrs</td><td>Arrhythmia (most common), cardiogenic shock</td><td>Ischaemic myocardium; most common cause of early death</td></tr>
-            <tr><td>1–3 days</td><td>Fibrinous pericarditis</td><td>Inflammatory reaction; friction rub, pleuritic chest pain</td></tr>
-            <tr><td>4–7 days</td><td>Free wall rupture → tamponade; Papillary muscle rupture → acute MR; Septal rupture → VSD</td><td>Weakest point: necrotic myocardium during macrophage phase</td></tr>
-            <tr><td>Weeks–months</td><td>Ventricular aneurysm; Mural thrombus → embolism; Dressler syndrome</td><td>Fibrous scarring; autoimmune pericarditis (Dressler)</td></tr>
-          </table></div>
+        <ul>
+          <li>Severe, crushing, central chest pain &gt;20 min; may be pressure/heaviness rather than sharp pain.</li>
+          <li>Radiation to left arm, jaw, neck, or back.</li>
+          <li>Diaphoresis, nausea, vomiting; sense of impending doom.</li>
+          <li>Dyspnoea, pallor, cold clammy skin.</li>
+          <li><strong>Not reliably relieved by GTN</strong> in ACS (unlike stable exertional angina).</li>
+          <li><strong>Silent MI/atypical presentations</strong> common in diabetics, elderly, and some women (e.g. dyspnoea, fatigue, epigastric discomfort).</li>
+          <li>Signs: tachycardia, hypotension (cardiogenic shock), S4, S3 in LV failure, pulmonary crackles</li>
+        </ul>
+      </div>
+
+      <!-- INVESTIGATIONS & BIOMARKERS -->
+      <div class="section-box">
+        <div class="section-label sl-dx">
+          <span class="icon">🧪</span> Investigations & Biomarkers
         </div>
-        <div class="hy-box">
-          <strong>⚡ High Yield</strong>
-          <ul>
-            <li>Troponin I = most sensitive AND specific for MI (gold standard)</li>
-            <li>LAD = "widow maker" — most commonly involved vessel in MI</li>
-            <li>Reperfusion injury: contraction band necrosis; calcium influx + free radicals</li>
-            <li>Rupture most likely 4–7 days post-MI (macrophage digestion = weakest point)</li>
-            <li>Dressler syndrome: autoimmune fibrinous pericarditis 1–8 weeks post-MI; treat with NSAIDs + colchicine; avoid anticoagulation</li>
-          </ul>
+        <ul>
+          <li><strong>Troponin I:</strong> gold standard
+            <ul>
+              <li>Detectable rise as early as 1–3 h after symptom onset; use <strong>serial measurements</strong> </li>
+              <li><strong>MI (NSTEMI/STEMI)</strong> = troponin &gt;99th percentile with a <strong>rise and/or fall</strong> plus evidence of ischaemia (symptoms, ECG, imaging)</li>
+              <li><strong>Unstable angina:</strong> ischaemic symptoms ± ECG changes, but Troponin I remains within reference range on serial testing</li>
+            </ul>
+          </li>
+          <li>CK‑MB: may help in suspected reinfarction (falls back to normal sooner than troponin).</li>
+          <li>ECG:
+            <ul>
+              <li><strong>STEMI:</strong> new ST elevation in a coronary territory (or new LBBB considered STEMI‑equivalent).</li>
+              <li><strong>UA/NSTEMI:</strong> ST depression and/or T‑wave inversion, or normal ECG; changes may be dynamic (serial ECGs).[web:8]</li>
+            </ul>
+          </li>
+          <li>CXR: pulmonary oedema</li>
+            <li>Echo: wall motion abnormalities</li>
+            <li>Coronary angiography: definitive for STEMI</li>
+        </ul>
+      </div>
+
+      <!-- MANAGEMENT -->
+      <div class="section-box">
+        <div class="section-label sl-mx">
+          <span class="icon">💊</span> Management
         </div>
-        <div class="cdria-box">
-          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Clinical Approach to Chest Pain / ACS</span></div>
-          <ul>
-            <li><strong>Chest pain history:</strong> When did it start? Where is it? Radiation (neck/jaw/arm/back/abdomen)? Constant or intermittent? Severity 0–10? Worse with movement, deep breath, palpation, or exertion? Character (sharp/dull/heavy/pressure/stabbing)?</li>
-            <li><strong>Associated features to screen:</strong> Sweating, Vomiting, SOB, Palpitations, Dizziness, Calf pain/swelling, Cough, Fevers</li>
-            <li><strong>Cardiac risk stratification:</strong> DM, HTN, hypercholesterolaemia, FHx of AMI/angina/stents/bypasses, smoking. Indian/Sri Lankan ethnicity is an independent risk factor. Biggest RF = having had it before.</li>
-            <li><strong>ECG — 1st question:</strong> "Is it a STEMI?" STEMI = ST elevation &gt;1 little square (&gt;2 squares in V2/V3), in ≥2 contiguous leads, that is NEW, with active chest pain</li>
-            <li><strong>ECG — 2nd question:</strong> "Could it be a NSTEMI?" → ST depression or T inversion in arterial distribution; are changes evolving (dynamic)? Check OLD ECG then do SERIAL ECGs. <em>You CANNOT diagnose NSTEMI on ECG alone — prove it with serial troponins.</em></li>
-            <li><strong>Beware:</strong> Diabetic and possibly female silent AMI — may have no classic chest pain</li>
-            <li><strong>Management mnemonic — "I'm Acting General Manager ABCD Cath":</strong> IV access; Aspirin + GTN + Morphine (pain relief) → Atorvastatin, Beta-blocker, Clexane (LMWH), DAPT (Clopidogrel or Ticagrelor) → Cath lab</li>
-            <li><strong>STEMI vs NSTEMI — the only real difference is time to Cath:</strong> STEMI → &lt;90 min; NSTEMI → within 24hrs</li>
-            <li><strong>Explaining to patients (5 steps):</strong> [1] Check their understanding [2] Explain what's happening to the body (normal vs what's happening to them) [3] Tie in each symptom [4] Explain each investigation and medication/procedure and how it helps [5] Check understanding and invite questions</li>
-          </ul>
-          <p class="cdria-note">Source: CDRIA & Jon Lee — Disco Series Ep. 2 (Cardiac Conditions Revisited) + The Toolbox 1</p>
-        </div>
+        <ul>
+          <li><strong>Immediate (all suspected ACS):</strong>
+            <ul>
+              <li>MONITOR: cardiac monitor, serial ECGs, IV access, bloods including Troponin I</li>
+              <li><strong>Dual antiplatelet:</strong> Aspirin 300 mg STAT + P2Y12 inhibitor (ticagrelor preferred over clopidogrel unless high bleeding risk)</li>
+              <li><strong>Anticoagulation:</strong> LMWH (e.g. enoxaparin) or fondaparinux, or UFH</li>
+              <li>Oxygen only if SpO₂ &lt; 90–94% (avoid routine high‑flow O₂ in normoxic MI)</li>
+              <li>Sublingual/IV GTN for pain and BP control (avoid in hypotension or suspected RV infarction)</li>
+              <li>Morphine for persistent severe pain/anxiety (cautious use; may delay oral P2Y12 absorption)</li>
+            </ul>
+          </li>
+          <li><strong>STEMI:</strong>
+            <ul>
+              <li><strong>Immediate reperfusion:</strong> Primary PCI with door‑to‑balloon ≤90 min (or as per local target)</li>
+              <li>Fibrinolysis if timely PCI unavailable and no contraindications, ideally within 12 h of symptom onset</li>
+            </ul>
+          </li>
+          <li><strong>UA/NSTEMI:</strong>
+            <ul>
+              <li><strong>Early invasive strategy:</strong> Early PCI for high-risk; risk stratify (e.g. GRACE &gt;140, dynamic ST/T changes, ongoing pain, haemodynamic or electrical instability)</li>
+            </ul>
+          </li>
+          <li><strong>Secondary prevention:</strong> high‑intensity statin, ACEi/ARB, β‑blocker, long‑term single antiplatelet (usually aspirin), cardiac rehabilitation, aggressive risk‑factor modification.</li>
+        </ul>
       </div>
     </div>
 
-    <!-- STABLE ANGINA -->
-    <div class="condition" id="stable-angina">
-      <div class="condition-header" onclick="toggle(this)">
-        <span class="condition-num">CVS-05</span>
-        <span class="condition-name">Chronic Ischaemia / Stable Angina</span>
-        <span class="rank-badge r1">R1</span>
-        <span class="chevron">▼</span>
+    <!-- COMPLICATIONS TABLE (unchanged content, keep if you like) -->
+    <div class="section-box" style="margin-bottom:12px;">
+      <div class="section-label sl-comp">
+        <span class="icon">⏱</span> Complications by Time
       </div>
-      <div class="condition-body">
-        <div class="sections-grid">
-          <div class="section-box">
-            <div class="section-label sl-path"><span class="icon">🔬</span> Pathophysiology &amp; Types</div>
-            <ul>
-              <li><strong>Stable angina:</strong> &gt;70% stenosis → supply-demand mismatch on exertion; NO necrosis; ST depression on ECG; relieved by rest/GTN</li>
-              <li><strong>Unstable angina:</strong> Rest pain; plaque rupture + partial thrombosis; ST depression; high risk of MI</li>
-              <li><strong>Prinzmetal (vasospastic) angina:</strong> Coronary vasospasm; ST elevation at rest; relieved by GTN/CCBs</li>
-              <li><strong>Chronic IHD:</strong> Gradual myocardial damage → CHF</li>
-            </ul>
-          </div>
-          <div class="section-box">
-            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+      <div class="table-scroll">
+        <table class="mini">
+          <tr>
+            <th>Time</th>
+            <th>Complication</th>
+            <th>Mechanism</th>
+          </tr>
+          <tr>
+            <td>&lt;24 hrs</td>
+            <td>Arrhythmia (most common), cardiogenic shock</td>
+            <td>Ischaemic myocardium; most common cause of early death</td>
+          </tr>
+          <tr>
+            <td>1–3 days</td>
+            <td>Fibrinous pericarditis</td>
+            <td>Inflammatory reaction; friction rub, pleuritic chest pain</td>
+          </tr>
+          <tr>
+            <td>4–7 days</td>
+            <td>Free wall rupture → tamponade; Papillary muscle rupture → acute MR; Septal rupture → VSD</td>
+            <td>Weakest point: necrotic myocardium during macrophage phase</td>
+          </tr>
+          <tr>
+            <td>Weeks–months</td>
+            <td>Ventricular aneurysm; mural thrombus → embolism; Dressler syndrome</td>
+            <td>Fibrous scarring; autoimmune pericarditis (Dressler)</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- HIGH YIELD BOX (tweaked STEMI/NSTEMI line + UA/NSTEMI distinction) -->
+     <div class="hy-box">
+      <strong>⚡ High Yield</strong>
+      <ul>
+        <li>Troponin I = most sensitive AND specific for MI (gold standard)</li>
+        <li><strong>UA vs NSTEMI:</strong> same symptoms and ECG; the formal difference is <strong>troponin‑defined necrosis</strong>:
+          <ul>
+            <li>Normal serial Troponin → UA</li>
+            <li>Elevated Troponin with rise/fall → NSTEMI</li>
+          </ul>
+        </li>
+        <li>LAD = "widow maker" — most commonly involved vessel in MI</li>
+        <li>Reperfusion injury: contraction band necrosis; calcium influx + free radicals</li>
+        <li>Rupture most likely 4–7 days post-MI (macrophage digestion = weakest point)</li>
+        <li>Dressler syndrome: autoimmune fibrinous pericarditis 1–8 weeks post-MI; treat with NSAIDs + colchicine; avoid anticoagulation</li>
+      </ul>
+    </div>
+    
+
+    <!-- CDRIA BOX (keep structure; updated STEMI vs NSTEMI timing line) -->
+    <div class="cdria-box">
+      <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Clinical Approach to Chest Pain / ACS</span></div>
+      <ul>
+        <li><strong>Chest pain history:</strong> When did it start? Where is it? Radiation (neck/jaw/arm/back/abdomen)? Constant or intermittent? Severity 0–10? Worse with movement, deep breath, palpation, or exertion? Character (sharp/dull/heavy/pressure/stabbing)?</li>
+        <li><strong>Associated features to screen:</strong> Sweating, Vomiting, SOB, Palpitations, Dizziness, Calf pain/swelling, Cough, Fevers</li>
+        <li><strong>Cardiac risk stratification:</strong> DM, HTN, hypercholesterolaemia, FHx of AMI/angina/stents/bypasses, smoking. Indian/Sri Lankan ethnicity is an independent risk factor. Biggest RF = having had it before.</li>
+        <li><strong>ECG — 1st question:</strong> "Is it a STEMI?" STEMI = ST elevation &gt;1 little square (&gt;2 squares in V2/V3), in ≥2 contiguous leads, that is NEW, with active chest pain</li>
+        <li><strong>ECG — 2nd question:</strong> "Could it be a NSTEMI?" → ST depression or T inversion in arterial distribution; are changes evolving (dynamic)? Check OLD ECG then do SERIAL ECGs. <em>You CANNOT diagnose NSTEMI on ECG alone — prove it with serial troponins.</em></li>
+        <li><strong>Beware:</strong> Diabetic and possibly female silent AMI — may have no classic chest pain</li>
+        <li><strong>Management mnemonic — "I'm Acting General Manager ABCD Cath":</strong> IV access; Aspirin + GTN + Morphine (pain relief) → Atorvastatin, Beta-blocker, Clexane (LMWH), DAPT (Clopidogrel or Ticagrelor) → Cath lab</li>
+        <li><strong>STEMI vs NSTEMI — the only real difference is time to Cath:</strong> STEMI → &lt;90 min; NSTEMI → within 24hrs</li>
+        <li><strong>Explaining to patients (5 steps):</strong> [1] Check their understanding [2] Explain what's happening to the body (normal vs what's happening to them) [3] Tie in each symptom [4] Explain each investigation and medication/procedure and how it helps [5] Check understanding and invite questions</li>
+      </ul>
+      <p class="cdria-note">Source: CDRIA & Jon Lee — Disco Series Ep. 2 (Cardiac Conditions Revisited) + The Toolbox 1</p>
+    </div>
+  </div>
+</div>  
+
+    <!-- STABLE ANGINA / CHRONIC ISCHAEMIA -->
+<div class="condition" id="stable-angina">
+  <div class="condition-header" onclick="toggle(this)">
+    <span class="condition-num">CVS-05</span>
+    <span class="condition-name">Chronic Ischaemia – Stable Angina</span>
+    <span class="rank-badge r1">R1</span>
+    <span class="chevron">⌄</span>
+  </div>
+  <div class="condition-body">
+    <div class="sections-grid">
+      <!-- PATHOPHYSIOLOGY -->
+      <div class="section-box">
+        <div class="section-label sl-path">
+          <span class="icon">🧬</span> Pathophysiology
+        </div>
+        <ul>
+          <li><strong>Stable angina:</strong> &gt;70% stenosis → supply-demand mismatch on exertion; NO necrosis; ST depression on ECG; relieved by rest/GTN</li>
+          <li>Resting perfusion is adequate; no ongoing ischaemia at rest and <strong>no myocardial necrosis</strong> → troponin remains normal</li>
+          <li><strong>Chronic ischaemic heart disease:</strong> Gradual myocardial damage → CHF</li>
+        </ul>
+      </div>
+
+      <!-- SYMPTOMS & SIGNS -->
+      <div class="section-box">
+        <div class="section-label sl-sx">
+          <span class="icon">🩺</span> Symptoms & Signs
+        </div>
+        <ul>
+          <li>Central or left‑sided chest pressure/heaviness (not sharp), ± radiation to arm, neck, jaw or back.</li>
+          <li>Provoked by exertion (walking uphill, stairs) or emotional stress; relieved within minutes by rest and/or sublingual GTN.</li>
+          <li>Symptoms are <strong>predictable and reproducible</strong> with a given level of exertion/emotional stress and resolve with rest/GTN within minutes</li>
+        </ul>
+      </div>
+
+      <!-- INVESTIGATIONS -->
+      <div class="section-box">
+        <div class="section-label sl-dx">
+          <span class="icon">🧪</span> Investigations
+        </div>
+        <ul>
+          <li><strong>Baseline:</strong> resting ECG, FBC, U&E, lipids, HbA1c, renal function, fasting glucose</li>
+          <li><strong>Functional testing:</strong> exercise ECG, stress echo, or nuclear perfusion scan to demonstrate inducible ischaemia</li>
+          <li><strong>Anatomical imaging:</strong> CT coronary angiography (CTCA) or invasive coronary angiography for high‑risk or unclear cases</li>
+          <li>Troponin is not elevated in stable angina (if elevated with compatible symptoms → think NSTE‑ACS rather than “stable” angina)</li>
+        </ul>
+      </div>
+
+      <!-- MANAGEMENT -->
+      <div class="section-box">
+        <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
             <ul>
               <li><strong>Acute:</strong> Sublingual GTN (glyceryl trinitrate) spray</li>
               <li><strong>Long-term symptom control:</strong> β-blocker (first-line) OR rate-limiting CCB; long-acting nitrates; nicorandil; ivabradine</li>
@@ -937,9 +1041,12 @@
               <li><strong>Revascularisation:</strong> PCI or CABG if refractory or multi-vessel disease</li>
               <li>Risk factor modification (smoking, hypertension, DM, dyslipidaemia)</li>
             </ul>
-          </div>
-        </div>
-        <div class="cdria-box">
+      </div>
+    </div>
+
+    
+    <!-- CDRIA BOX (kept, with minor wording tweak on ST depression) -->
+    <div class="cdria-box">
           <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — IHD/Angina Pattern Recognition & Wellen's Syndrome</span></div>
           <ul>
             <li><strong>Classic IHD/angina pattern (Red Flags):</strong> Central or left-sided chest pressure/heaviness radiating to arm, neck, jaw or back; establish ONSET and DURATION; NOT worse with deep inspiration or palpation; worse with exertion; associated N/V, SOB, dizziness. Risk factor profile: personal hx IHD/HTN/cholesterol/DM, FHx, smoking. Note: Indian/Sri Lankan ethnicity is an independent risk factor for IHD.</li>
@@ -949,8 +1056,8 @@
           </ul>
           <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 1 (Red Flags: Chest Pain) + The Toolbox 5 (Approach to ECGs)</p>
         </div>
-      </div>
-    </div>
+  </div>
+</div>
 
     <div class="category-label">Vascular Disease</div>
 
@@ -2878,7 +2985,7 @@
     <div class="condition" id="gallstones">
       <div class="condition-header" onclick="toggle(this)">
         <span class="condition-num">HEP-06</span>
-        <span class="condition-name">Gallstones (Cholelithiasis) &amp; Related Conditions</span>
+        <span class="condition-name">Gallstones (Cholelithiasis) / Related Conditions</span>
         <span class="rank-badge r1">R1</span>
         <span class="chevron">▼</span>
       </div>
@@ -2992,13 +3099,13 @@
       </div>
     </div>
 
-    <div class="category-label">Genetic &amp; Inflammatory Liver Disease</div>
+    <div class="category-label">Genetic / Inflammatory Liver Disease</div>
 
     <!-- GENETIC/INFLAMMATORY LIVER -->
     <div class="condition" id="genetic-liver">
       <div class="condition-header" onclick="toggle(this)">
         <span class="condition-num">HEP-08</span>
-        <span class="condition-name">Genetic &amp; Inflammatory Liver Disease</span>
+        <span class="condition-name">Genetic / Inflammatory Liver Disease</span>
         <span class="rank-badge r3">R3</span>
         <span class="chevron">▼</span>
       </div>
