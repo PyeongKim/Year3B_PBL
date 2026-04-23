@@ -605,7 +605,9 @@
     <a href="#genetic-liver" class="sidebar-link hep" onclick="openAndScrollTo('genetic-liver',event)">Genetic/Inflammatory Liver <span class="badge r3">R3</span></a>
     <a href="#hepatic-abscess" class="sidebar-link hep" onclick="openAndScrollTo('hepatic-abscess',event)">Hepatic Abscess <span class="badge r3">R3</span></a>
     <div class="sidebar-section">Gastrointestinal</div>
-    <a href="#gord-pud" class="sidebar-link gi" onclick="openAndScrollTo('gord-pud',event)">GORD / Peptic Ulcer Disease <span class="badge r1">R1</span></a>
+    <!-- <a href="#gord-pud" class="sidebar-link gi" onclick="openAndScrollTo('gord-pud',event)">GORD / Peptic Ulcer Disease <span class="badge r1">R1</span></a> -->
+    <a href="#gord" class="sidebar-link gi" onclick="openAndScrollTo('gord',event)">GORD <span class="badge r1">R1</span></a>
+    <a href="#pud" class="sidebar-link gi" onclick="openAndScrollTo('pud',event)">Peptic Ulcer Disease <span class="badge r1">R1</span></a>
     <a href="#oes-ca" class="sidebar-link gi" onclick="openAndScrollTo('oes-ca',event)">Oesophageal &amp; Gastric Cancer <span class="badge r2">R2</span></a>
     <a href="#oes-motility" class="sidebar-link gi" onclick="openAndScrollTo('oes-motility',event)">Oesophageal Motility Disorders <span class="badge r3">R3</span></a>
     <a href="#acute-panc" class="sidebar-link gi" onclick="openAndScrollTo('acute-panc',event)">Acute Pancreatitis <span class="badge r1">R1</span></a>
@@ -769,7 +771,7 @@
           <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Clinical Approach to Tachyarrhythmias</span></div>
           <ul>
             <li><strong>History framework — think Predisposing / Precipitating / Complicating:</strong></li>
-            <li><strong>Predisposing:</strong> Ever had this before? Known AF or SVT? On medications for it? How did they stop it last time?</li>
+            <li><strong>Risk factors:</strong> Ever had this before? Known AF or SVT? On medications for it? How did they stop it last time?</li>
             <li><strong>Precipitating:</strong> Infection screen (fever, focal sx); medication compliance; ETOH; caffeine; illicit drugs; hyperthyroid symptoms; PE risk screen</li>
             <li><strong>Complicating:</strong> SOB, chest pain (already covered); focal neuro symptoms for stroke — but only ask if it sounds like AF; ischaemic events if tachycardia with underlying IHD</li>
             <li><strong>ECG approach (in order):</strong> Is it fast? → Narrow or Broad? → Regular or Irregular? → P waves present? — Top 3 narrow complex tachycardia: Sinus tach / SVT / Rapid AF. "Broad = more concerning; Narrow = less concerning"</li>
@@ -1493,7 +1495,7 @@
             <div class="section-label sl-dx"><span class="icon">🔬</span> Diagnosis: Duke Criteria</div>
             <ul>
               <li><strong>Major:</strong> Positive blood cultures (x2), Echo evidence (vegetation/abscess)</li>
-              <li><strong>Minor:</strong> Predisposing condition, fever, vascular phenomena, immunological phenomena, single positive culture</li>
+              <li><strong>Minor:</strong> Risk factors, fever, vascular phenomena, immunological phenomena, single positive culture</li>
               <li><strong>Definite IE:</strong> 2 major OR 1 major + 3 minor OR 5 minor</li>
               <li>Echo: TOE (transoesophageal) superior to TTE</li>
               <li>Blood cultures: 3 sets from different sites before antibiotics</li>
@@ -3223,7 +3225,7 @@
 
     <div class="category-label">Diseases of the Oesophagus, Stomach &amp; Duodenum</div>
 
-    <!-- GIS-01: GORD / PUD -->
+    <!-- GIS-01: GORD / PUD
     <div class="condition" id="gord-pud">
       <div class="condition-header" onclick="toggle(this)">
         <span class="condition-num">GIS-01</span>
@@ -3315,6 +3317,152 @@
             <li>ZES: refractory ulcers + diarrhoea + ↑↑fasting gastrin &gt;1000; secretin stimulation test; MEN1</li>
             <li>NSAID ulcers: often painless; present with bleeding especially in elderly</li>
             <li>All gastric ulcers need biopsy (rule out malignancy) + repeat OGD after treatment</li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+    <!-- GIS-01: GORD -->
+    <div class="condition" id="gord">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">GIS-01A</span>
+        <span class="condition-name">Gastro-oesophageal Reflux Disease (GORD)</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Pathophysiology</div>
+            <ul>
+              <li>Transient relaxations of lower oesophageal sphincter (LOS) → acid reflux</li>
+              <li>Risk factors: obesity (most important), hiatal hernia, pregnancy, large meals, recumbency, alcohol, smoking, fatty foods, caffeine, drugs (CCBs, nitrates)</li>
+              <li><strong>Barrett's oesophagus:</strong> metaplasia — stratified squamous → columnar with intestinal goblet cells; chronic GORD → ↑risk of oesophageal adenocarcinoma (0.3%/year)</li>
+              <li><strong>Scleroderma:</strong> smooth muscle atrophy → ↓LOS pressure → severe GORD; part of CREST syndrome</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Symptoms &amp; Signs</div>
+            <ul>
+              <li>Heartburn (pyrosis): retrosternal burning, worse after meals and lying flat, relieved by antacids</li>
+              <li>Regurgitation of acid/food</li>
+              <li>Dysphagia (if stricture)</li>
+              <li><strong>Extraoesophageal:</strong> chronic cough, hoarseness (laryngopharyngeal reflux), asthma exacerbation, dental erosions, globus sensation</li>
+              <li><strong>Alarm features → urgent endoscopy:</strong> dysphagia, odynophagia, weight loss, vomiting, GI bleeding, iron-deficiency anaemia, age &gt;50 with new symptoms</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>Clinical diagnosis</strong> if typical symptoms — empirical PPI trial</li>
+              <li><strong>Urgent gastroscopy (OGD)</strong> if any alarm features; assess for oesophagitis, stricture, Barrett's; biopsy suspicious areas</li>
+              <li><strong>24-hour ambulatory pH monitoring ± impedance:</strong> gold standard; reserved for atypical symptoms or pre-surgical workup</li>
+              <li><strong>Oesophageal manometry:</strong> pre-fundoplication; exclude motility disorders (achalasia, scleroderma)</li>
+              <li>FBC, ferritin if anaemia suspected</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>Lifestyle:</strong> Weight loss, head-of-bed elevation, avoid triggers (alcohol, fatty food, caffeine), small meals, avoid eating &lt;3h before lying down</li>
+              <li><strong>Antacids / alginate:</strong> Gaviscon — immediate relief, PRN use</li>
+              <li><strong>PPI (first-line pharmacotherapy):</strong> omeprazole, esomeprazole, pantoprazole — 4–8 weeks; most effective; take 30 min before meals</li>
+              <li><strong>H2-blockers:</strong> famotidine — if PPI not tolerated; less effective</li>
+              <li><strong>Barrett's:</strong> Long-term PPI; surveillance endoscopy (every 2–5 years); endoscopic ablation (RFA) for dysplasia</li>
+              <li><strong>Surgery:</strong> Nissen fundoplication for refractory GORD or large hiatal hernia</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>Barrett's → goblet cell metaplasia (intestinal) → adenocarcinoma; surveillance every 2–5 years</li>
+            <li>Alarm features (dysphagia, weight loss, bleeding, anaemia, age &gt;50 new onset) → urgent OGD, never just empirical PPI</li>
+            <li>Obesity is the single most important modifiable risk factor</li>
+            <li>Scleroderma GORD → severe, often refractory; check for CREST features</li>
+            <li>Stop PPI ≥2 weeks before H. pylori testing (UBT/stool antigen) — false negatives</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- GIS-02: PUD -->
+    <div class="condition" id="pud">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">GIS-01B</span>
+        <span class="condition-name">Peptic Ulcer Disease (PUD)</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Pathophysiology &amp; Types</div>
+            <ul>
+              <li><strong>H. pylori (most common):</strong> ~70% gastric ulcers, ~90% duodenal ulcers; urease → NH₃ → mucosal damage; also triggers ↑gastrin; associated with MALT lymphoma; antrum first</li>
+              <li><strong>NSAIDs (2nd most common):</strong> ↓PGE₂ → ↓mucosal protection (↓mucus, ↓bicarbonate, ↓blood flow); dose-dependent</li>
+              <li><strong>Zollinger-Ellison syndrome:</strong> gastrinoma (non-β islet cell tumour, often duodenum/pancreas) → ↑↑gastrin → ↑↑HCl → multiple refractory ulcers; MEN1 association</li>
+              <li><strong>Stress ulcers:</strong> Curling (burns — hypovolaemia → ischaemia); Cushing (brain injury — ↑vagal tone → ↑ACh → ↑HCl)</li>
+              <li><strong>Gastric ulcer:</strong> ↓mucosal protection; ↑malignancy risk → biopsy</li>
+              <li><strong>Duodenal ulcer:</strong> ↑acid secretion; more common than gastric (4:1)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Symptoms &amp; Signs</div>
+            <ul>
+              <li><strong>Epigastric pain:</strong> gnawing / burning; classic discriminator:
+                <ul>
+                  <li><strong>Gastric ulcer:</strong> pain ↑ with meals → food aversion → weight loss</li>
+                  <li><strong>Duodenal ulcer:</strong> pain 2–5h post-prandial, relieved by food/antacids, wakes patient at night</li>
+                </ul>
+              </li>
+              <li>Nausea, bloating, early satiety, belching</li>
+              <li>NSAID ulcers often <strong>painless</strong> — present with bleeding, especially in elderly</li>
+              <li><strong>Alarm features:</strong> haematemesis, melaena, weight loss, persistent vomiting, iron-deficiency anaemia, age &gt;50 new onset → urgent OGD</li>
+              <li><strong>Suspect ZES:</strong> multiple/refractory ulcers, distal duodenum/jejunum, chronic diarrhoea, steatorrhoea</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>H. pylori testing:</strong> Non-invasive — urea breath test (UBT — gold standard non-invasive); stool antigen test; serology (confirms exposure, not active infection). <strong>Stop PPIs 2 weeks before UBT/stool antigen</strong></li>
+              <li><strong>Endoscopy (OGD):</strong> indicated if alarm features or &gt;50 with new dyspepsia; <strong>all gastric ulcers must be biopsied</strong> (exclude malignancy); rapid urease test (CLO test) on biopsy for H. pylori</li>
+              <li><strong>Repeat OGD at 6–8 weeks</strong> for all gastric ulcers to confirm healing</li>
+              <li><strong>Fasting serum gastrin</strong> if ZES suspected (on and off PPI); &gt;1000 pg/mL diagnostic; secretin stimulation test confirms</li>
+              <li>FBC, ferritin (iron-deficiency anaemia); erect CXR if perforation suspected (free air under diaphragm)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management — H. pylori Eradication (Australian)</div>
+            <ul>
+              <li><strong>First-line triple therapy (7–14 days):</strong> PPI (standard dose BD) + amoxicillin 1g BD + clarithromycin 500mg BD. Take with meals. Complete full course.</li>
+              <li><strong>Penicillin allergy:</strong> PPI + clarithromycin 500mg BD + metronidazole 400mg BD × 7–14 days</li>
+              <li><strong>Quadruple therapy</strong> (clarithromycin resistance &gt;15% or previous macrolide exposure): PPI BD + bismuth subcitrate (De-Nol) QID + tetracycline 500mg QID + metronidazole 400mg TDS × 14 days</li>
+              <li><strong>Test of cure:</strong> UBT or stool antigen ≥4 weeks after completing eradication (off PPI ≥2 weeks)</li>
+              <li><strong>NSAID-related ulcers:</strong> Stop NSAID if possible; PPI for 4–8 weeks; if NSAID must continue → PPI prophylaxis (misoprostol alternative)</li>
+              <li><strong>ZES:</strong> high-dose PPI; localise tumour (octreotide scan, EUS); surgical resection if possible</li>
+            </ul>
+          </div>
+        </div>
+        <div class="section-box" style="margin-bottom:12px">
+          <div class="section-label sl-comp"><span class="icon">⚠️</span> Complications</div>
+          <div class="table-scroll"><table class="mini">
+            <tr><th>Complication</th><th>Features</th><th>Management</th></tr>
+            <tr><td>Haemorrhage (most common)</td><td>Haematemesis, melaena; posterior duodenal ulcer → gastroduodenal artery; lesser curve gastric → left gastric artery</td><td>Resuscitate; PPI IV infusion; urgent OGD with adrenaline injection + haemoclip/thermocoagulation; Rockall/Blatchford score; interventional radiology if OGD fails; surgery last resort</td></tr>
+            <tr><td>Perforation</td><td>Sudden severe abdominal pain → generalised peritonitis; pneumoperitoneum on erect CXR (free air under diaphragm); anterior duodenal most common</td><td>Urgent surgery (Graham patch repair ± washout); IV antibiotics; NGT decompression</td></tr>
+            <tr><td>Gastric outlet obstruction</td><td>Nausea, vomiting (undigested food), succussion splash; pyloric channel/duodenal scarring</td><td>NGT, IV fluids, electrolyte correction; endoscopic balloon dilation; surgery if refractory</td></tr>
+            <tr><td>Penetration</td><td>Pain radiates to back; posterior duodenal ulcer into pancreas; ↑amylase/lipase</td><td>Medical management; surgery if fails</td></tr>
+          </table></div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>H. pylori: urease → ammonia → mucosal damage; antrum first → body; also ↑gastrin; MALT lymphoma</li>
+            <li>Gastric ulcer pain ↑ with food; duodenal ulcer pain relieved by food + nocturnal</li>
+            <li>Free air under diaphragm on erect CXR = perforated viscus (usually DU) → emergency surgery</li>
+            <li>ZES: refractory ulcers + diarrhoea + ↑↑fasting gastrin &gt;1000; secretin stimulation test; MEN1</li>
+            <li>NSAID ulcers: often painless; present with bleeding especially in elderly</li>
+            <li>All gastric ulcers need biopsy (rule out malignancy) + repeat OGD at 6–8 weeks after treatment</li>
+            <li>Rockall score (mortality) and Glasgow-Blatchford score (need for intervention) in upper GI bleed</li>
           </ul>
         </div>
       </div>
