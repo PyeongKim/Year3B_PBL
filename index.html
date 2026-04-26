@@ -244,7 +244,7 @@
     padding: 14px 16px;
   }
   .section-label {
-    font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
     margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
   }
   .section-label .icon { font-size: 13px; }
@@ -252,15 +252,15 @@
   .section-box ul li {
     padding: 2px 0 2px 12px;
     position: relative;
-    font-size: 13.5px;
+    font-size: 12.5px;
     color: #c9d1d9;
   }
   .section-box ul li::before {
     content: '›'; position: absolute; left: 0;
-    color: var(--muted); font-size: 14px;
+    color: var(--muted); font-size: 12.5px;
   }
   .section-box ul li strong { color: var(--text); font-weight: 600; }
-  .section-box p { font-size: 13.5px; color: #c9d1d9; }
+  .section-box p { font-size: 13px; color: #c9d1d9; }
   .section-box p + p { margin-top: 6px; }
 
   /* COLOR CODED SECTION LABELS */
@@ -281,7 +281,7 @@
     border-radius: 0 8px 8px 0;
     padding: 12px 16px;
     margin-top: 12px;
-    font-size: 13px;
+    font-size: 12.5px;
   }
   .hy-box strong { color: var(--highlight); font-weight: 700; }
   .hy-box ul { list-style: none; padding: 0; margin-top: 6px; }
@@ -296,7 +296,7 @@
     border-radius: 0 8px 8px 0;
     padding: 12px 16px;
     margin-top: 10px;
-    font-size: 13px;
+    font-size: 12px;
   }
   .cdria-box .cdria-header {
     display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
@@ -307,15 +307,33 @@
     border: 1px solid rgba(56,189,248,0.35); border-radius: 3px;
     padding: 2px 7px;
   }
-  .cdria-box .cdria-title { color: #7dd3fc; font-weight: 700; font-size: 13px; }
+  .cdria-box .cdria-title { color: #7dd3fc; font-weight: 700; font-size: 12px; }
   .cdria-box ul { list-style: none; padding: 0; }
-  .cdria-box ul li { padding: 2px 0 2px 14px; position: relative; color: #bae6fd; font-size: 13px; }
+  .cdria-box ul li { padding: 2px 0 2px 14px; position: relative; color: #bae6fd; font-size: 12.5px; }
   .cdria-box ul li::before { content: '◆'; position: absolute; left: 0; font-size: 7px; color: #38bdf8; top: 6px; }
   .cdria-box ul li strong { color: #e0f2fe; font-weight: 700; }
   .cdria-box .cdria-note { font-size: 11px; color: #7dd3fc; margin-top: 8px; font-style: italic; opacity: 0.8; }
   @media (max-width: 768px) {
     .cdria-box { font-size: 12px; padding: 10px 12px; }
     .cdria-box ul li { font-size: 12px; }
+  }
+
+  /* Nested elements */
+  .cdria-box ol {
+    list-style: decimal;
+    padding-left: 1.4em;
+    margin-top: 4px;
+  }
+
+  .cdria-box ol li {
+    padding-left: 0;          /* remove the 14px indent used for the diamond */
+    list-style-position: outside;
+    color: #bae6fd;           /* match parent li colour */
+    font-size: 12.5px;
+  }
+
+  .cdria-box ol li::before {
+    content: none;            /* kill the diamond */
   }
 
   /* MINI TABLES */
@@ -1807,7 +1825,7 @@
 
     <div class="category-label">Respiratory Infections</div>
 
-    <!-- PNEUMONIA -->
+    <!-- PNEUMONIA
     <div class="condition" id="pneumonia">
       <div class="condition-header" onclick="toggle(this)">
         <span class="condition-num">RESP-03</span>
@@ -1854,15 +1872,19 @@
             <li><strong>Classic pattern (often pleuritic chest pain in older patients):</strong> Pain worse with coughing or deep inspiration; productive cough (note productive vs non-productive); fever; ±haemoptysis; SOB; vomiting/rigors</li>
             <li><strong>Key differentiator from ACS:</strong> Pneumonia chest pain is pleuritic (worse with deep breath and movement) — ACS pain is NOT worse with inspiration or palpation</li>
             <li><strong>Risk stratify for atypical vs CAP:</strong> Is there known COPD or CCF? (clarify their baseline SOB vs current). Immunocompromised? Recent hospitalisation/travel?</li>
-            <li><strong>Investigation approach:</strong> CXR (consolidation, exclude PTX), FBE (neutrophilia = bacterial), CRP, sputum M/C/S, urine Legionella/pneumococcal antigen if severe</li>
+            <li><strong>Key questions: </strong>Degree of SOB (baseline vs now), septic sx/signs – vomiting, rigors, sweats, confusion, tachycardia, hypoxia, tachypnea, hypotension</li>
+            <li><strong>Pneumonia</strong> is one of complications of zoster/varicella (others are encephalitis/meningitis; ocular involvement, auricular involvement)</li>
+            <li><strong>Investigation approach:</strong> CXR, FBE, CRP, UECr, ± LFT, blood culture (if febrile), sputum MCS, NPA PCR, ECG; atypical serology or atypical Bacterial PCR if suspecting atypical; urinary Legionella antigen</li>
             <li><strong>Differentials not to miss in chest pain + fever:</strong> PE (pleuritic pain + tachycardia/hypoxia + risk factors), empyema (persistent fever despite antibiotics)</li>
+            <li><strong>Risk factors:</strong> Sick contack; recent travel (esp oversea); recent hospitalization; exposure to birds, moulds, farms, hay, animals; occupation; country of origin; MHx of diabetes, COPD/Asthma, Cancer; medications (steriod, chemo, immunosuppresive); smoking; nursing home</li>
           </ul>
           <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 1 (Red Flags: Chest Pain)</p>
         </div>
       </div>
-    </div>
+    </div> -->
+    
 
-    <!-- TB -->
+    <!-- TB
     <div class="condition" id="tb">
       <div class="condition-header" onclick="toggle(this)">
         <span class="condition-num">RESP-04</span>
@@ -1925,6 +1947,183 @@
             <li>Sterile pyuria = renal TB until proven otherwise</li>
             <li>Isoniazid → peripheral neuropathy prevented by pyridoxine (B6)</li>
             <li>Ethambutol → optic neuritis (check visual acuity + colour vision before starting)</li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- PNEUMONIA -->
+    <div class="condition" id="pneumonia">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-03</span>
+        <span class="condition-name">Pneumonia</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="table-scroll"><table class="mini">
+          <tr><th>Type</th><th>Pattern</th><th>Key Organisms</th><th>Features</th></tr>
+          <tr>
+            <td>Lobar Pneumonia</td>
+            <td>Entire lobe consolidated</td>
+            <td>S. pneumoniae (95%); Klebsiella (alcoholics, aspiration)</td>
+            <td>Acute onset; fever; pleuritic pain; rusty sputum; neutrophilia; stages: congestion → red hepatisation → grey hepatisation → resolution</td>
+          </tr>
+          <tr>
+            <td>Bronchopneumonia</td>
+            <td>Patchy, multifocal, bilateral; bronchiole-centred</td>
+            <td>S. aureus, H. influenzae, Klebsiella, Streptococcus pyogenes</td>
+            <td>Less acute; often secondary to viral URTI or hospital-acquired</td>
+          </tr>
+          <tr>
+            <td>Atypical / Interstitial</td>
+            <td>Diffuse interstitial infiltrates; interstitium involved</td>
+            <td>Mycoplasma (most common; young adults; cold agglutinins), Legionella, Chlamydia, viruses</td>
+            <td>"Walking pneumonia"; mild prodrome; non-productive cough; minimal sputum; responds to macrolides/doxycycline (not β-lactams)</td>
+          </tr>
+          <tr>
+            <td>Aspiration Pneumonia</td>
+            <td>Dependent lung segments (RLL most common); patchy</td>
+            <td>Mixed oropharyngeal flora; anaerobes</td>
+            <td>Impaired swallowing/consciousness (CVA, intoxication, MND, pharyngeal malignancy); Rx: IV Ceftriaxone/BenzPen ± Metronidazole or Clindamycin</td>
+          </tr>
+        </table></div>
+
+        <!-- Aspiration Pneumonia vs Pneumonitis Callout -->
+        <div class="section-box" style="margin-top:12px; background:#41643f; border-left:4px solid #0b5e00">
+          <div>
+          <div class="section-label sl-sx"><span class="icon">⚠️</span> Aspiration Pneumonia vs Aspiration Pneumonitis</div> 
+          <ul >
+            <li><strong>Pneumonia (bacterial):</strong> Inhalation of oropharyngeal <em>bacteria</em> → bacterial infection. Predisposed by impaired swallowing/protective reflexes (CVA, MND, malignancy, intoxication). <strong>Needs antibiotics</strong> (IV Ceftriaxone/BenzPen ± Metronidazole or Clindamycin).</li>
+            <li><strong>Pneumonitis (chemical):</strong> Inhalation of <em>gastric contents</em> → sterile chemical inflammation (acid-mediated). Gastric contents usually sterile → does <strong>not always need antibiotics</strong>. Rx: airway protection, supportive care; antibiotics only if secondary bacterial pneumonia develops.</li>
+          </ul>
+          </div>
+        </div>
+
+        <div class="sections-grid" style="margin-top:16px">
+          <div class="section-box" >
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features</div>
+            <ul>
+              <li>Fever, rigors, productive cough, dyspnoea</li>
+              <li>Pleuritic chest pain (if pleuritis)</li>
+              <li>Signs: crackles, bronchial breathing, dullness to percussion, ↑vocal resonance</li>
+              <li><strong>Legionella:</strong> age &gt;50, COPD/smoking hx; non-person-to-person (aircon mist, cooling towers); diarrhoea, liver dysfunction, hyponatraemia, high fever, confusion; Dx: urinary Legionella antigen; Rx: Azithromycin or Ciprofloxacin</li>
+              <li><strong>Klebsiella:</strong> alcoholics/malnourished; "currant jelly" sputum; cavitating, upper lobe</li>
+              <li><strong>Mycoplasma:</strong> crowded settings (schools, barracks, nursing homes, colleges); cold agglutinins; serious Cx: encephalitis, haemolytic anaemia, renal impairment, SJS/erythema multiforme; Rx: Azithromycin or Doxycycline</li>
+              <li><strong>Chlamydia psittaci:</strong> exposure to birds (esp. cleaning cages); Rx: Azithromycin or Doxycycline</li>
+              <li><strong>Q fever (Coxiella burnetii):</strong> vets, livestock/dairy farmers, abattoir workers; Rx: Doxycycline</li>
+              <li><strong>PCP (Pneumocystis jirovecii):</strong> HIV (CD4 &lt;200); "ground-glass" on CT; non-productive cough; Rx: co-trimoxazole (high dose)</li>
+              <li><strong>Varicella pneumonia:</strong> most serious complication of chickenpox in adults; develops 1–6 days after rash onset; tachypnoea, cough, dyspnoea, ± haemoptysis, ± pleuritic pain; Rx: IV Acyclovir 7–10 days + supportive</li>
+              <li><strong>Aspergillus:</strong> invasive in severe immunodeficiency (neutropenic); chronic necrotising in mild immunodeficiency/chronic lung disease; aspergilloma (fungal ball in cavity); ABPA in atopy/asthma/CF; Rx: Voriconazole (first-line) or Amphotericin B</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>CURB-65:</strong> Confusion, Urea &gt;7, RR≥30, BP SBP&lt;90/DBP≤60, Age≥65 (1 pt each)</li>
+              <li><strong>Mild typical CAP:</strong> inpatient; oral Amoxicillin (or Augmentin)</li>
+              <li><strong>Atypical CAP: </strong> inpatient; oral Doxycycline</li>
+              <li><strong>Moderdate typical: </strong> ADMIT; IV Benzylpenicillin + oral Doxycycline</li>
+              <li><strong>Severe typical/atypical Pneumonia:</strong> ADMIT; IV Ceftriaxone + Azithromycin</li>
+              <li><strong>HAP/VAP:</strong> broad spectrum with pseudomonal cover (Pip-Tazo, Ceftazidime ± aminoglycoside)</li>
+              <li>O₂ to maintain SpO₂ &gt;94%; IV fluids; physiotherapy</li>
+              <li>Pneumococcal vaccine; influenza vaccine; document vaccination profile</li>
+              <li><strong>Viral pneumonias:</strong> rapidly progressive — get CXR early if vitals trending; diagnose with NPA Respiratory PCR; Influenza → Oseltamivir (Tamiflu); Varicella → IV Acyclovir</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cdria-box">
+          <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Pneumonia Pattern Recognition</span></div>
+          <ul>
+            <li><strong>The 4-Question Framework:</strong>
+              <ol style="margin-top:4px;">
+                <li><em>Could it be pneumonia?</em> — Any of: fever, cough (productive/non ± blood), SOB, confusion, ± chest pain, vomiting, rigors, sweats</li>
+                <li><em>What sort?</em> — Typical vs atypical; CAP vs HAP; bacterial vs viral; time course; failure to respond to typical cover; recent travel, sick contacts, occupational/animal exposure, immunosuppression, country of origin</li>
+                <li><em>How is the patient handling it?</em> — Degree of SOB (<strong>baseline vs now!</strong>); septic sx (vomiting, rigors, sweats, confusion); septic signs (tachycardia, hypoxia, tachypnoea, hypotension)</li>
+                <li><em>How likely to get worse?</em> — Comorbidities, age, immunosuppression, failure of initial Rx, rib fractures/trauma</li>
+              </ol>
+            </li>
+            <li><strong>Classic pattern (often pleuritic chest pain in older patients):</strong> Pain worse with coughing or deep inspiration; productive cough (note productive vs non-productive); fever; ± haemoptysis; SOB; vomiting/rigors</li>
+            <li><strong>Key differentiator from ACS:</strong> Pneumonia chest pain is pleuritic (worse with deep breath and movement) — ACS pain is NOT worse with inspiration or palpation</li>
+            <li><strong>Risk stratify for atypical vs CAP:</strong> Known COPD or CCF? (clarify baseline SOB vs current). Immunocompromised? Recent hospitalisation/travel?</li>
+            <li><strong>Scoring system limitations:</strong> CURB-65 misses O₂ sats, exertional component, baseline vs now, immunosuppression — a patient can score 0 on arrival and deteriorate rapidly. PSI/PORT and SMART-COP are better but still have hard cutoffs. Always combine scores with clinical judgement.</li>
+            <li><strong>Differentials not to miss — chest pain + fever:</strong> PE (pleuritic pain + tachycardia/hypoxia + risk factors), empyema (persistent fever despite antibiotics)</li>
+            <li><strong>Investigation approach:</strong> CXR; FBE, UECr, CRP, ± LFT; blood culture (if febrile); sputum MCS; NPA Respiratory PCR (viral); atypical serology or atypical bacterial PCR (if suspecting atypical); urinary Legionella antigen; ECG</li>
+            <li><strong>Varicella complications (x4):</strong> Pneumonia, Encephalitis/meningitis, Ocular involvement, Auricular involvement — auricular + facial nerve palsy = <strong>Ramsay Hunt Syndrome</strong></li>
+            <li><strong>Risk factors:</strong> Sick contact; recent travel (esp overseas); recent hospitalisation; exposure to birds, moulds, farms, hay, animals; occupation; country of origin (<strong>Aboriginal/Torres Strait Islander descent</strong>); Hx of diabetes, COPD/asthma, cancer; medications (steroids, chemo, immunosuppressives); smoking; nursing home; <strong>vaccination profile</strong></li>
+          </ul>
+          <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 1 (Red Flags: Chest Pain); Main Series 3 (Approach to SOB Pt II)</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- TB -->
+    <div class="condition" id="tb">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">RESP-04</span>
+        <span class="condition-name">Tuberculosis</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Primary TB</div>
+            <ul>
+              <li>Initial infection with <em>Mycobacterium tuberculosis</em>; airborne droplet nuclei</li>
+              <li>Ghon focus: caseating granuloma in lower lobes (subpleural)</li>
+              <li>Ghon complex: Ghon focus + hilar lymph node involvement → fibrosis + calcification</li>
+              <li>Usually asymptomatic → positive TST/IGRA</li>
+              <li>May disseminate in immunocompromised: miliary TB (haematogenous spread → millet-seed nodules on CXR)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-path"><span class="icon">🔬</span> Secondary (Reactivation) TB</div>
+            <ul>
+              <li>Reactivation of latent TB; triggered by immunosuppression (HIV most important), malnutrition, DM, aging</li>
+              <li>Apex of lung (high O₂ tension + poor lymphatics → favours M. tuberculosis growth)</li>
+              <li>Cavitary lesions with caseous necrosis; highly infectious</li>
+              <li><strong>Symptoms:</strong> Fever, night sweats, weight loss, productive cough, haemoptysis</li>
+              <li>Systemic spread: meningitis, Pott's disease (vertebral TB — L1 most common), renal TB (sterile pyuria), cervical lymphadenopathy (scrofula)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
+            <ul>
+              <li><strong>Latent screening:</strong> Mantoux TST (PPD); IGRA (Quantiferon-TB Gold — <em>preferred if BCG vaccinated</em>, as TST gives false positive)</li>
+              <li><strong>Active disease:</strong> 3× early morning sputum for AFB smear + culture (6–8 weeks) + NAAT/PCR (rapid, same-day result)</li>
+              <li>CXR: apical cavitation; calcified Ghon complex; miliary pattern</li>
+              <li>Biopsy: caseating granulomas with Langhans giant cells</li>
+              <li>HIV test (mandatory in all TB patients); LFTs baseline (for drug monitoring)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Treatment — RIPE</div>
+            <ul>
+              <li><strong>2-month intensive phase:</strong> Rifampicin + Isoniazid + Pyrazinamide + Ethambutol (RIPE)</li>
+              <li><strong>4-month continuation phase:</strong> Rifampicin + Isoniazid (RI)</li>
+              <li>Total 6 months pulmonary TB; 12 months CNS/bone TB</li>
+              <li><strong>Pyridoxine (B6):</strong> co-prescribe with Isoniazid (prevents peripheral neuropathy)</li>
+              <li>DOT (directly observed therapy) for adherence</li>
+              <li>Notifiable disease — mandatory public health reporting + contact tracing</li>
+              <li>LTBI treatment for close contacts (Isoniazid ± Rifampicin)</li>
+              <li><strong>MDR-TB:</strong> resistant to Rifampicin + Isoniazid; second-line agents (fluoroquinolones, injectable aminoglycosides); 18–24 months; specialist care</li>
+              <li><strong>Side effects:</strong> Rifampicin (orange urine, hepatotoxicity, CYP450 inducer ↓OCP/anticoagulants), INH (peripheral neuropathy, hepatitis), PZA (hyperuricaemia/gout, hepatitis), EMB (optic neuritis — check visual acuity + colour vision before starting)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>Caseating granulomas = hallmark of TB (vs non-caseating in sarcoidosis)</li>
+            <li>Secondary TB = APEX; miliary TB = haematogenous spread; Pott's disease = spinal TB (L1 most common)</li>
+            <li>Sterile pyuria = renal TB until proven otherwise</li>
+            <li>Isoniazid → peripheral neuropathy; prevented by pyridoxine (B6)</li>
+            <li>Ethambutol → optic neuritis; check visual acuity + colour vision before starting</li>
+            <li>Rifampicin = strong CYP450 inducer → reduces efficacy of OCP, warfarin, antiretrovirals</li>
+            <li>IGRA preferred over TST in BCG-vaccinated individuals (avoids false positives)</li>
           </ul>
         </div>
       </div>
