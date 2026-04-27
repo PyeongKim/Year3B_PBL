@@ -289,6 +289,7 @@
   .sl-dx { color: #34d399; }
   .sl-mx { color: #fbbf24; }
   .sl-comp { color: #f472b6; }
+  .sl-hx {color: rgb(255, 170, 170)}
   .sl-key { color: var(--highlight); }
 
   /* KEY FACTS / HY BOX */
@@ -4464,7 +4465,6 @@
             <td>Colectomy = CURATIVE for UC (panproctocolectomy + ileal pouch-anal anastomosis [IPAA]); indicated for: failed medical, dysplasia, toxic megacolon, cancer</td>
           </tr>
         </table></div>
-
         <div class="sections-grid" style="margin-top:14px">
           <div class="section-box">
             <div class="section-label sl-mx"><span class="icon">💊</span> Medical Management — Australian (eTG-based)</div>
@@ -4478,7 +4478,6 @@
               <!-- DELETED: Surgery bullet removed — duplicate of table Surgery row -->
             </ul>
           </div>
-
           <div class="section-box">
             <div class="section-label sl-dx"><span class="icon">🔬</span> Diagnosis &amp; Monitoring</div>
             <ul>
@@ -4492,20 +4491,35 @@
               <li>Biologic drug monitoring (trough levels, antibody levels) to guide dosing</li>
             </ul>
           </div>
-        </div>
-
-        <div class="hy-box">
-          <strong>⚡ High Yield</strong>
-          <ul>
-            <li>UC: ALWAYS involves rectum; continuous; bloody diarrhoea; pANCA; PSC; CURABLE by colectomy</li>
-            <li>Crohn's: skip lesions; transmural; non-caseating granulomas; ASCA; fistulae/abscesses; NOT curative</li>
-            <li>Toxic megacolon: colon &gt;6cm + systemic toxicity → AVOID anti-motility agents, barium enema; medical vs urgent colectomy</li>
-            <li>Mesalazine (Australian) = mesalamine (US/international); used only for UC (not effective in Crohn's)</li>
-            <li>Vedolizumab (gut-selective anti-α4β7 integrin) and ustekinumab (anti-IL12/23) on PBS for IBD</li>
-            <li>PSC + IBD: always screen for PSC; IBD persists/worsens after liver transplant; ↑risk cholangiocarcinoma and CRC</li>
-            <!-- EDITED: smoking bullet — quantitative data + ex-smoker caveat added -->
-            <li>Smoking ↑risk of Crohn's (~2× risk) and worsens course (stricturing, ↓anti-TNF response); current smoking is protective in UC (OR ~0.48); ex-smokers have higher UC risk than never-smokers (OR ~1.64) — stopping smoking may transiently worsen UC — <strong>never recommend smoking</strong></li>
-          </ul>
+          <div class="section-box">
+            <div class="section-label sl-hx"><span class="icon">🗺️</span> Approach to Diarrhoea (Stepwise)</div>
+            <ul>
+              <li><strong>Acute (&lt;2 wks):</strong> Infection until proven otherwise → stool MCS + PCR (include Shiga toxin, C. diff); FBE, CRP, UEC; supportive care ± antibiotics</li>
+              <li><strong>PCR positive:</strong> Targeted therapy — ⚠️ AVOID antibiotics in STEC O157:H7 (↑HUS risk); oral vancomycin/fidaxomicin for C. diff (not metronidazole 1st-line)</li>
+              <li><strong>PCR negative + Abx failed → less likely infection:</strong>
+                <ul>
+                  <li>Bloody → IBD (UC &gt; Crohn's) | ischaemic colitis | CRC | radiation proctitis</li>
+                  <li>Non-bloody → IBS | malabsorption | microscopic colitis | secretory cause</li>
+                </ul>
+              </li>
+              <li><strong>Subacute/Chronic (+red flags):</strong> Faecal calprotectin (↑ → mucosal inflammation → colonoscopy); faecal elastase (if steatorrhoea → pancreatic insufficiency); coeliac serology (tTG-IgA); TFTs</li>
+              <li><strong>Red flags → urgent colonoscopy:</strong> age &gt;50, weight loss ≥5%/6 months, iron deficiency anaemia, change in bowel habit &gt;6 weeks, nocturnal diarrhoea, rectal mass on DRE</li>
+              <li><strong>Post-diverticulitis:</strong> colonoscopy 6–8 weeks post-resolution to exclude CRC masked by inflammation</li>
+            </ul>
+          </div>
+          <div class="hy-box">
+            <strong>⚡ High Yield</strong>
+            <ul>
+              <li>UC: ALWAYS involves rectum; continuous; bloody diarrhoea; pANCA; PSC; CURABLE by colectomy</li>
+              <li>Crohn's: skip lesions; transmural; non-caseating granulomas; ASCA; fistulae/abscesses; NOT curative</li>
+              <li>Toxic megacolon: colon &gt;6cm + systemic toxicity → AVOID anti-motility agents, barium enema; medical vs urgent colectomy</li>
+              <li>Mesalazine (Australian) = mesalamine (US/international); used only for UC (not effective in Crohn's)</li>
+              <li>Vedolizumab (gut-selective anti-α4β7 integrin) and ustekinumab (anti-IL12/23) on PBS for IBD</li>
+              <li>PSC + IBD: always screen for PSC; IBD persists/worsens after liver transplant; ↑risk cholangiocarcinoma and CRC</li>
+              <!-- EDITED: smoking bullet — quantitative data + ex-smoker caveat added -->
+              <li>Smoking ↑risk of Crohn's (~2× risk) and worsens course (stricturing, ↓anti-TNF response); current smoking is protective in UC (OR ~0.48); ex-smokers have higher UC risk than never-smokers (OR ~1.64) — stopping smoking may transiently worsen UC — <strong>never recommend smoking</strong></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
