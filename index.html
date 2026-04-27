@@ -4314,7 +4314,7 @@
     </div>
 
     <!-- GIS-11: IBD -->
-    <div class="condition" id="ibd">
+    <!-- <div class="condition" id="ibd">
       <div class="condition-header" onclick="toggle(this)">
         <span class="condition-num">GIS-11</span>
         <span class="condition-name">Inflammatory Bowel Disease (IBD)</span>
@@ -4372,6 +4372,139 @@
             <li>Vedolizumab (gut-selective anti-α4β7 integrin) and ustekinumab (anti-IL12/23) on PBS for IBD</li>
             <li>PSC + IBD: always screen for PSC; IBD persists/worsens after liver transplant; ↑risk cholangiocarcinoma and CRC</li>
             <li>Smoking worsens disease and increases risk of Crohn's whereas it reduces risk of Ulcerative colitis</li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+    <div class="condition" id="ibd">
+      <div class="condition-header" onclick="toggle(this)">
+        <span class="condition-num">GIS-11</span>
+        <span class="condition-name">Inflammatory Bowel Disease (IBD)</span>
+        <span class="rank-badge r1">R1</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="condition-body">
+        <div class="table-scroll"><table class="mini">
+          <tr><th>Feature</th><th>Crohn's Disease</th><th>Ulcerative Colitis</th></tr>
+
+          <tr>
+            <td>Location</td>
+            <td>Anywhere GI tract (mouth to anus); terminal ileum + colon most common; SKIP lesions; rectal sparing (50%)</td>
+            <td>Colitis ONLY; continuous; ALWAYS involves rectum; may extend proximally (proctitis → left-sided → pancolitis)</td>
+          </tr>
+
+          <!-- ADDED: Age of onset row -->
+          <tr>
+            <td>Age of onset</td>
+            <td>Peak 15–30 yo</td>
+            <td>Bimodal: 15–30 yo + second peak ~60–80 yo</td>
+          </tr>
+
+          <tr>
+            <td>Depth of inflammation</td>
+            <td>TRANSMURAL (full thickness) → fistulae, abscesses, strictures, free perforation</td>
+            <td>Mucosa + submucosa only → pseudopolyps, crypt abscesses, no fistulae</td>
+          </tr>
+
+          <tr>
+            <td>Macroscopic</td>
+            <td>Cobblestone mucosa, "fat wrapping" (creeping fat), bowel wall thickening, linear ulcers, fissures. "String sign" on barium (terminal ileum stricture)</td>
+            <td>Friable, granular mucosa; continuous ulceration; pseudopolyps (inflammatory). "Lead pipe" colon (loss of haustra) on barium in chronic disease</td>
+          </tr>
+
+          <tr>
+            <td>Microscopic</td>
+            <td>Non-caseating granulomas (60%); lymphoid aggregates; transmural inflammation</td>
+            <td>Crypt abscesses/distortion; cryptitis; NO granulomas; mucosal architecture distorted</td>
+          </tr>
+
+          <tr>
+            <td>Intestinal symptoms</td>
+            <td>Diarrhoea (may be non-bloody); RLQ pain; weight loss; malabsorption (terminal ileum — B12, bile salts)</td>
+            <!-- EDITED: added nocturnal diarrhoea = severity marker -->
+            <td>BLOODY diarrhoea (hallmark); nocturnal diarrhoea = marker of severity (not seen in IBS); rectal urgency; tenesmus; LLQ cramping</td>
+          </tr>
+
+          <!-- EDITED: Extraintestinal — EN/PG distinction added -->
+          <tr>
+            <td>Extraintestinal</td>
+            <td colspan="2">
+              <strong>Skin:</strong> Erythema nodosum (shins; red tender nodules — <em>parallels disease activity</em>, more CD &gt; UC); Pyoderma gangrenosum (pus + ulcer — <em>independent of disease activity</em>).
+              <strong>Eyes:</strong> uveitis, episcleritis.
+              <strong>Joints:</strong> peripheral arthritis (parallels bowel activity), spondylitis/sacroiliitis (independent; more CD).
+              <strong>Oral:</strong> aphthous ulcers.
+              <strong>Liver:</strong> PSC (UC &gt;&gt; Crohn's).
+              <strong>Kidney stones:</strong> oxalate (Crohn's), urate (UC).
+              <strong>Gallstones</strong> (Crohn's — ↓bile salt reabsorption)
+            </td>
+          </tr>
+
+          <tr>
+            <td>Serology</td>
+            <td>ASCA (anti-Saccharomyces cerevisiae antibody) — ~50–60%</td>
+            <td>pANCA (perinuclear ANCA) — ~60–65%</td>
+          </tr>
+
+          <!-- EDITED: added CD colonoscopy surveillance timing -->
+          <tr>
+            <td>Cancer risk</td>
+            <td>↑CRC (Crohn's colitis) — surveillance colonoscopy from 8 years after diagnosis; ↑SCC anal canal</td>
+            <td>↑CRC with pancolitis (&gt;8 years): annual colonoscopy; start surveillance 8 years after diagnosis</td>
+          </tr>
+
+          <tr>
+            <td>Specific complications</td>
+            <td>Fistulae (entero-enteric, enterovesical, enterocutaneous, perianal — Parks classification); strictures → SBO; perianal disease; abscesses</td>
+            <td>Toxic megacolon (colon &gt;6cm; AVOID anti-motility agents, colonoscopy); massive haemorrhage; fulminant colitis</td>
+          </tr>
+
+          <tr>
+            <td>Surgery</td>
+            <td>Bowel-sparing; resection of strictures/fistulae; not curative (recurs at anastomosis)</td>
+            <td>Colectomy = CURATIVE for UC (panproctocolectomy + ileal pouch-anal anastomosis [IPAA]); indicated for: failed medical, dysplasia, toxic megacolon, cancer</td>
+          </tr>
+        </table></div>
+
+        <div class="sections-grid" style="margin-top:14px">
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Medical Management — Australian (eTG-based)</div>
+            <ul>
+              <li><strong>Mild-moderate UC induction:</strong> Mesalazine (5-ASA) oral + rectal (suppository for proctitis, enema for left-sided) — Australian name for mesalamine. Brands: Pentasa®, Salofalk®, Mezavant®</li>
+              <li><strong>Moderate-severe UC:</strong> Oral prednisolone 40–60mg/day tapering; if steroid-refractory → IV hydrocortisone or infliximab (rescue) or ciclosporin (rescue); colectomy if fails</li>
+              <li><strong>UC maintenance:</strong> Mesalazine long-term (↓CRC risk); azathioprine (6-MP) if steroid-dependent; biologics (infliximab/adalimumab [PBS-listed], vedolizumab [PBS-listed], ustekinumab)</li>
+              <li><strong>Mild-moderate Crohn's induction:</strong> Prednisolone; budesonide (ileal/right-sided Crohn's); antibiotics (metronidazole + ciprofloxacin) for perianal disease</li>
+              <li><strong>Moderate-severe Crohn's:</strong> Biologics: infliximab, adalimumab (PBS for severe Crohn's); vedolizumab, ustekinumab; combination with azathioprine (↑efficacy, ↓immunogenicity)</li>
+              <li><strong>Faecal calprotectin:</strong> correlates with intestinal inflammation; used to monitor disease activity and distinguish from IBS</li>
+              <!-- DELETED: Surgery bullet removed — duplicate of table Surgery row -->
+            </ul>
+          </div>
+
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Diagnosis &amp; Monitoring</div>
+            <ul>
+              <li>Colonoscopy + biopsy (gold standard to assess extent and obtain histology)</li>
+              <li>MRI small bowel (MRE): Crohn's — extent, strictures, fistulae (no radiation)</li>
+              <li>CT abdomen: acute complications (abscess, perforation)</li>
+              <li>Faecal calprotectin + faecal lactoferrin: ↑in IBD (not IBS)</li>
+              <li>Capsule endoscopy: small bowel Crohn's (NOT if stricture risk)</li>
+              <li>Bloods: FBC (anaemia), ESR, CRP, albumin, iron studies, B12/folate, TFTs</li>
+              <li>Stool MCS + C. diff: exclude infective cause especially in acute flare</li>
+              <li>Biologic drug monitoring (trough levels, antibody levels) to guide dosing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hy-box">
+          <strong>⚡ High Yield</strong>
+          <ul>
+            <li>UC: ALWAYS involves rectum; continuous; bloody diarrhoea; pANCA; PSC; CURABLE by colectomy</li>
+            <li>Crohn's: skip lesions; transmural; non-caseating granulomas; ASCA; fistulae/abscesses; NOT curative</li>
+            <li>Toxic megacolon: colon &gt;6cm + systemic toxicity → AVOID anti-motility agents, barium enema; medical vs urgent colectomy</li>
+            <li>Mesalazine (Australian) = mesalamine (US/international); used only for UC (not effective in Crohn's)</li>
+            <li>Vedolizumab (gut-selective anti-α4β7 integrin) and ustekinumab (anti-IL12/23) on PBS for IBD</li>
+            <li>PSC + IBD: always screen for PSC; IBD persists/worsens after liver transplant; ↑risk cholangiocarcinoma and CRC</li>
+            <!-- EDITED: smoking bullet — quantitative data + ex-smoker caveat added -->
+            <li>Smoking ↑risk of Crohn's (~2× risk) and worsens course (stricturing, ↓anti-TNF response); current smoking is protective in UC (OR ~0.48); ex-smokers have higher UC risk than never-smokers (OR ~1.64) — stopping smoking may transiently worsen UC — <strong>never recommend smoking</strong></li>
           </ul>
         </div>
       </div>
