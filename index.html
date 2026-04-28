@@ -305,6 +305,7 @@
   .sl-hx {color: rgb(170, 255, 231)}
   .sl-key { color: var(--highlight); }
   .sl-hist {color:rgb(88, 252, 255)}
+  .sl-decomp {color: coral}
 
   /* ── HISTOLOGY IMAGES ───────────────────────────────────────────── */
 
@@ -3226,12 +3227,13 @@
             <div class="section-label sl-etio"><span class="icon">🧬</span> Aetiology</div>
             <ul>
               <li>End-stage liver disease (irreversible and advanced stage of chronic liver disease): diffuse bridging fibrosis + regenerative nodules disrupting normal architecture. Fibrosis mediated by TGF-β from hepatic <strong>stellate cells</strong>.</li>
+              <li>Stellate cells → Myofibroblasts → Fibrosis</li>
             </ul>
             <div style="margin-top:10px">
               <!-- Cause groups -->
               <div style="margin-bottom:8px;padding:8px 10px;background:rgba(224,82,82,0.07);border-left:3px solid #e05252;border-radius:0 5px 5px 0;">
                 <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#e05252;margin-bottom:4px">🍺 Toxic / Metabolic</div>
-                <div style="font-size:13px;color:#c9d1d9;line-height:1.7">
+                <div style="font-size:12.5px;color:#c9d1d9;line-height:1.7">
                   <strong>Alcohol</strong> — most common in developed world (Australia/UK); >80g/day for ≥10 years<br>
                   <strong>NAFLD/NASH</strong> — fastest growing cause globally; driven by obesity, T2DM, metabolic syndrome<br>
                   <strong>Drugs</strong> — methotrexate (dose-dependent), amiodarone, isoniazid, nitrofurantoin
@@ -3239,14 +3241,14 @@
               </div>
               <div style="margin-bottom:8px;padding:8px 10px;background:rgba(82,176,224,0.07);border-left:3px solid #52b0e0;border-radius:0 5px 5px 0;">
                 <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#52b0e0;margin-bottom:4px">🦠 Viral</div>
-                <div style="font-size:13px;color:#c9d1d9;line-height:1.7">
+                <div style="font-size:12.5px;color:#c9d1d9;line-height:1.7">
                   <strong>Chronic HCV</strong> — most common viral cause of cirrhosis in Australia/Western world; ~20–30yr progression<br>
                   <strong>Chronic HBV</strong> — most common viral cause of cirrhosis worldwide; unique: can cause HCC without cirrhosis
                 </div>
               </div>
               <div style="margin-bottom:8px;padding:8px 10px;background:rgba(167,139,250,0.07);border-left:3px solid #a78bfa;border-radius:0 5px 5px 0;">
                 <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#a78bfa;margin-bottom:4px">🛡️ Autoimmune / Biliary</div>
-                <div style="font-size:13px;color:#c9d1d9;line-height:1.7">
+                <div style="font-size:12.5px;color:#c9d1d9;line-height:1.7">
                   <strong>Autoimmune hepatitis (AIH)</strong> — anti-smooth muscle Ab (type 1); young/middle-aged women; responds to steroids<br>
                   <strong>Primary biliary cholangitis (PBC)</strong> — anti-mitochondrial Ab (AMA); middle-aged women; pruritus; UDCA<br>
                   <strong>Primary sclerosing cholangitis (PSC)</strong> — pANCA; middle-aged men + UC; beaded bile ducts on MRCP; no proven medical therapy
@@ -3254,7 +3256,7 @@
               </div>
               <div style="margin-bottom:8px;padding:8px 10px;background:rgba(251,191,36,0.07);border-left:3px solid #fbbf24;border-radius:0 5px 5px 0;">
                 <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fbbf24;margin-bottom:4px">🧬 Genetic / Metabolic</div>
-                <div style="font-size:13px;color:#c9d1d9;line-height:1.7">
+                <div style="font-size:12.5px;color:#c9d1d9;line-height:1.7">
                   <strong>Haemochromatosis</strong> (HFE mutation) — iron overload → "bronze diabetes"; treat with phlebotomy<br>
                   <strong>Wilson disease</strong> (ATP7B mutation) — copper accumulation → Kayser-Fleischer rings; &lt;40yrs; penicillamine<br>
                   <strong>α1-antitrypsin deficiency</strong> (PiZZ) — misfolded protein in hepatocytes + emphysema (lower lobes); young non-smoker<br>
@@ -3263,7 +3265,7 @@
               </div>
               <div style="padding:8px 10px;background:rgba(139,148,158,0.07);border-left:3px solid #8b949e;border-radius:0 5px 5px 0;">
                 <div style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#8b949e;margin-bottom:4px">❓ Other / Unknown</div>
-                <div style="font-size:13px;color:#c9d1d9;line-height:1.7">
+                <div style="font-size:12.5px;color:#c9d1d9;line-height:1.7">
                   <strong>Cryptogenic</strong> — ~10%; diagnosis of exclusion after full workup (often occult NAFLD or burnt-out AIH)<br>
                   <strong>Cardiac cirrhosis</strong> — chronic right heart failure / constrictive pericarditis → "nutmeg liver" → centrilobular fibrosis<br>
                   <strong>Budd-Chiari syndrome</strong> — hepatic vein thrombosis → congestive hepatopathy → cirrhosis
@@ -3367,13 +3369,13 @@
           </div>
         </div> -->
         <div class="decomp-box">
-          <div class="decomp-header">⚠️ Decompensated Chronic Liver Disease</div>
-          <p style="font-size:13px;color:var(--text);margin-bottom:10px;line-height:1.6;">
+          <div class="section-label sl-decomp"><span class="icon">⚠️</span> Decompensated Chronic Liver Disease</div>
+          <p style="font-size:12.5px;color:var(--text);margin-bottom:10px;line-height:1.6;">
             Patients develop an <strong>acute deterioration in liver function</strong> manifesting as complications of chronic liver disease. 
             <strong>Defining features of decompensation</strong> are ascites, variceal haemorrhage, hepatic encephalopathy, and jaundice.
           </p>
 
-          <div style="font-size:12px;font-weight:700;color:var(--text-muted);margin:10px 0 6px;">
+          <div style="font-size:12.5px;font-weight:700;color:var(--text-muted);margin:10px 0 6px;">
             Defining decompensation events
           </div>
           <div class="decomp-grid">
@@ -3383,7 +3385,7 @@
             <div class="decomp-item"><span class="di-icon">🟡</span> Jaundice</div>
           </div>
 
-          <div style="font-size:12px;font-weight:700;color:var(--text-muted);margin:12px 0 6px;">
+          <div style="font-size:12.5px;font-weight:700;color:var(--text-muted);margin:12px 0 6px;">
             Other major complications
           </div>
           <div class="decomp-grid">
@@ -3657,6 +3659,42 @@
               <li><strong>Secondary prophylaxis:</strong> β-blocker + EBL combination</li>
               <li><strong>TIPS (Transjugular Intrahepatic Portosystemic Shunt):</strong> reduces portal pressure; used for refractory ascites and variceal bleeding; can worsen encephalopathy</li>
             </ul>
+          </div>
+          
+        </div>
+        <div class="decomp-box">
+          <div class="section-label sl-decomp"><span class="icon">⚠️</span> Ascites — SAAG Classification</div>
+          <p style="font-size:12.5px;color:var(--text);margin-bottom:10px;line-height:1.6;">
+            <strong>Serum-ascites albumin gradient (SAAG) = serum albumin − ascitic albumin </strong>
+          </p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+
+            <!-- High SAAG -->
+            <div style="background:rgba(224,82,82,0.06);border:1px solid rgba(224,82,82,0.2);border-radius:6px;padding:10px 12px;">
+              <div style="font-size:11.5px;font-weight:700;color:var(--accent-cvs);margin-bottom:8px;">
+                🔴 SAAG &ge; 1.1 g/dL  — Portal Hypertension
+              </div>
+              <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:4px;letter-spacing:0.5px;">ASCITIC PROTEIN &lt; 2.5 g/dL</div>
+              <div class="decomp-item" style="margin-bottom:5px;">Cirrhosis</div>
+              <div class="decomp-item" style="margin-bottom:10px;">Liver metastases</div>
+              <div style="font-size:11px;font-weight:700;color:var(--muted);margin-bottom:4px;letter-spacing:0.5px;">ASCITIC PROTEIN ≥ 2.5 g/dL</div>
+              <div class="decomp-item" style="margin-bottom:5px;">Heart failure / Constrictive pericarditis</div>
+              <div class="decomp-item" style="margin-bottom:5px;">Budd-Chiari syndrome</div>
+              <div class="decomp-item">Portal vein thrombosis</div>
+            </div>
+
+            <!-- Low SAAG -->
+            <div style="background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.2);border-radius:6px;padding:10px 12px;">
+              <div style="font-size:11.5px;font-weight:700;color:var(--accent-purple);margin-bottom:8px;">
+                🟣 SAAG &lt; 1.1 g/dL — Non-Portal Hypertension
+              </div>
+              <div class="decomp-item" style="margin-bottom:5px;border-color:rgba(167,139,250,0.2);background:rgba(167,139,250,0.08);">Nephrotic syndrome / Severe malnutrition</div>
+              <div class="decomp-item" style="margin-bottom:5px;border-color:rgba(167,139,250,0.2);background:rgba(167,139,250,0.08);">Malignancy (peritoneal carcinomatosis)</div>
+              <div class="decomp-item" style="margin-bottom:5px;border-color:rgba(167,139,250,0.2);background:rgba(167,139,250,0.08);">Tuberculosis (peritoneal)</div>
+              <div class="decomp-item" style="border-color:rgba(167,139,250,0.2);background:rgba(167,139,250,0.08);">Pancreatitis / Pancreatic ascites</div>
+            </div>
+
           </div>
         </div>
         <div class="hy-box">
