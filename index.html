@@ -30,6 +30,7 @@
     --accent-r2: #d29922;
     --accent-r3: #8b949e;
     --highlight: #ffd700;
+    --accent-purple: #a78bfa; 
     --tag-bg: rgba(63,185,80,0.12);
     --tag2-bg: rgba(210,153,34,0.12);
     --tag3-bg: rgba(139,148,158,0.12);
@@ -263,6 +264,17 @@
   .section-box p { font-size: 13px; color: #c9d1d9; }
   .section-box p + p { margin-top: 6px; }
   
+
+  .section-box ol { list-style: none; padding: 0; }
+  .section-box ol li {
+    padding: 2px 0 2px 12px;
+    position: relative;
+    font-size: 12.5px;
+    color: #c9d1d9;
+  }
+  .section-box ol li::before {
+    content: none;            /* kill the diamond */
+  }
   /* Nested elements */
   .section-box ul li ul{
     list-style: disc;
@@ -280,6 +292,7 @@
   .section-box ul li ul li::before {
     content: none;            /* kill the diamond */
   }
+  
 
   /* COLOR CODED SECTION LABELS */
   .sl-etio { color: #a78bfa; }
@@ -289,8 +302,126 @@
   .sl-dx { color: #34d399; }
   .sl-mx { color: #fbbf24; }
   .sl-comp { color: #f472b6; }
-  .sl-hx {color: rgb(255, 170, 170)}
+  .sl-hx {color: rgb(170, 255, 231)}
   .sl-key { color: var(--highlight); }
+  .sl-hist {color:rgb(88, 252, 255)}
+
+  /* ── HISTOLOGY IMAGES ───────────────────────────────────────────── */
+
+  .histo-img-wrap {
+    position: relative;
+    height: 220px;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  .histo-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+  }
+  .histo-img-wrap img:hover { opacity: 1; }
+
+  .histo-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.7);
+    color: var(--muted);
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  /* ── DECOMPENSATED BOX ──────────────────────────────────────────── */
+  .decomp-box {
+    background: rgba(224,82,82,0.05);
+    border: 1px solid rgba(224,82,82,0.25);
+    border-left: 3px solid var(--accent-cvs);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 12.5px;
+  }
+
+  .decomp-header {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent-cvs);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .decomp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .decomp-item {
+    background: rgba(224,82,82,0.08);
+    border: 1px solid rgba(224,82,82,0.2);
+    border-radius: 6px;
+    padding: 7px 10px;
+    font-size: 12.5px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .decomp-item .di-icon { font-size: 15px; }
+
+  @media (max-width: 768px) {
+    .decomp-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── SBP BOX ────────────────────────────────────────────────────── */
+
+  .sbp-box {
+    background: rgba(167,139,250,0.05);
+    border: 1px solid rgba(167,139,250,0.25);
+    border-left: 3px solid var(--accent-purple);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 12.5px;
+  }
+
+  .sbp-header {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent-purple);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sbp-box strong { color: var(--text); font-weight: 700; }
+  .sbp-box ul { list-style: none; padding: 0; margin-top: 6px; }
+  .sbp-box ul li { padding: 2px 0 2px 12px; position: relative; color: var(--text); }
+  .sbp-box ul li::before { content: '>'; position: absolute; left: 0; font-size: 9px; color: var(--text); top: 5px; }
+  .sbp-box ul li ol {padding: 2px 0 2px 12px; position: relative; color: var(--text); }
+  .sbp-box ul li ol li::before {
+    content: none;            /* kill the diamond */
+  }
+
+
+  .sbp-body {
+    font-size: 12.5px;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.65;
+  }
+
 
   /* KEY FACTS / HY BOX */
   .hy-box {
@@ -315,7 +446,7 @@
     border-radius: 0 8px 8px 0;
     padding: 12px 16px;
     margin-top: 10px;
-    font-size: 12px;
+    font-size: 12.5px;
   }
   .cdria-box .cdria-header {
     display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
@@ -3094,7 +3225,7 @@
           <div class="section-box" style="grid-column: 1 / -1">
             <div class="section-label sl-etio"><span class="icon">🧬</span> Aetiology</div>
             <ul>
-              <li>End-stage liver disease: diffuse bridging fibrosis + regenerative nodules disrupting normal architecture. Fibrosis mediated by TGF-β from hepatic <strong>stellate cells</strong>.</li>
+              <li>End-stage liver disease (irreversible and advanced stage of chronic liver disease): diffuse bridging fibrosis + regenerative nodules disrupting normal architecture. Fibrosis mediated by TGF-β from hepatic <strong>stellate cells</strong>.</li>
             </ul>
             <div style="margin-top:10px">
               <!-- Cause groups -->
@@ -3144,6 +3275,10 @@
             <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features</div>
             <ul>
               <li><strong>Portal hypertension:</strong> ascites, oesophageal/gastric varices, caput medusae, splenomegaly, haemorrhoids</li>
+                <ul>
+                  <li>Hepatic venous pressure gradient (HVPG) is an indirect measure of portal vein pressure (normal ≤5 mmHg)</li>
+                  <li>Clinically significant portal hypertension is defined as an increase in HVPG to >10 mmHg</li>
+                </ul>
               <li><strong>Impaired detoxification:</strong> hepatic encephalopathy (↑NH₃ → asterixis, confusion, coma), jaundice, fetor hepaticus</li>
               <li><strong>Impaired synthesis:</strong> hypoalbuminaemia (oedema), coagulopathy (↑PT/INR), thrombocytopaenia</li>
               <li><strong>Hyperoestrogenism</strong> (impaired oestrogen metabolism): spider naevi, palmar erythema, gynaecomastia, testicular atrophy, amenorrhoea</li>
@@ -3164,7 +3299,7 @@
               <li>AFP + USS every 6 months: HCC surveillance in cirrhosis</li>
             </ul>
           </div>
-          <div class="section-box">
+          <div class="section-box" style="grid-column: 1 / -1">
             <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
             <ul>
               <li>Treat underlying cause (stop alcohol, antivirals for HBV/HCV, immunosuppression for autoimmune)</li>
@@ -3175,6 +3310,73 @@
               <li><strong>Liver transplantation:</strong> definitive treatment; MELD ≥15 or decompensated cirrhosis</li>
             </ul>
           </div>
+        
+        <!-- ── HISTOLOGY IMAGES ── -->
+          <div class="section-box">
+            <div class="section-label sl-hist"><span class="icon">🔬</span> Normal Liver Histology</div>
+            <div class="histo-img-wrap">
+              <img
+                src="./imgs/HEP/normal.jpg"
+                alt="Normal liver histology H&E"
+                onerror="this.src='';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.innerHTML='<span style=\'color:#8b949e;font-size:12px\'>Image unavailable</span>'"
+              >
+              <span class="histo-badge">H&amp;E stain</span>
+            </div>
+            <ul style="margin-top: 3px;">
+              <li><strong>Normal architecture:</strong> Regular hepatocyte cords radiate from central vein (CV) to portal tracts (PT). No fibrosis. Sinusoids patent.</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-hist"><span class="icon">🔬</span> Cirrhotic Liver Histology</div>
+            
+            <div class="histo-img-wrap">
+              <img
+                src="./imgs/HEP/cirrhosis.jpg"
+                alt="Liver cirrhosis histology H&E"
+                onerror="this.src='';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.innerHTML='<span style=\'color:#8b949e;font-size:12px\'>Image unavailable</span>'"
+              >
+              <span class="histo-badge">H&amp;E stain</span>
+            </div>
+            <ul style="margin-top: 3px;">
+              <li><strong>Cirrhotic features:</strong> Diffuse <strong>bridging fibrosis</strong> (blue/pink bands) encircling <strong>regenerative nodules</strong>. Normal lobular architecture is completely disrupted.</li>
+            </ul>
+          </div>
+        </div>
+          
+        <!-- ── DECOMPENSATED CLD ── --> 
+        <div class="decomp-box">
+          <div class="decomp-header">⚠️ Decompensated Chronic Liver Disease</div>
+          <p style="font-size:13px;color:var(--text);margin-bottom:10px;line-height:1.6;">
+            Patients develop an <strong>acute deterioration in liver function</strong> manifesting as a complication of chronic liver disease. Decompensation indicates loss of the liver's reserve capacity.
+          </p>
+          <div class="decomp-grid">
+            <div class="decomp-item"><span class="di-icon">🩸</span> Variceal haemorrhage</div>
+            <div class="decomp-item"><span class="di-icon">🟡</span> Jaundice</div>
+            <div class="decomp-item"><span class="di-icon">🧠</span> Hepatic encephalopathy</div>
+            <div class="decomp-item"><span class="di-icon">🦠</span> Spontaneous bacterial peritonitis</div>
+            <div class="decomp-item"><span class="di-icon">💧</span> Ascites</div>
+            <div class="decomp-item"><span class="di-icon">🫘</span> Hepatorenal syndrome</div>
+            <div class="decomp-item"><span class="di-icon">🫁</span> Hepatopulmonary syndrome</div>
+            <div class="decomp-item"><span class="di-icon">🔴</span> Hepatocellular carcinoma</div>
+          </div>
+        </div>
+
+        <!-- ── SBP ── -->
+        <div class="sbp-box">
+          <strong>🦠 Spontaneous Bacterial Peritonitis (SBP) — Expanded </strong>
+          <ul>
+            <li>SBP is infection of ascitic fluid in the absence of an intra-abdominal surgically treatable cause  (e.g. intra-abdominal sepsis)</li>
+            <li>It occurs almost exclusively in patients with cirrhosis and ascites </li>
+            <li>Symptoms include fever, abdominal pain and tenderness </li>
+            <li><strong>High-Risk Groups</strong> — Antibiotic Prophylaxis Indicated
+              <ol>
+                <li>Cirrhosis + active GI bleeding</li>
+                <li>Previous episode of SBP</strong> — recurrence rate ~70% within one year</li>
+                <li><strong>Cirrhosis + ascites</strong> with ascitic fluid protein <strong>&lt;15 g/L</strong> <em>AND</em> at least one of: impaired renal function or liver failure</li>
+              </ol>
+            </li>
+            <li><strong>Prophylactic</strong> antibiotic options: Trimethoprim-sulfamethoxazole; Ciprofloxacin; Norfloxacin</li>
+          </ul>
         </div>
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
@@ -3211,38 +3413,139 @@
         <span class="chevron">▼</span>
       </div>
       <div class="condition-body">
+
+        <!-- Row 1: Pathological Spectrum + Risk Factors/Investigations -->
         <div class="sections-grid">
           <div class="section-box">
             <div class="section-label sl-path"><span class="icon">🔬</span> Pathological Spectrum</div>
             <ul>
-              <li><strong>1. Hepatic steatosis (fatty change):</strong> macrovesicular fat; most common morphologic change; reversible with alcohol cessation; may be asymptomatic</li>
-              <li><strong>2. Alcoholic hepatitis:</strong> requires sustained heavy drinking; hepatocyte swelling and necrosis + neutrophilic infiltration; <strong>Mallory bodies</strong> (intracytoplasmic eosinophilic inclusions of damaged cytokeratin filaments); perivenular fibrosis</li>
-              <li><strong>3. Alcoholic cirrhosis:</strong> final irreversible stage; sclerosis around central vein early; regenerative nodules + fibrous bands → portal hypertension → end-stage liver disease</li>
-              <li>AST:ALT ratio &gt;2:1 (AST rarely exceeds 500 U/L in alcoholic hepatitis); ↑GGT (most sensitive for alcohol use); ↑MCV (macrocytosis)</li>
+              <li><strong>[1] Hepatic steatosis (fatty change):</strong> macrovesicular fat; most common and earliest change; reversible with abstinence; usually asymptomatic; occurs after even moderate alcohol intake</li>
+              <li><strong>[2] Alcoholic hepatitis (AH):</strong> requires sustained heavy drinking; hepatocyte ballooning and necrosis + neutrophilic infiltration; <strong>Mallory-Denk bodies</strong> (intracytoplasmic eosinophilic inclusions of ubiquitinated keratin aggregates); perivenular fibrosis; can be superimposed on cirrhosis</li>
+              <li><strong>[3] Alcoholic cirrhosis:</strong> final irreversible stage; micronodular → macronodular pattern; regenerative nodules + fibrous bands → portal hypertension → decompensation; HCC risk elevated even without other risk factors</li>
+              <li><strong>Spectrum is not linear:</strong> patients may present with cirrhosis without prior clinical hepatitis; all stages can co-exist</li>
             </ul>
           </div>
           <div class="section-box">
-            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features &amp; Management</div>
+            <div class="section-label sl-etio"><span class="icon">⚠️</span> Risk Factors</div>
             <ul>
-              <li><strong>Steatosis:</strong> usually asymptomatic; hepatomegaly; ↑GGT; reversible</li>
-              <li><strong>Alcoholic hepatitis:</strong> fever, jaundice, RUQ tenderness, hepatomegaly, leukocytosis; Maddrey Discriminant Function (MDF) ≥32 = severe → prednisolone or pentoxifylline</li>
-              <li><strong>Alcoholic cirrhosis:</strong> as per cirrhosis management above</li>
-              <li><strong>Most important treatment:</strong> complete and sustained alcohol abstinence</li>
-              <li>Nutritional support (thiamine — prevent Wernicke's; folate, B12); multidisciplinary team; addiction services</li>
-              <li>Prednisolone 40mg/day for severe alcoholic hepatitis (MDF ≥32, Lille model guides continuation)</li>
-              <li>Liver transplant: 6 months abstinence usually required (though early transplant being explored for severe acute alcoholic hepatitis)</li>
+              <li><strong>Dose-dependent:</strong> &gt;21 standard drinks/week (men), &gt;14/week (women) — no safe threshold for liver disease</li>
+              <li><strong>Pattern of drinking:</strong> binge drinking and drinking outside of meals increases risk beyond total volume</li>
+              <li><strong>Sex:</strong> women develop ALD at lower doses and faster — lower ADH activity, higher fat:water ratio → higher BAC per drink</li>
+              <li><strong>Genetic:</strong> PNPLA3 I148M polymorphism — strongest genetic risk factor for ALD severity and HCC</li>
+              <li><strong>Metabolic co-factors:</strong> obesity and type 2 diabetes markedly accelerate fibrosis progression</li>
+              <li><strong>Concurrent hepatitis:</strong> HBV/HCV co-infection synergistically accelerates cirrhosis</li>
+              <li><strong>Nutrition:</strong> malnutrition is nearly universal in severe AH; worsens outcomes independently</li>
             </ul>
           </div>
         </div>
+
+        <!-- Row 2: Clinical Features + Investigations -->
+        <div class="sections-grid">
+          <div class="section-box">
+            <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Features by Stage</div>
+            <ul>
+              <li><strong>Steatosis:</strong> usually asymptomatic; soft hepatomegaly; ↑GGT ± ↑ALT; incidental on imaging</li>
+              <li><strong>Alcoholic hepatitis (mild–moderate):</strong> fatigue, anorexia, RUQ discomfort, low-grade fever; jaundice may be absent</li>
+              <li><strong>Severe alcoholic hepatitis:</strong> deep jaundice, fever, tender hepatomegaly, leukocytosis, coagulopathy; high short-term mortality (28-day); encephalopathy indicates very severe disease</li>
+              <li><strong>Compensated cirrhosis:</strong> often clinically silent; spider naevi, palmar erythema, Dupuytren's, parotid enlargement, gynaecomastia, testicular atrophy</li>
+              <li><strong>Decompensated cirrhosis:</strong> ascites, variceal bleeding, hepatic encephalopathy, jaundice, spontaneous bacterial peritonitis (SBP), hepatorenal syndrome (HRS)</li>
+            </ul>
+          </div>
+          <div class="section-box">
+            <div class="section-label sl-dx"><span class="icon">🧪</span> Investigations</div>
+            <ul>
+              <li><strong>LFTs:</strong> AST:ALT &gt;2:1 (AST rarely &gt;500 U/L); ↑GGT (most sensitive alcohol marker); ↑bilirubin in AH</li>
+              <li><strong>FBE:</strong> macrocytosis (MCV &gt;100), thrombocytopenia (hypersplenism), anaemia</li>
+              <li><strong>Coagulation:</strong> ↑INR (↓hepatic synthetic function) — use to calculate Maddrey DF</li>
+              <li><strong>Maddrey Discriminant Function (MDF):</strong> 4.6 × (PT − control) + bilirubin (μmol/L ÷ 17); MDF ≥32 = severe AH → consider corticosteroids</li>
+              <li><strong>MELD score:</strong> now preferred for prognosis; MELD &gt;20 correlates with high 90-day mortality in AH</li>
+              <li><strong>Imaging:</strong> USS — fatty liver (echogenic), nodular contour in cirrhosis, splenomegaly, ascites; Fibroscan (elastography) to stage fibrosis</li>
+              <li><strong>Liver biopsy:</strong> not always required; confirms diagnosis if uncertain; important before transplant listing in equivocal cases</li>
+              <li><strong>AFP:</strong> screen for HCC every 6 months in cirrhosis (USS ± AFP)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Row 3: Management (full width) -->
+        <div class="sections-grid wide">
+          <div class="section-box">
+            <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
+            <ul>
+              <li><strong>Cornerstone — abstinence:</strong> the single most effective intervention at all stages; even in decompensated cirrhosis, sustained abstinence can improve portal pressure and Child-Pugh class</li>
+              <li><strong>Nutritional support:</strong> 35–40 kcal/kg/day, 1.2–1.5g protein/kg/day; enteral feeding if unable to meet needs orally; thiamine IV before any glucose (prevent Wernicke's); folate, B12, zinc, magnesium supplementation</li>
+              <li><strong>Mild–moderate AH:</strong> abstinence + nutrition; treat withdrawal (see AUD); supportive care</li>
+              <li><strong>Severe AH (MDF ≥32 or MELD &gt;20):</strong>
+                <ul>
+                  <li>Prednisolone 40mg/day × 28 days — assess response at Day 7 using <strong>Lille score</strong> (&gt;0.45 = non-responder → stop steroids); improves 28-day survival in responders</li>
+                  <li>Contraindications to steroids: active infection (must treat first), active GI bleeding, hepatorenal syndrome, renal failure</li>
+                  <li>Pentoxifylline: no longer recommended as monotherapy (STOPAH trial); no survival benefit over prednisolone</li>
+                  <li>N-acetylcysteine: may be used as adjunct with prednisolone in severe AH (reduces infection risk, may improve 1-month survival)</li>
+                </ul>
+              </li>
+              <li><strong>Cirrhosis management:</strong> manage portal hypertension (propranolol/carvedilol for varices prophylaxis; EVL), diuretics for ascites (spironolactone ± frusemide), lactulose/rifaximin for encephalopathy, SBP prophylaxis (norfloxacin or co-trimoxazole)</li>
+              <li><strong>Liver transplantation:</strong> traditional 6-month abstinence rule; <em>Early liver transplant</em> increasingly considered for carefully selected patients with severe AH non-responding to steroids (Mathurin criteria) — shown to improve 2-year survival; requires multidisciplinary psychosocial assessment; not universally available in Australia</li>
+              <li><strong>Emerging therapies:</strong> IL-1 receptor antagonist (anakinra + zinc + N-acetylcysteine — DASH trial data), gut microbiome modulation, FXR agonists — currently investigational</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Scoring tools mini-table -->
+        <div class="section-box" style="margin-bottom: 14px;">
+          <div class="section-label sl-dx"><span class="icon">📊</span> Prognostic Scoring in Alcoholic Hepatitis</div>
+          <div class="table-scroll">
+            <table class="mini">
+              <thead>
+                <tr>
+                  <th>Score</th>
+                  <th>Formula / Components</th>
+                  <th>Threshold</th>
+                  <th>Clinical Use</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Maddrey DF</td>
+                  <td>4.6 × (PT − control) + bilirubin (μmol/L ÷ 17)</td>
+                  <td>≥32 = severe</td>
+                  <td>Identify candidates for corticosteroids</td>
+                </tr>
+                <tr>
+                  <td>MELD</td>
+                  <td>Creatinine, bilirubin, INR</td>
+                  <td>&gt;20 = high risk</td>
+                  <td>90-day mortality; transplant listing priority</td>
+                </tr>
+                <tr>
+                  <td>Lille Score</td>
+                  <td>Age, creatinine, albumin, PT, bilirubin Day 0 &amp; Day 7</td>
+                  <td>&gt;0.45 = non-responder</td>
+                  <td>Stop prednisolone at Day 7 if non-responder</td>
+                </tr>
+                <tr>
+                  <td>Glasgow AH Score</td>
+                  <td>Age, WBC, urea, PT, bilirubin</td>
+                  <td>≥9 = severe</td>
+                  <td>Alternative to Maddrey; predicts 28-day mortality</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
           <ul>
-            <li>AST:ALT &gt;2:1 = alcoholic liver disease (mnemonic: "toAST with alcohol")</li>
-            <li>Mallory bodies = alcoholic hyaline — damaged keratin filaments; NOT specific to alcohol (also seen in NASH, PBC, Wilson disease) but classic for alcoholic hepatitis</li>
-            <li>GGT = most sensitive marker for alcohol use; also elevated in cholestasis and with enzyme-inducing drugs</li>
-            <li>Alcoholic steatosis = REVERSIBLE with abstinence; cirrhosis is NOT reversible</li>
+            <li>AST:ALT &gt;2:1 = alcoholic liver disease — "toAST with alcohol"; AST rarely exceeds 500 U/L even in severe AH</li>
+            <li>Mallory-Denk bodies = ubiquitinated keratin aggregates; classic for AH but NOT pathognomonic (also NASH, PBC, Wilson's)</li>
+            <li>GGT = most sensitive biochemical marker of heavy alcohol use; normalises within 2–6 weeks of abstinence</li>
+            <li>PNPLA3 I148M = strongest genetic risk variant for ALD — accelerates fibrosis and increases HCC risk</li>
+            <li>Severe AH: MDF ≥32 → prednisolone 40mg/day; assess Lille score at Day 7 — if &gt;0.45, stop steroids (futile and harmful)</li>
+            <li>Steatosis is REVERSIBLE with abstinence; cirrhosis is NOT — but abstinence still improves portal hypertension and survival even in cirrhosis</li>
+            <li>Early liver transplant for severe steroid-non-responsive AH — emerging evidence; requires strict psychosocial criteria</li>
+            <li>Screen for HCC every 6 months with USS ± AFP in ALL patients with alcoholic cirrhosis</li>
           </ul>
         </div>
+
       </div>
     </div>
 
