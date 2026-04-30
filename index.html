@@ -46,8 +46,14 @@
   }
   /* Margin setting */
   .mt-14 {
-  margin-top: 14px;
-}
+    margin-top: 14px;
+  }
+  .mb-12 {
+    margin-bottom: 12px;
+  }
+  .full-span {
+    grid-column: 1 / -1;
+  }
   /* TOP HEADER */
   .masthead {
     background: linear-gradient(135deg, #0d1117 0%, #1a0a0a 50%, #0a101a 100%);
@@ -840,7 +846,7 @@
 
   <!-- MAIN CONTENT -->
   <main class="content">
-    <div class="no-results" id="noResults">No conditions match your search.</div>
+    <div class="no-results" id="noResults">No conditions match your search</div>
 
     <!-- ============================================================ -->
     <!--  CARDIOVASCULAR                                              -->
@@ -918,11 +924,11 @@
         <div class="cdria-box">
           <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — ECG Approach to Heart Blocks & Bradycardia</span></div>
           <ul>
-            <li><strong>ECG recognition:</strong> 1st degree = PR &gt;200ms (5 little squares). Marked if &gt;300ms. Usually a normal variant or drugs — not clinically significant alone.</li>
-            <li><strong>2nd degree Mobitz I (Wenckebach):</strong> PR progressively lengthens → dropped beat. Causes: beta-blockers, CCBs, athletes, increased vagal tone, inferior AMI. Usually benign — AV node suppression is often reversible. Low risk of progressing to complete block. Manage with atropine if symptomatic; rarely needs pacemaker.</li>
-            <li><strong>2nd degree Mobitz II:</strong> Normal PR → normal PR → sudden dropped beat, no PR lengthening. Causes: anterior AMI, cardiac surgery, infiltrative disease (amyloidosis), autoimmune (SLE), beta-blockers, CCBs, hyperkalaemia. Level of block is below AV node (His-Purkinje) — structural damage. Risk of asystole ~35%/year. <strong>ADMIT. Monitor. Pacemaker.</strong></li>
-            <li><strong>3rd degree (Complete Heart Block):</strong> No relationship between P waves and QRS. Ventricular rate 30–40 bpm. Presents with severe bradycardia, dizziness worse on exertion, or collapse. Causes: inferior AMI, beta-blockers, CCBs, digoxin. HIGH risk of asystole and sudden cardiac death. <strong>ADMIT! MONITOR. Pacemaker.</strong></li>
-            <li><strong>Clinical rule:</strong> "1st and Mobitz I = not so bad; Mobitz II and 3rd degree = BAD." Any symptomatic block warrants admission and monitoring.</li>
+            <li><strong>ECG recognition:</strong> 1st degree = PR &gt;200ms (5 little squares). Marked if &gt;300ms. Usually a normal variant or drugs — not clinically significant alone</li>
+            <li><strong>2nd degree Mobitz I (Wenckebach):</strong> PR progressively lengthens → dropped beat. Causes: beta-blockers, CCBs, athletes, increased vagal tone, inferior AMI. Usually benign — AV node suppression is often reversible. Low risk of progressing to complete block. Manage with atropine if symptomatic; rarely needs pacemaker</li>
+            <li><strong>2nd degree Mobitz II:</strong> Normal PR → normal PR → sudden dropped beat, no PR lengthening. Causes: anterior AMI, cardiac surgery, infiltrative disease (amyloidosis), autoimmune (SLE), beta-blockers, CCBs, hyperkalaemia. Level of block is below AV node (His-Purkinje) — structural damage. Risk of asystole ~35%/year. <strong>ADMIT. Monitor. Pacemaker</strong></li>
+            <li><strong>3rd degree (Complete Heart Block):</strong> No relationship between P waves and QRS. Ventricular rate 30–40 bpm. Presents with severe bradycardia, dizziness worse on exertion, or collapse. Causes: inferior AMI, beta-blockers, CCBs, digoxin. HIGH risk of asystole and sudden cardiac death. <strong>ADMIT! MONITOR. Pacemaker</strong></li>
+            <li><strong>Clinical rule:</strong> "1st and Mobitz I = not so bad; Mobitz II and 3rd degree = BAD." Any symptomatic block warrants admission and monitoring</li>
             <li><strong>Palpitations differential for slow/skipped beats:</strong> Most likely — sinus bradycardia ± ventricular ectopic; Serious — CHB or Mobitz II; Atypical — vagal response, drug-induced, hypothyroidism, hypothermia, elite athlete</li>
           </ul>
           <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 5 (Approach to ECGs)</p>
@@ -974,7 +980,7 @@
           <ul>
             <li>AF → LA dilation → mural thrombus → embolic stroke (esp. middle cerebral artery)</li>
             <li>Adenosine terminates SVT but NOT AF/flutter</li>
-            <li>WPW + AF = AVOID digoxin, verapamil, adenosine → can → VF; use procainamide or DC cardioversion</li>
+            <li>WPW + AF = AVOID  AV nodal blockers (digoxin, verapamil, adenosine) which can lead to VF; use procainamide or DC cardioversion</li>
             <li>CHA₂DS₂-VASc: CHF/HTN/Age≥75(×2)/DM/Stroke(×2)/Vascular disease/Age 65–74/Sex female</li>
           </ul>
         </div>
@@ -1040,11 +1046,11 @@
         <div class="cdria-box">
           <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Broad Complex Tachycardia, Brugada & Torsades</span></div>
           <ul>
-            <li><strong>Golden rule on ECG:</strong> "Broad = Bad? Narrow = Not so bad?" — any broad complex tachycardia must be treated as VT until proven otherwise. Most common tachyarrhythmia is sinus tachycardia; conscious VT = broad, regular, patient still conscious.</li>
-            <li><strong>VF is an arrest state</strong> — patients don't present with palpitations; they present with cardiac arrest. A conscious patient chatting to you is not in VF.</li>
-            <li><strong>Torsades de Pointes (Long QT):</strong> QTc &gt;440ms (men) / &gt;460ms (women) = prolonged QT. QTc &gt;500ms = significant risk of torsades. Causes: congenital, hypokalaemia, hypocalcaemia, drug overdoses (see QT-prolonging drugs). ECG: polymorphic VT twisting around isoelectric line. Treatment: IV MgSO₄; defibrillation if unstable; ICD long term. Correct electrolytes; stop culprit drugs.</li>
-            <li><strong>Brugada Syndrome:</strong> Sodium channel mutation; structurally normal heart. High risk of sudden cardiac death via VF/VT. Diagnosis requires: [1] "Coved" ST elevation in V1–V3 AND [2] ≥1 of: documented VF/polymorphic VT, FHx sudden cardiac death &lt;45, syncope, nocturnal agonal respiration. Management: ICD.</li>
-            <li><strong>Ventricular ectopics:</strong> Single premature wide complex with no preceding P wave; usually isolated and benign; can mimic ST elevation — look for consistency and absence of P wave to distinguish.</li>
+            <li><strong>Golden rule on ECG:</strong> "Broad = Bad? Narrow = Not so bad?" — any broad complex tachycardia must be treated as VT until proven otherwise. Most common tachyarrhythmia is sinus tachycardia; conscious VT = broad, regular, patient still conscious</li>
+            <li><strong>VF is an arrest state</strong> — patients don't present with palpitations; they present with cardiac arrest. A conscious patient chatting to you is not in VF</li>
+            <li><strong>Torsades de Pointes (Long QT):</strong> QTc &gt;440ms (men) / &gt;460ms (women) = prolonged QT. QTc &gt;500ms = significant risk of torsades. Causes: congenital, hypokalaemia, hypocalcaemia, drug overdoses (see QT-prolonging drugs). ECG: polymorphic VT twisting around isoelectric line. Treatment: IV MgSO₄; defibrillation if unstable; ICD long term. Correct electrolytes; stop culprit drugs</li>
+            <li><strong>Brugada Syndrome:</strong> Sodium channel mutation; structurally normal heart. High risk of sudden cardiac death via VF/VT. Diagnosis requires: [1] "Coved" ST elevation in V1–V3 AND [2] ≥1 of: documented VF/polymorphic VT, FHx sudden cardiac death &lt;45, syncope, nocturnal agonal respiration. Management: ICD</li>
+            <li><strong>Ventricular ectopics:</strong> Single premature wide complex with no preceding P wave; usually isolated and benign; can mimic ST elevation — look for consistency and absence of P wave to distinguish</li>
           </ul>
           <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 5 (Approach to ECGs)</p>
         </div>
@@ -1084,12 +1090,12 @@
           <span class="icon">🩺</span> Symptoms & Signs
         </div>
         <ul>
-          <li>Severe, crushing, central chest pain &gt;20 min; may be pressure/heaviness rather than sharp pain.</li>
-          <li>Radiation to left arm, jaw, neck, or back.</li>
-          <li>Diaphoresis, nausea, vomiting; sense of impending doom.</li>
-          <li>Dyspnoea, pallor, cold clammy skin.</li>
-          <li><strong>Not reliably relieved by GTN</strong> in ACS (unlike stable exertional angina).</li>
-          <li><strong>Silent MI/atypical presentations</strong> common in diabetics, elderly, and some women (e.g. dyspnoea, fatigue, epigastric discomfort).</li>
+          <li>Severe, crushing, central chest pain &gt;20 min; may be pressure/heaviness rather than sharp pain</li>
+          <li>Radiation to left arm, jaw, neck, or back</li>
+          <li>Diaphoresis, nausea, vomiting; sense of impending doom</li>
+          <li>Dyspnoea, pallor, cold clammy skin</li>
+          <li><strong>Not reliably relieved by GTN</strong> in ACS (unlike stable exertional angina)</li>
+          <li><strong>Silent MI/atypical presentations</strong> common in diabetics, elderly, and some women (e.g. dyspnoea, fatigue, epigastric discomfort)</li>
           <li>Signs: tachycardia, hypotension (cardiogenic shock), S4, S3 in LV failure, pulmonary crackles</li>
         </ul>
       </div>
@@ -1107,10 +1113,10 @@
               <li><strong>Unstable angina:</strong> ischaemic symptoms ± ECG changes, but Troponin I remains within reference range on serial testing</li>
             </ul>
           </li>
-          <li>CK‑MB: may help in suspected reinfarction (falls back to normal sooner than troponin).</li>
+          <li>CK‑MB: may help in suspected reinfarction (falls back to normal sooner than troponin)</li>
           <li>ECG:
             <ul>
-              <li><strong>STEMI:</strong> new ST elevation in a coronary territory (or new LBBB considered STEMI‑equivalent).</li>
+              <li><strong>STEMI:</strong> new ST elevation in a coronary territory (or new LBBB considered STEMI‑equivalent)</li>
               <li><strong>UA/NSTEMI:</strong> ST depression and/or T‑wave inversion, or normal ECG; changes may be dynamic (serial ECGs).[web:8]</li>
             </ul>
           </li>
@@ -1148,7 +1154,7 @@
               <li><strong>Early invasive strategy:</strong> Early PCI for high-risk; risk stratify (e.g. GRACE &gt;140, dynamic ST/T changes, ongoing pain, haemodynamic or electrical instability)</li>
             </ul>
           </li>
-          <li><strong>Secondary prevention:</strong> high‑intensity statin, ACEi/ARB, β‑blocker, long‑term single antiplatelet (usually aspirin), cardiac rehabilitation, aggressive risk‑factor modification.</li>
+          <li><strong>Secondary prevention:</strong> high‑intensity statin, ACEi/ARB, β‑blocker, long‑term single antiplatelet (usually aspirin), cardiac rehabilitation, aggressive risk‑factor modification</li>
         </ul>
       </div>
     </div>
@@ -1215,9 +1221,9 @@
       <ul>
         <li><strong>Chest pain history:</strong> When did it start? Where is it? Radiation (neck/jaw/arm/back/abdomen)? Constant or intermittent? Severity 0–10? Worse with movement, deep breath, palpation, or exertion? Character (sharp/dull/heavy/pressure/stabbing)?</li>
         <li><strong>Associated features to screen:</strong> Sweating, Vomiting, SOB, Palpitations, Dizziness, Calf pain/swelling, Cough, Fevers</li>
-        <li><strong>Cardiac risk stratification:</strong> DM, HTN, hypercholesterolaemia, FHx of AMI/angina/stents/bypasses, smoking. Indian/Sri Lankan ethnicity is an independent risk factor. Biggest RF = having had it before.</li>
+        <li><strong>Cardiac risk stratification:</strong> DM, HTN, hypercholesterolaemia, FHx of AMI/angina/stents/bypasses, smoking. Indian/Sri Lankan ethnicity is an independent risk factor. Biggest RF = having had it before</li>
         <li><strong>ECG — 1st question:</strong> "Is it a STEMI?" STEMI = ST elevation &gt;1 little square (&gt;2 squares in V2/V3), in ≥2 contiguous leads, that is NEW, with active chest pain</li>
-        <li><strong>ECG — 2nd question:</strong> "Could it be a NSTEMI?" → ST depression or T inversion in arterial distribution; are changes evolving (dynamic)? Check OLD ECG then do SERIAL ECGs. <em>You CANNOT diagnose NSTEMI on ECG alone — prove it with serial troponins.</em></li>
+        <li><strong>ECG — 2nd question:</strong> "Could it be a NSTEMI?" → ST depression or T inversion in arterial distribution; are changes evolving (dynamic)? Check OLD ECG then do SERIAL ECGs. <em>You CANNOT diagnose NSTEMI on ECG alone — prove it with serial troponins</em></li>
         <li><strong>Beware:</strong> Diabetic and possibly female silent AMI — may have no classic chest pain</li>
         <li><strong>Management mnemonic — "I'm Acting General Manager ABCD Cath":</strong> IV access; Aspirin + GTN + Morphine (pain relief) → Atorvastatin, Beta-blocker, Clexane (LMWH), DAPT (Clopidogrel or Ticagrelor) → Cath lab</li>
         <li><strong>STEMI vs NSTEMI — the only real difference is time to Cath:</strong> STEMI → &lt;90 min; NSTEMI → within 24hrs</li>
@@ -1256,8 +1262,8 @@
           <span class="icon">🩺</span> Symptoms & Signs
         </div>
         <ul>
-          <li>Central or left‑sided chest pressure/heaviness (not sharp), ± radiation to arm, neck, jaw or back.</li>
-          <li>Provoked by exertion (walking uphill, stairs) or emotional stress; relieved within minutes by rest and/or sublingual GTN.</li>
+          <li>Central or left‑sided chest pressure/heaviness (not sharp), ± radiation to arm, neck, jaw or back</li>
+          <li>Provoked by exertion (walking uphill, stairs) or emotional stress; relieved within minutes by rest and/or sublingual GTN</li>
           <li>Symptoms are <strong>predictable and reproducible</strong> with a given level of exertion/emotional stress and resolve with rest/GTN within minutes</li>
         </ul>
       </div>
@@ -1294,10 +1300,10 @@
     <div class="cdria-box">
           <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — IHD/Angina Pattern Recognition & Wellen's Syndrome</span></div>
           <ul>
-            <li><strong>Classic IHD/angina pattern (Red Flags):</strong> Central or left-sided chest pressure/heaviness radiating to arm, neck, jaw or back; establish ONSET and DURATION; NOT worse with deep inspiration or palpation; worse with exertion; associated N/V, SOB, dizziness. Risk factor profile: personal hx IHD/HTN/cholesterol/DM, FHx, smoking. Note: Indian/Sri Lankan ethnicity is an independent risk factor for IHD.</li>
-            <li><strong>ECG approach:</strong> ST depression = subendocardial ischaemia (stable or unstable angina). Compare with old ECG — is this NEW? Serial ECGs to look for dynamic change.</li>
-            <li><strong>Wellen's Syndrome (must not miss):</strong> Requires [1] biphasic or deeply inverted T waves in V2/V3 on ECG AND [2] history of recent chest pain that has since resolved. Highly specific for a critical stenosis of the LAD. <strong>ADMIT for urgent angiogram. Do NOT perform a stress test</strong> — risk of precipitating MI.</li>
-            <li><strong>Treatment rule:</strong> Use GTN as a diagnostic/therapeutic tool — significant relief of chest pain after sublingual GTN supports an ischaemic cause. If no relief, broaden your differential.</li>
+            <li><strong>Classic IHD/angina pattern (Red Flags):</strong> Central or left-sided chest pressure/heaviness radiating to arm, neck, jaw or back; establish ONSET and DURATION; NOT worse with deep inspiration or palpation; worse with exertion; associated N/V, SOB, dizziness. Risk factor profile: personal hx IHD/HTN/cholesterol/DM, FHx, smoking. Note: Indian/Sri Lankan ethnicity is an independent risk factor for IHD</li>
+            <li><strong>ECG approach:</strong> ST depression = subendocardial ischaemia (stable or unstable angina). Compare with old ECG — is this NEW? Serial ECGs to look for dynamic change</li>
+            <li><strong>Wellen's Syndrome (must not miss):</strong> Requires [1] biphasic or deeply inverted T waves in V2/V3 on ECG AND [2] history of recent chest pain that has since resolved. Highly specific for a critical stenosis of the LAD. <strong>ADMIT for urgent angiogram. Do NOT perform a stress test</strong> — risk of precipitating MI</li>
+            <li><strong>Treatment rule:</strong> Use GTN as a diagnostic/therapeutic tool — significant relief of chest pain after sublingual GTN supports an ischaemic cause. If no relief, broaden your differential</li>
           </ul>
           <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 1 (Red Flags: Chest Pain) + The Toolbox 5 (Approach to ECGs)</p>
         </div>
@@ -1514,10 +1520,10 @@
         <div class="cdria-box">
           <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — Aortic Stenosis & LBBB on ECG</span></div>
           <ul>
-            <li><strong>AS clinical pattern to recognise:</strong> Typical exertional chest pain with SOB and/or dizziness — these symptoms are progressive. Key red flag: this is a valvular cause of chest pain; listen for the ejection systolic murmur at the right upper sternal border radiating to the carotids on examination.</li>
-            <li><strong>LBBB and AS:</strong> LBBB is a known cause of new LBBB on ECG. A new LBBB is almost always pathological — check OLD ECGs. If LBBB is new in the context of chest pain, treat as STEMI-equivalent until proven otherwise (Sgarbossa's criteria apply).</li>
-            <li><strong>ECG in LBBB — Appropriate Discordance:</strong> In leads with a negative QRS, ST segments appear elevated (normal for BBB, NOT a STEMI). In leads with positive QRS, ST segments appear depressed. This is normal for the block and can mimic ischaemia. Use Sgarbossa's criteria to identify true STEMI in the context of LBBB.</li>
-            <li><strong>Key LBBB rule:</strong> [1] Wide QRS → look at V1 and V6 (LBBB = 'W' in V1 + 'M' in V6; RBBB = 'M' in V1 + 'W'/slurred S in V6). [2] A NEW LBBB = pathological until proven otherwise. [3] Cannot diagnose STEMI by normal rules if BBB present — apply Sgarbossa's criteria.</li>
+            <li><strong>AS clinical pattern to recognise:</strong> Typical exertional chest pain with SOB and/or dizziness — these symptoms are progressive. Key red flag: this is a valvular cause of chest pain; listen for the ejection systolic murmur at the right upper sternal border radiating to the carotids on examination</li>
+            <li><strong>LBBB and AS:</strong> LBBB is a known cause of new LBBB on ECG. A new LBBB is almost always pathological — check OLD ECGs. If LBBB is new in the context of chest pain, treat as STEMI-equivalent until proven otherwise (Sgarbossa's criteria apply)</li>
+            <li><strong>ECG in LBBB — Appropriate Discordance:</strong> In leads with a negative QRS, ST segments appear elevated (normal for BBB, NOT a STEMI). In leads with positive QRS, ST segments appear depressed. This is normal for the block and can mimic ischaemia. Use Sgarbossa's criteria to identify true STEMI in the context of LBBB</li>
+            <li><strong>Key LBBB rule:</strong> [1] Wide QRS → look at V1 and V6 (LBBB = 'W' in V1 + 'M' in V6; RBBB = 'M' in V1 + 'W'/slurred S in V6). [2] A NEW LBBB = pathological until proven otherwise. [3] Cannot diagnose STEMI by normal rules if BBB present — apply Sgarbossa's criteria</li>
           </ul>
           <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 1 (Red Flags: Chest Pain) + The Toolbox 5 (Approach to ECGs)</p>
         </div>
@@ -1934,12 +1940,12 @@
         <div class="cdria-box">
           <div class="cdria-header"><span class="cdria-tag">CDRIA Point</span><span class="cdria-title">Jon Lee — HCM: Clinical Pattern & ECG</span></div>
           <ul>
-            <li><strong>HCM clinical presentation pattern:</strong> Exertional chest pain, SOB, dizziness, palpitations, or collapse in a young person. Prevalence 1 in 500; annual mortality 1–2%. Number 1 cause of sudden cardiac death in young people.</li>
-            <li><strong>Genetics:</strong> ~60% is a genetic disorder, primarily autosomal dominant. Causes issues through decreased cardiac output (LVOTO or poor filling), mitral regurgitation, or arrhythmias.</li>
-            <li><strong>ECG findings:</strong> LVH (tall R waves in chest/limb leads) + narrow Q waves inferiorly or laterally. If you see this pattern in a young patient with exertional collapse → think HCM.</li>
-            <li><strong>Definitive diagnosis:</strong> Echocardiogram for LV wall thickness (septum &gt;15mm or ASH).</li>
-            <li><strong>Management:</strong> Beta-blockers or Ca channel blockers (symptom control); ICD for high-risk patients (hx of VT/VF, FHx sudden death, massive hypertrophy, syncope); septal myectomy or alcohol septal ablation if LVOTO refractory to medication.</li>
-            <li><strong>Key clinical exam rule:</strong> Mid-systolic ejection murmur at LSE — gets louder with Valsalva/standing and softer with squatting (dynamic obstruction).</li>
+            <li><strong>HCM clinical presentation pattern:</strong> Exertional chest pain, SOB, dizziness, palpitations, or collapse in a young person. Prevalence 1 in 500; annual mortality 1–2%. Number 1 cause of sudden cardiac death in young people</li>
+            <li><strong>Genetics:</strong> ~60% is a genetic disorder, primarily autosomal dominant. Causes issues through decreased cardiac output (LVOTO or poor filling), mitral regurgitation, or arrhythmias</li>
+            <li><strong>ECG findings:</strong> LVH (tall R waves in chest/limb leads) + narrow Q waves inferiorly or laterally. If you see this pattern in a young patient with exertional collapse → think HCM</li>
+            <li><strong>Definitive diagnosis:</strong> Echocardiogram for LV wall thickness (septum &gt;15mm or ASH)</li>
+            <li><strong>Management:</strong> Beta-blockers or Ca channel blockers (symptom control); ICD for high-risk patients (hx of VT/VF, FHx sudden death, massive hypertrophy, syncope); septal myectomy or alcohol septal ablation if LVOTO refractory to medication</li>
+            <li><strong>Key clinical exam rule:</strong> Mid-systolic ejection murmur at LSE — gets louder with Valsalva/standing and softer with squatting (dynamic obstruction)</li>
           </ul>
           <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 5 (Approach to ECGs: Special Patterns)</p>
         </div>
@@ -2241,8 +2247,8 @@
           <div>
           <div class="section-label sl-sx"><span class="icon">⚠️</span> Aspiration Pneumonia vs Aspiration Pneumonitis</div> 
           <ul >
-            <li><strong>Pneumonia (bacterial):</strong> Inhalation of oropharyngeal <em>bacteria</em> → bacterial infection. Predisposed by impaired swallowing/protective reflexes (CVA, MND, malignancy, intoxication). <strong>Needs antibiotics</strong> (IV Ceftriaxone/BenzPen ± Metronidazole or Clindamycin).</li>
-            <li><strong>Pneumonitis (chemical):</strong> Inhalation of <em>gastric contents</em> → sterile chemical inflammation (acid-mediated). Gastric contents usually sterile → does <strong>not always need antibiotics</strong>. Rx: airway protection, supportive care; antibiotics only if secondary bacterial pneumonia develops.</li>
+            <li><strong>Pneumonia (bacterial):</strong> Inhalation of oropharyngeal <em>bacteria</em> → bacterial infection. Predisposed by impaired swallowing/protective reflexes (CVA, MND, malignancy, intoxication). <strong>Needs antibiotics</strong> (IV Ceftriaxone/BenzPen ± Metronidazole or Clindamycin)</li>
+            <li><strong>Pneumonitis (chemical):</strong> Inhalation of <em>gastric contents</em> → sterile chemical inflammation (acid-mediated). Gastric contents usually sterile → does <strong>not always need antibiotics</strong>. Rx: airway protection, supportive care; antibiotics only if secondary bacterial pneumonia develops</li>
           </ul>
           </div>
         </div>
@@ -2302,7 +2308,7 @@
             <li><strong>Key differentiator from ACS:</strong> Pneumonia chest pain is pleuritic (worse with deep breath and movement) — ACS pain is NOT worse with inspiration or palpation</li>
             <li><strong>Risk stratify for atypical vs CAP:</strong> Known COPD or CCF? (clarify baseline SOB vs current). Immunocompromised? Recent hospitalisation/travel?</li>
             <li><strong>Atypical pneumonia clues:</strong> prolonged time course; dry cough; failure to respond to typical antibiotic therapy; high-risk demographic (young/crowded settings = Mycoplasma; bird/cage exposure = Chlamydia psittaci; aircon mist exposure + diarrhoea + ↓Na = Legionella; vets/farmers = Q fever; weight loss + night sweats + haemoptysis + travel = TB)</li>
-            <li><strong>Scoring system limitations:</strong> CURB-65 misses O₂ sats, exertional component, baseline vs now, immunosuppression — a patient can score 0 on arrival and deteriorate rapidly. PSI/PORT and SMART-COP are better but still have hard cutoffs. Always combine scores with clinical judgement.</li>
+            <li><strong>Scoring system limitations:</strong> CURB-65 misses O₂ sats, exertional component, baseline vs now, immunosuppression — a patient can score 0 on arrival and deteriorate rapidly. PSI/PORT and SMART-COP are better but still have hard cutoffs. Always combine scores with clinical judgement</li>
             <li><strong>Differentials not to miss — chest pain + fever:</strong> PE (pleuritic pain + tachycardia/hypoxia + risk factors), empyema (persistent fever despite antibiotics)</li>
             <li><strong>Investigation approach:</strong> CXR; FBE, UECr, CRP, ± LFT; blood culture (if febrile); sputum MCS; NPA Respiratory PCR (viral); atypical serology or atypical bacterial PCR (if suspecting atypical); urinary Legionella antigen; ECG</li>
             <li><strong>Varicella complications (x4):</strong> Pneumonia, Encephalitis/meningitis, Ocular involvement, Auricular involvement — auricular + facial nerve palsy = <strong>Ramsay Hunt Syndrome</strong></li>
@@ -2941,11 +2947,11 @@
         <!-- Comparison table -->
         <div class="table-scroll"><table class="mini">
           <tr><th>Virus</th><th>Type</th><th>Transmission</th><th>Incubation</th><th>Chronicity</th><th>HCC Risk</th><th>Key Features</th></tr>
-          <tr><td>HAV</td><td>RNA picornavirus (naked)</td><td>Faecal-oral — shellfish, travel, daycare, contaminated water</td><td>2–4 weeks (short)</td><td>None — always self-limiting</td><td>No</td><td>Acute illness only. No carrier state. IgM = acute; IgG = past/vaccinated. Vaccine available (inactivated).</td></tr>
-          <tr><td>HBV</td><td>DNA hepadnavirus (enveloped)</td><td>Parenteral, sexual, perinatal (Blood / Bedroom / Birthing)</td><td>1–4 months (long)</td><td>< 5–10% adults; > 90-95% neonates → chronic</td><td>Yes (with or without cirrhosis)</td><td>Serum sickness-like prodrome possible (rash, fever, and polyarthralgias or polyarthritis). "Ground glass" hepatocytes on biopsy. Dane particle = complete virion. Vaccine available (recombinant HBsAg).</td></tr>
-          <tr><td>HCV</td><td>RNA flavivirus (enveloped)</td><td>Primarily parenteral (IVDU, needlestick); sexual transmission low risk; rarely perinatal</td><td>2–26 weeks</td><td>~80% → chronic; 20% clear spontaneously</td><td>Yes (usually via cirrhosis)</td><td>No proofreading → antigenic variation → no vaccine possible. Most common blood-borne chronic liver infection globally. Curable with DAAs (&gt;95%).</td></tr>
-          <tr><td>HDV</td><td>RNA deltavirus — defective (needs HBV)</td><td>Parenteral, sexual; requires HBV HBsAg coat for entry</td><td>Superinfection: short; Co-infection: long</td><td>Superinfection on chronic HBV = 80% chronic; Co-infection with HBV = 5% chronic</td><td>Yes</td><td>Superinfection (HDV acquires chronic HBV) = worse prognosis. Co-infection (simultaneous HBV+HDV) = usually resolves. HBV vaccine prevents HDV.</td></tr>
-          <tr><td>HEV</td><td>RNA hepevirus (naked)</td><td>Faecal-oral; waterborne epidemics (Asia, Africa, Middle East, Central America)</td><td>2–8 weeks (short)</td><td>None in immunocompetent; may be chronic in immunocompromised (transplant recipients)</td><td>No</td><td>Fulminant hepatic failure in pregnancy (~20% maternal mortality). Epidemic form. IgM = acute. Ribavirin for immunocompromised chronic HEV.</td></tr>
+          <tr><td>HAV</td><td>RNA picornavirus (naked)</td><td>Faecal-oral — shellfish, travel, daycare, contaminated water</td><td>2–4 weeks (short)</td><td>None — always self-limiting</td><td>No</td><td>Acute illness only. No carrier state. IgM = acute; IgG = past/vaccinated. Vaccine available (inactivated)</td></tr>
+          <tr><td>HBV</td><td>DNA hepadnavirus (enveloped)</td><td>Parenteral, sexual, perinatal (Blood / Bedroom / Birthing)</td><td>1–4 months (long)</td><td>< 5–10% adults; > 90-95% neonates → chronic</td><td>Yes (with or without cirrhosis)</td><td>Serum sickness-like prodrome possible (rash, fever, and polyarthralgias or polyarthritis). "Ground glass" hepatocytes on biopsy. Dane particle = complete virion. Vaccine available (recombinant HBsAg)</td></tr>
+          <tr><td>HCV</td><td>RNA flavivirus (enveloped)</td><td>Primarily parenteral (IVDU, needlestick); sexual transmission low risk; rarely perinatal</td><td>2–26 weeks</td><td>~80% → chronic; 20% clear spontaneously</td><td>Yes (usually via cirrhosis)</td><td>No proofreading → antigenic variation → no vaccine possible. Most common blood-borne chronic liver infection globally. Curable with DAAs (&gt;95%)</td></tr>
+          <tr><td>HDV</td><td>RNA deltavirus — defective (needs HBV)</td><td>Parenteral, sexual; requires HBV HBsAg coat for entry</td><td>Superinfection: short; Co-infection: long</td><td>Superinfection on chronic HBV = 80% chronic; Co-infection with HBV = 5% chronic</td><td>Yes</td><td>Superinfection (HDV acquires chronic HBV) = worse prognosis. Co-infection (simultaneous HBV+HDV) = usually resolves. HBV vaccine prevents HDV</td></tr>
+          <tr><td>HEV</td><td>RNA hepevirus (naked)</td><td>Faecal-oral; waterborne epidemics (Asia, Africa, Middle East, Central America)</td><td>2–8 weeks (short)</td><td>None in immunocompetent; may be chronic in immunocompromised (transplant recipients)</td><td>No</td><td>Fulminant hepatic failure in pregnancy (~20% maternal mortality). Epidemic form. IgM = acute. Ribavirin for immunocompromised chronic HEV</td></tr>
         </table></div>
 
         <div class="sections-grid" style="margin-top:14px">
@@ -3154,8 +3160,8 @@
           <div class="section-box">
             <div class="section-label sl-comp"><span class="icon">⚠️</span> Extrahepatic Manifestations</div>
             <ul>
-              <li><strong>HAV — rash and joint pain arthralgia.</strong></li>
-              <li> Complications associated with immune-complex deposition are rare.</li>
+              <li><strong>HAV — rash and joint pain arthralgia</strong></li>
+              <li> Complications associated with immune-complex deposition are rare</li>
               <li><strong>HBV — immune complex deposition:</strong></li>
               <li>Serum sickness-like prodrome: urticaria, arthralgia, fever (immune complex deposition; occurs before jaundice)</li>
               <li>Polyarteritis nodosa (PAN) — medium vessel vasculitis; HBsAg in vessel walls</li>
@@ -3207,9 +3213,9 @@
             <li><strong>Serology is used to detect viruses from a blood sample</strong> (gold top / SST tube — sent separately to serology/microbiology lab; takes 24–72 hours)</li>
             <li><strong>Universal rule:</strong> IgM = recent or ACTIVE infection; IgG = evidence of PAST infection or prior immunisation/vaccination</li>
             <li><strong>Example (HAV):</strong> Hepatitis A IgG detected + IgM not detected = past infection or immunisation — NOT active hepatitis A</li>
-            <li><strong>HBV serology requires interpreting multiple markers together</strong> — not just one result. Pattern recognition is key: HBsAg + Anti-HBc IgM = acute. HBsAg only + Anti-HBc IgG = chronic. Anti-HBs only = vaccinated.</li>
-            <li><strong>HCV serology:</strong> Anti-HCV antibody positive = exposure (past or present); HCV RNA PCR positive = active infection. Antibody can be transiently negative early in acute infection (window).</li>
-            <li><strong>Clinical correlation always:</strong> Serology results must be interpreted in the context of clinical presentation, LFT pattern, and risk factors.</li>
+            <li><strong>HBV serology requires interpreting multiple markers together</strong> — not just one result. Pattern recognition is key: HBsAg + Anti-HBc IgM = acute. HBsAg only + Anti-HBc IgG = chronic. Anti-HBs only = vaccinated</li>
+            <li><strong>HCV serology:</strong> Anti-HCV antibody positive = exposure (past or present); HCV RNA PCR positive = active infection. Antibody can be transiently negative early in acute infection (window)</li>
+            <li><strong>Clinical correlation always:</strong> Serology results must be interpreted in the context of clinical presentation, LFT pattern, and risk factors</li>
           </ul>
           <p class="cdria-note">Source: CDRIA &amp; Jon Lee — The Toolbox 4 (Pathology: Serology &amp; Lab Tests)</p>
         </div>
@@ -3232,7 +3238,7 @@
           <div class="section-box" style="grid-column: 1 / -1">
             <div class="section-label sl-etio"><span class="icon">🧬</span> Aetiology</div>
             <ul>
-              <li>End-stage liver disease (irreversible and advanced stage of chronic liver disease): diffuse bridging fibrosis + regenerative nodules disrupting normal architecture. Fibrosis mediated by TGF-β from hepatic <strong>stellate cells</strong>.</li>
+              <li>End-stage liver disease (irreversible and advanced stage of chronic liver disease): diffuse bridging fibrosis + regenerative nodules disrupting normal architecture. Fibrosis mediated by TGF-β from hepatic <strong>stellate cells</strong></li>
               <li>Stellate cells → Myofibroblasts → Fibrosis</li>
             </ul>
             <div style="margin-top:10px">
@@ -3337,7 +3343,7 @@
               <span class="histo-badge">H&amp;E stain</span>
             </div>
             <ul style="margin-top: 3px;">
-              <li><strong>Normal architecture:</strong> Regular hepatocyte cords radiate from central vein (CV) to portal tracts (PT). No fibrosis. Sinusoids patent.</li>
+              <li><strong>Normal architecture:</strong> Regular hepatocyte cords radiate from central vein (CV) to portal tracts (PT). No fibrosis. Sinusoids patent</li>
             </ul>
           </div>
           <div class="section-box">
@@ -3352,7 +3358,7 @@
               <span class="histo-badge">H&amp;E stain</span>
             </div>
             <ul style="margin-top: 3px;">
-              <li><strong>Cirrhotic features:</strong> Diffuse <strong>bridging fibrosis</strong> (blue/pink bands) encircling <strong>regenerative nodules</strong>. Normal lobular architecture is completely disrupted.</li>
+              <li><strong>Cirrhotic features:</strong> Diffuse <strong>bridging fibrosis</strong> (blue/pink bands) encircling <strong>regenerative nodules</strong>. Normal lobular architecture is completely disrupted</li>
             </ul>
           </div>
         </div>
@@ -3434,9 +3440,9 @@
             <li><strong>LFT interpretation — patterns (not individual values):</strong> Always compare with baseline. "Lots of things can mess with LFTs — clinical correlation and trends are important. If you see abnormal LFTs — check old ones!"</li>
             <li><strong>Pattern 1 — Cholestatic/Obstructive:</strong> Predominant ↑ALP + ↑GGT, ↑bilirubin → think gallstones, pancreatic mass causing bile duct obstruction, PSC, PBC</li>
             <li><strong>Pattern 2 — Hepatitic/Hepatocellular:</strong> Predominantly ↑ALT + ↑GGT (transaminases) → think hepatitis (viral, drug-induced, autoimmune)</li>
-            <li><strong>Pattern 3 — Alcoholic:</strong> Predominantly isolated ↑GGT → think alcoholic hepatitis/alcoholism. AST:ALT ratio &gt;2:1 is typical of alcoholic liver disease.</li>
+            <li><strong>Pattern 3 — Alcoholic:</strong> Predominantly isolated ↑GGT → think alcoholic hepatitis/alcoholism. AST:ALT ratio &gt;2:1 is typical of alcoholic liver disease</li>
             <li><strong>Pattern 4 — Mixed:</strong> All elevated to a similar degree → hepatitis or cirrhosis with mixed picture</li>
-            <li><strong>Pattern 5 — Isolated ↑Bilirubin:</strong> Think Gilbert's syndrome (benign, triggered by fasting/illness/stress) — not clinically important.</li>
+            <li><strong>Pattern 5 — Isolated ↑Bilirubin:</strong> Think Gilbert's syndrome (benign, triggered by fasting/illness/stress) — not clinically important</li>
             <li><strong>Key rule:</strong> "Sometimes a hepatitis can have a cholestatic-looking picture or an obstruction can show quite high transaminases — patterns are just a guide. Clinical correlation always!"</li>
           </ul>
           <p class="cdria-note">Source: CDRIA & Jon Lee — The Toolbox 4 (Clinical Diagnostic Reasoning in Action)</p>
@@ -3850,12 +3856,12 @@
       <div class="condition-body">
         <div class="table-scroll"><table class="mini">
           <tr><th>Condition</th><th>Genetics</th><th>Mechanism</th><th>Features</th><th>Diagnosis</th><th>Treatment</th></tr>
-          <tr><td>Haemochromatosis</td><td>AR; HFE gene (C282Y mutation); Chr 6</td><td>↓Hepcidin → ↑intestinal iron absorption → iron deposits in liver, pancreas, heart, skin, pituitary, joints</td><td>Classic triad: cirrhosis + diabetes mellitus + bronze skin ("bronze diabetes"). Also: restrictive cardiomyopathy, hypogonadism, arthropathy (MCP joints — Ca pyrophosphate). Presents after age 40 (iron accumulates slowly). Common cause of death = HCC.</td><td>↑Serum ferritin, ↑transferrin saturation (&gt;45%); HFE genotyping; liver biopsy (Prussian blue stain); MRI liver</td><td>Repeated phlebotomy (first-line — remove iron); desferrioxamine/deferasirox (chelation if phlebotomy not possible); avoid alcohol, vitamin C, raw shellfish (Vibrio)</td></tr>
-          <tr><td>Wilson Disease</td><td>AR; ATP7B gene; Chr 13</td><td>Defective hepatocyte copper-transporting ATPase → failure to excrete copper into bile → copper accumulates in liver, brain (basal ganglia), cornea, kidneys</td><td>Presents &lt;40 years. Liver: hepatitis, cirrhosis, acute liver failure. Neurological: dysarthria, tremor, dystonia, parkinsonism. Psychiatric: personality change, psychosis. Kayser-Fleischer rings (copper in Descemet membrane — cornea). Haemolytic anaemia (Coombs negative), Fanconi syndrome (renal).</td><td>↓Serum caeruloplasmin (&lt;200mg/L); ↑24h urine copper; slit-lamp exam (Kayser-Fleischer rings); liver biopsy; ATP7B sequencing</td><td>D-penicillamine (copper chelation) or trientine; oral zinc (blocks intestinal copper absorption); liver transplant for acute liver failure</td></tr>
-          <tr><td>α1-Antitrypsin Deficiency</td><td>Codominant; SERPINA1 gene; PiZZ homozygous = severe</td><td>Misfolded Z-protein aggregates in hepatocyte ER → cirrhosis. In lung: ↓α1AT → uninhibited elastase → panacinar emphysema</td><td>Young patient with unexplained cirrhosis + emphysema without smoking history. PAS-positive globules in hepatocytes on biopsy.</td><td>↓Serum α1-antitrypsin; Pi typing (PiZZ); liver biopsy</td><td>Liver transplant (curative for liver disease); augmentation therapy (IV α1AT for lung disease); smoking cessation; transplant indication = cirrhosis</td></tr>
-          <tr><td>Autoimmune Hepatitis</td><td>HLA-DR3/DR4 association; F &gt; M</td><td>Autoimmune destruction of hepatocytes; T-cell mediated</td><td>Young/middle-aged women; fatigue, jaundice, pruritus, amenorrhoea; may be asymptomatic. Type 1: anti-smooth muscle Ab (ASMA), ANA. Type 2: anti-LKM1 (liver-kidney microsomal Ab). Associated with other autoimmune diseases.</td><td>↑ALT/AST, ↑IgG, liver biopsy (lymphoplasmacytic infiltrate); serology; exclude viral, drug, metabolic causes</td><td>Prednisolone + azathioprine (remission induction and maintenance); budesonide (alternative); liver transplant if refractory/cirrhosis</td></tr>
-          <tr><td>Primary Biliary Cholangitis (PBC)</td><td>Autoimmune; F &gt; M (90%); middle-aged</td><td>Autoimmune destruction of small intrahepatic bile ducts → cholestasis → biliary cirrhosis</td><td>Pruritus (often presenting symptom), jaundice, fatigue, xanthelasma; progressive → cirrhosis. Associated with Sjögren, CREST, coeliac, thyroid disease. Osteoporosis (↓fat-soluble vitamin D absorption).</td><td>Anti-mitochondrial antibody (AMA) positive (M2 subtype) in &gt;95%; ↑ALP, ↑GGT, ↑IgM; liver biopsy (granulomatous duct destruction)</td><td>Ursodeoxycholic acid (UDCA — slows progression); obeticholic acid if insufficient response; cholestyramine/rifampicin for pruritus; fat-soluble vitamins; liver transplant (definitive)</td></tr>
-          <tr><td>Primary Sclerosing Cholangitis (PSC)</td><td>Unknown; M &gt; F; assoc. with HLA-B8, DR3; pANCA/MPO-ANCA positive</td><td>Progressive fibro-inflammatory destruction of intra- and extrahepatic bile ducts → "onion skin" fibrosis → alternating strictures and dilation ("beading" on MRCP/ERCP)</td><td>Middle-aged men with IBD (ulcerative colitis in 70–90%); pruritus, jaundice, RUQ pain, fever (cholangitis episodes). ↑ALP/GGT. Risk of cholangiocarcinoma (dominant stricture = high risk), gallbladder cancer, colorectal cancer (in associated UC).</td><td>MRCP (first-line — "beaded" bile ducts); ERCP (diagnostic + therapeutic); pANCA positive; liver biopsy (periductal "onion skin" fibrosis)</td><td>No proven medical treatment to halt progression; ERCP balloon dilation/stenting for dominant strictures; annual USS + CA19-9 (cholangiocarcinoma surveillance); liver transplant (only cure); note: colectomy does NOT prevent PSC progression</td></tr>
+          <tr><td>Haemochromatosis</td><td>AR; HFE gene (C282Y mutation); Chr 6</td><td>↓Hepcidin → ↑intestinal iron absorption → iron deposits in liver, pancreas, heart, skin, pituitary, joints</td><td>Classic triad: cirrhosis + diabetes mellitus + bronze skin ("bronze diabetes"). Also: restrictive cardiomyopathy, hypogonadism, arthropathy (MCP joints — Ca pyrophosphate). Presents after age 40 (iron accumulates slowly). Common cause of death = HCC</td><td>↑Serum ferritin, ↑transferrin saturation (&gt;45%); HFE genotyping; liver biopsy (Prussian blue stain); MRI liver</td><td>Repeated phlebotomy (first-line — remove iron); desferrioxamine/deferasirox (chelation if phlebotomy not possible); avoid alcohol, vitamin C, raw shellfish (Vibrio)</td></tr>
+          <tr><td>Wilson Disease</td><td>AR; ATP7B gene; Chr 13</td><td>Defective hepatocyte copper-transporting ATPase → failure to excrete copper into bile → copper accumulates in liver, brain (basal ganglia), cornea, kidneys</td><td>Presents &lt;40 years. Liver: hepatitis, cirrhosis, acute liver failure. Neurological: dysarthria, tremor, dystonia, parkinsonism. Psychiatric: personality change, psychosis. Kayser-Fleischer rings (copper in Descemet membrane — cornea). Haemolytic anaemia (Coombs negative), Fanconi syndrome (renal)</td><td>↓Serum caeruloplasmin (&lt;200mg/L); ↑24h urine copper; slit-lamp exam (Kayser-Fleischer rings); liver biopsy; ATP7B sequencing</td><td>D-penicillamine (copper chelation) or trientine; oral zinc (blocks intestinal copper absorption); liver transplant for acute liver failure</td></tr>
+          <tr><td>α1-Antitrypsin Deficiency</td><td>Codominant; SERPINA1 gene; PiZZ homozygous = severe</td><td>Misfolded Z-protein aggregates in hepatocyte ER → cirrhosis. In lung: ↓α1AT → uninhibited elastase → panacinar emphysema</td><td>Young patient with unexplained cirrhosis + emphysema without smoking history. PAS-positive globules in hepatocytes on biopsy</td><td>↓Serum α1-antitrypsin; Pi typing (PiZZ); liver biopsy</td><td>Liver transplant (curative for liver disease); augmentation therapy (IV α1AT for lung disease); smoking cessation; transplant indication = cirrhosis</td></tr>
+          <tr><td>Autoimmune Hepatitis</td><td>HLA-DR3/DR4 association; F &gt; M</td><td>Autoimmune destruction of hepatocytes; T-cell mediated</td><td>Young/middle-aged women; fatigue, jaundice, pruritus, amenorrhoea; may be asymptomatic. Type 1: anti-smooth muscle Ab (ASMA), ANA. Type 2: anti-LKM1 (liver-kidney microsomal Ab). Associated with other autoimmune diseases</td><td>↑ALT/AST, ↑IgG, liver biopsy (lymphoplasmacytic infiltrate); serology; exclude viral, drug, metabolic causes</td><td>Prednisolone + azathioprine (remission induction and maintenance); budesonide (alternative); liver transplant if refractory/cirrhosis</td></tr>
+          <tr><td>Primary Biliary Cholangitis (PBC)</td><td>Autoimmune; F &gt; M (90%); middle-aged</td><td>Autoimmune destruction of small intrahepatic bile ducts → cholestasis → biliary cirrhosis</td><td>Pruritus (often presenting symptom), jaundice, fatigue, xanthelasma; progressive → cirrhosis. Associated with Sjögren, CREST, coeliac, thyroid disease. Osteoporosis (↓fat-soluble vitamin D absorption)</td><td>Anti-mitochondrial antibody (AMA) positive (M2 subtype) in &gt;95%; ↑ALP, ↑GGT, ↑IgM; liver biopsy (granulomatous duct destruction)</td><td>Ursodeoxycholic acid (UDCA — slows progression); obeticholic acid if insufficient response; cholestyramine/rifampicin for pruritus; fat-soluble vitamins; liver transplant (definitive)</td></tr>
+          <tr><td>Primary Sclerosing Cholangitis (PSC)</td><td>Unknown; M &gt; F; assoc. with HLA-B8, DR3; pANCA/MPO-ANCA positive</td><td>Progressive fibro-inflammatory destruction of intra- and extrahepatic bile ducts → "onion skin" fibrosis → alternating strictures and dilation ("beading" on MRCP/ERCP)</td><td>Middle-aged men with IBD (ulcerative colitis in 70–90%); pruritus, jaundice, RUQ pain, fever (cholangitis episodes). ↑ALP/GGT. Risk of cholangiocarcinoma (dominant stricture = high risk), gallbladder cancer, colorectal cancer (in associated UC)</td><td>MRCP (first-line — "beaded" bile ducts); ERCP (diagnostic + therapeutic); pANCA positive; liver biopsy (periductal "onion skin" fibrosis)</td><td>No proven medical treatment to halt progression; ERCP balloon dilation/stenting for dominant strictures; annual USS + CA19-9 (cholangiocarcinoma surveillance); liver transplant (only cure); note: colectomy does NOT prevent PSC progression</td></tr>
         </table></div>
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
@@ -4153,9 +4159,9 @@
         <div class="table-scroll"><table class="mini">
           <tr><th>Condition</th><th>Pathophysiology</th><th>Clinical Features</th><th>Investigations</th><th>Management</th></tr>
           <tr><td>Achalasia</td><td>Degeneration of inhibitory myenteric (Auerbach's) plexus neurons (containing NO and VIP) → failure of LOS relaxation + absent peristalsis. 1° idiopathic. 2° Chagas disease (T. cruzi), malignancy (pseudoachalasia)</td><td>Progressive dysphagia to BOTH solids AND liquids (contrast with obstruction — solids first). Regurgitation of undigested food. Weight loss. Nocturnal aspiration. ↑risk oesophageal SCC</td><td>Barium swallow: "bird's beak" tapering + dilated oesophagus. High-resolution manometry (HRM): gold standard — absent peristalsis + incomplete LOS relaxation. OGD to exclude pseudoachalasia</td><td>Pneumatic dilation (endoscopic), POEM (per-oral endoscopic myotomy), surgical Heller myotomy + fundoplication. Botulinum toxin injection (elderly/unfit). Nitrates/CCBs (symptom relief only)</td></tr>
-          <tr><td>Distal Oesophageal Spasm (DES)</td><td>Uncoordinated non-peristaltic contractions; loss of normal inhibitory neurotransmission. Normal LOS pressure.</td><td>Episodic dysphagia (solids + liquids) and angina-like chest pain; may be provoked by cold liquids or stress. Can mimic ACS.</td><td>Barium: "corkscrew" oesophagus. HRM: simultaneous contractions. ECG to exclude cardiac cause.</td><td>Nitrates (isosorbide mononitrate), CCBs (diltiazem), tricyclic antidepressants (amitriptyline), PPI if GORD component. POEM in refractory cases.</td></tr>
-          <tr><td>Scleroderma oesophagus</td><td>Smooth muscle atrophy in lower 2/3 → ↓LOS pressure + ↓peristalsis → severe reflux and dysmotility. Part of CREST syndrome (systemic sclerosis).</td><td>Severe GORD symptoms; dysphagia; progressive → stricture, Barrett's, aspiration. Associated with Raynaud's, skin changes, telangiectasiae.</td><td>HRM: absent peristalsis, very low LOS pressure. OGD: oesophagitis/stricture/Barrett's.</td><td>High-dose PPI (often lifelong); prokinetics (metoclopramide); endoscopic dilation for strictures; treat underlying systemic sclerosis.</td></tr>
-          <tr><td>Zenker's Diverticulum</td><td>False diverticulum of mucosa through Killian's triangle (between thyropharyngeal and cricopharyngeal muscles). Pharyngeal dysmotility → pulsion diverticulum.</td><td>Dysphagia, regurgitation of undigested food, halitosis (foul breath), gurgling, neck mass, aspiration. Elderly males.</td><td>Barium swallow: posterior pharyngeal outpouching. OGD with caution (perforation risk).</td><td>Endoscopic staple diverticulotomy (preferred). Open surgical resection in complex cases.</td></tr>
+          <tr><td>Distal Oesophageal Spasm (DES)</td><td>Uncoordinated non-peristaltic contractions; loss of normal inhibitory neurotransmission. Normal LOS pressure</td><td>Episodic dysphagia (solids + liquids) and angina-like chest pain; may be provoked by cold liquids or stress. Can mimic ACS</td><td>Barium: "corkscrew" oesophagus. HRM: simultaneous contractions. ECG to exclude cardiac cause</td><td>Nitrates (isosorbide mononitrate), CCBs (diltiazem), tricyclic antidepressants (amitriptyline), PPI if GORD component. POEM in refractory cases</td></tr>
+          <tr><td>Scleroderma oesophagus</td><td>Smooth muscle atrophy in lower 2/3 → ↓LOS pressure + ↓peristalsis → severe reflux and dysmotility. Part of CREST syndrome (systemic sclerosis)</td><td>Severe GORD symptoms; dysphagia; progressive → stricture, Barrett's, aspiration. Associated with Raynaud's, skin changes, telangiectasiae</td><td>HRM: absent peristalsis, very low LOS pressure. OGD: oesophagitis/stricture/Barrett's</td><td>High-dose PPI (often lifelong); prokinetics (metoclopramide); endoscopic dilation for strictures; treat underlying systemic sclerosis</td></tr>
+          <tr><td>Zenker's Diverticulum</td><td>False diverticulum of mucosa through Killian's triangle (between thyropharyngeal and cricopharyngeal muscles). Pharyngeal dysmotility → pulsion diverticulum</td><td>Dysphagia, regurgitation of undigested food, halitosis (foul breath), gurgling, neck mass, aspiration. Elderly males</td><td>Barium swallow: posterior pharyngeal outpouching. OGD with caution (perforation risk)</td><td>Endoscopic staple diverticulotomy (preferred). Open surgical resection in complex cases</td></tr>
         </table></div>
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
@@ -4261,7 +4267,7 @@
           <ul>
             <li>Lipase &gt;3× ULN preferred over amylase (more specific; stays elevated longer)</li>
             <li>Gallstones = most common cause in Australia (40%); Alcohol = 2nd (35%)</li>
-            <li>Hypocalcaemia: Ca²⁺ binds to free fatty acids (saponification) → stones. NOT due to ↑PTH.</li>
+            <li>Hypocalcaemia: Ca²⁺ binds to free fatty acids (saponification) → stones. NOT due to ↑PTH</li>
             <li>Pseudocyst: lined by granulation tissue (NOT epithelium) — distinguish from true cyst</li>
             <li>Hartmann's/Ringer's lactate > normal saline for fluid resuscitation in pancreatitis</li>
             <li>CECT not needed on admission unless diagnostic uncertainty; best at 48–72h to assess necrosis</li>
@@ -4351,11 +4357,11 @@
       <div class="condition-body">
         <div class="table-scroll"><table class="mini">
           <tr><th>Tumour</th><th>Key Features</th><th>Diagnosis</th><th>Treatment</th></tr>
-          <tr><td><strong>Pancreatic Ductal Adenocarcinoma</strong></td><td>Most common pancreatic cancer (85%). Pancreatic HEAD (70%) → obstructive jaundice (painless, progressive), Courvoisier's sign. Body/tail → pain radiating to back, late diagnosis. Risk factors: smoking (strongest), chronic pancreatitis, DM, obesity, age &gt;50, BRCA2, Lynch. Trousseau syndrome (migratory thrombophlebitis). CA19-9 (sensitivity ~80%, but not screening). Very aggressive — average survival 1 year.</td><td>CT triple-phase; ERCP/MRCP; EUS + FNA (biopsy); PET-CT; CA19-9; CEA</td><td>Resectable (20%): Whipple's procedure (pancreaticoduodenectomy) ± adjuvant FOLFIRINOX or gemcitabine/capecitabine. Distal pancreatectomy (body/tail). Unresectable: gemcitabine + nab-paclitaxel; FOLFIRINOX; stenting for biliary obstruction; palliative care.</td></tr>
-          <tr><td><strong>Pancreatic Neuroendocrine Tumours (PNETs)</strong></td><td>Insulinoma: most common PNET; ↑insulin → hypoglycaemia; Whipple's triad (symptoms + BGL &lt;2.8 + relief with glucose); usually benign, solitary. Gastrinoma (ZES): ↑gastrin → ↑↑HCl → multiple ulcers, diarrhoea; 60% malignant; MEN1. Glucagonoma: DM + necrolytic migratory erythema (skin). VIPoma: WDHA syndrome (watery diarrhoea, hypokalaemia, achlorhydria). Somatostatinoma: DM + gallstones + steatorrhoea.</td><td>Fasting glucose + insulin/C-peptide; fasting serum gastrin; chromogranin A; 24h urine 5-HIAA; CT/EUS; Ga-68 DOTATATE PET-CT (most sensitive for NETs); somatostatin receptor scintigraphy (Octreoscan)</td><td>Surgical resection if possible. Octreotide/lanreotide (symptom control + anti-tumour in functional NETs). Everolimus, sunitinib (advanced PNETs). PRRT (peptide receptor radionuclide therapy) with Lu-177 DOTATATE.</td></tr>
-          <tr><td><strong>Cholangiocarcinoma</strong></td><td>Malignant bile duct epithelial tumour. Klatskin tumour = hilar (most common, at convergence of L and R hepatic ducts). Risk: PSC (strongest), liver flukes (Clonorchis sinensis, Opisthorchis), biliary cysts. Presents late: obstructive jaundice, pruritus, weight loss, RUQ pain. CA19-9 + CEA elevated.</td><td>MRCP (biliary stricture); CT; ERCP (brush cytology); EUS; liver biopsy if peripheral</td><td>Resectable (&lt;30%): hepatectomy ± biliary reconstruction. Unresectable: ERCP stenting (palliative drainage); gemcitabine + cisplatin; IDH1/2 inhibitors (ivosidenib); FGFR inhibitors (pemigatinib).</td></tr>
-          <tr><td><strong>Gallbladder Cancer</strong></td><td>Usually adenocarcinoma; most common GI cancer in women in some countries. Often found incidentally post-cholecystectomy. Risk: gallstones (chronic), porcelain gallbladder (some), primary sclerosing cholangitis, anomalous pancreatobiliary junction. Very poor prognosis.</td><td>USS/CT; pathology post-cholecystectomy</td><td>Early (T1a): cholecystectomy curative. T1b+: radical cholecystectomy with liver bed resection ± lymphadenectomy. Advanced: gemcitabine-based chemotherapy.</td></tr>
-          <tr><td><strong>Ampullary Carcinoma</strong></td><td>Arises at ampulla of Vater; better prognosis than pancreatic head cancer. Presents with obstructive jaundice; Courvoisier's sign. Associated with FAP (adenoma → carcinoma).</td><td>OGD + biopsy; EUS</td><td>Whipple's procedure (pancreaticoduodenectomy); good prognosis if resected early</td></tr>
+          <tr><td><strong>Pancreatic Ductal Adenocarcinoma</strong></td><td>Most common pancreatic cancer (85%). Pancreatic HEAD (70%) → obstructive jaundice (painless, progressive), Courvoisier's sign. Body/tail → pain radiating to back, late diagnosis. Risk factors: smoking (strongest), chronic pancreatitis, DM, obesity, age &gt;50, BRCA2, Lynch. Trousseau syndrome (migratory thrombophlebitis). CA19-9 (sensitivity ~80%, but not screening). Very aggressive — average survival 1 year</td><td>CT triple-phase; ERCP/MRCP; EUS + FNA (biopsy); PET-CT; CA19-9; CEA</td><td>Resectable (20%): Whipple's procedure (pancreaticoduodenectomy) ± adjuvant FOLFIRINOX or gemcitabine/capecitabine. Distal pancreatectomy (body/tail). Unresectable: gemcitabine + nab-paclitaxel; FOLFIRINOX; stenting for biliary obstruction; palliative care</td></tr>
+          <tr><td><strong>Pancreatic Neuroendocrine Tumours (PNETs)</strong></td><td>Insulinoma: most common PNET; ↑insulin → hypoglycaemia; Whipple's triad (symptoms + BGL &lt;2.8 + relief with glucose); usually benign, solitary. Gastrinoma (ZES): ↑gastrin → ↑↑HCl → multiple ulcers, diarrhoea; 60% malignant; MEN1. Glucagonoma: DM + necrolytic migratory erythema (skin). VIPoma: WDHA syndrome (watery diarrhoea, hypokalaemia, achlorhydria). Somatostatinoma: DM + gallstones + steatorrhoea</td><td>Fasting glucose + insulin/C-peptide; fasting serum gastrin; chromogranin A; 24h urine 5-HIAA; CT/EUS; Ga-68 DOTATATE PET-CT (most sensitive for NETs); somatostatin receptor scintigraphy (Octreoscan)</td><td>Surgical resection if possible. Octreotide/lanreotide (symptom control + anti-tumour in functional NETs). Everolimus, sunitinib (advanced PNETs). PRRT (peptide receptor radionuclide therapy) with Lu-177 DOTATATE</td></tr>
+          <tr><td><strong>Cholangiocarcinoma</strong></td><td>Malignant bile duct epithelial tumour. Klatskin tumour = hilar (most common, at convergence of L and R hepatic ducts). Risk: PSC (strongest), liver flukes (Clonorchis sinensis, Opisthorchis), biliary cysts. Presents late: obstructive jaundice, pruritus, weight loss, RUQ pain. CA19-9 + CEA elevated</td><td>MRCP (biliary stricture); CT; ERCP (brush cytology); EUS; liver biopsy if peripheral</td><td>Resectable (&lt;30%): hepatectomy ± biliary reconstruction. Unresectable: ERCP stenting (palliative drainage); gemcitabine + cisplatin; IDH1/2 inhibitors (ivosidenib); FGFR inhibitors (pemigatinib)</td></tr>
+          <tr><td><strong>Gallbladder Cancer</strong></td><td>Usually adenocarcinoma; most common GI cancer in women in some countries. Often found incidentally post-cholecystectomy. Risk: gallstones (chronic), porcelain gallbladder (some), primary sclerosing cholangitis, anomalous pancreatobiliary junction. Very poor prognosis</td><td>USS/CT; pathology post-cholecystectomy</td><td>Early (T1a): cholecystectomy curative. T1b+: radical cholecystectomy with liver bed resection ± lymphadenectomy. Advanced: gemcitabine-based chemotherapy</td></tr>
+          <tr><td><strong>Ampullary Carcinoma</strong></td><td>Arises at ampulla of Vater; better prognosis than pancreatic head cancer. Presents with obstructive jaundice; Courvoisier's sign. Associated with FAP (adenoma → carcinoma)</td><td>OGD + biopsy; EUS</td><td>Whipple's procedure (pancreaticoduodenectomy); good prognosis if resected early</td></tr>
         </table></div>
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
@@ -4387,9 +4393,9 @@
           <tr><td><strong>Salmonella non-typhoidal</strong></td><td>2nd most common; eggs, poultry, reptiles</td><td>Non-bloody diarrhoea, fever, vomiting; 6–72h incubation; self-limiting. Bacteraemia in extremes of age/immunocompromised. Typhoidal: S. typhi/paratyphi — fever, rose spots, relative bradycardia, constipation initially</td><td>Oral rehydration; avoid antibiotics for uncomplicated (prolongs carriage). Antibiotics (ciprofloxacin or azithromycin) for bacteraemia, typhoid, immunocompromised. AVOID anti-motility agents</td></tr>
           <tr><td><strong>Shigella</strong></td><td>Contact/faecal-oral; childcare centres, overseas travel</td><td>Dysentery: bloody mucoid diarrhoea + tenesmus + fever; low infective dose. HUS (especially S. dysenteriae type 1). Complications: reactive arthritis, seizures (children)</td><td>Oral rehydration; azithromycin or ciprofloxacin (shortens illness, reduces transmission); AVOID anti-motility agents (risk toxic megacolon)</td></tr>
           <tr><td><strong>STEC / E. coli O157:H7</strong></td><td>Undercooked beef, unpasteurised milk/juice</td><td>Bloody diarrhoea → haemolytic uraemic syndrome (HUS): microangiopathic haemolytic anaemia + thrombocytopaenia + AKI; children &gt; adults</td><td>Supportive; NO antibiotics (↑HUS risk); NO anti-motility agents; HD/dialysis if HUS</td></tr>
-          <tr><td><strong>Clostridioides difficile</strong></td><td>Hospital-acquired; after antibiotics (disrupts normal flora); also community-acquired with PPI use</td><td>Watery diarrhoea (3+ per day) + abdominal pain + fever; pseudomembranous colitis on sigmoidoscopy; severe: toxic megacolon, perforation. Spores survive on surfaces; spread by hands</td><td>Stop precipitating antibiotics; oral vancomycin (preferred first-line, replaces metronidazole) 125mg QID × 10 days; fidaxomicin (↓recurrence); bezlotoxumab (monoclonal) for recurrence prevention; faecal microbiota transplantation (FMT) for recurrent CDI (highly effective). Isolation precautions (contact).</td></tr>
+          <tr><td><strong>Clostridioides difficile</strong></td><td>Hospital-acquired; after antibiotics (disrupts normal flora); also community-acquired with PPI use</td><td>Watery diarrhoea (3+ per day) + abdominal pain + fever; pseudomembranous colitis on sigmoidoscopy; severe: toxic megacolon, perforation. Spores survive on surfaces; spread by hands</td><td>Stop precipitating antibiotics; oral vancomycin (preferred first-line, replaces metronidazole) 125mg QID × 10 days; fidaxomicin (↓recurrence); bezlotoxumab (monoclonal) for recurrence prevention; faecal microbiota transplantation (FMT) for recurrent CDI (highly effective). Isolation precautions (contact)</td></tr>
           <tr><td><strong>Giardia lamblia</strong></td><td>Most common intestinal parasite globally; contaminated water, travel</td><td>Foul-smelling watery diarrhoea, bloating, flatulence, cramping; NO blood/pus; prolonged (weeks). Malabsorption (fat-soluble vitamins). Stool cysts/trophozoites or stool antigen test</td><td>Metronidazole 400mg TDS × 5–7 days (first-line in Australia); tinidazole single dose; treat household contacts</td></tr>
-          <tr><td><strong>Cryptosporidium</strong></td><td>Waterborne; immunocompromised (HIV CD4&lt;200)</td><td>Profuse watery diarrhoea; self-limiting in immunocompetent; life-threatening in HIV. Oocysts in stool.</td><td>Immunocompetent: supportive. HIV: nitazoxanide; antiretroviral therapy (immune reconstitution)</td></tr>
+          <tr><td><strong>Cryptosporidium</strong></td><td>Waterborne; immunocompromised (HIV CD4&lt;200)</td><td>Profuse watery diarrhoea; self-limiting in immunocompetent; life-threatening in HIV. Oocysts in stool</td><td>Immunocompetent: supportive. HIV: nitazoxanide; antiretroviral therapy (immune reconstitution)</td></tr>
         </table></div>
         <div class="sections-grid" style="margin-top:14px">
           <div class="section-box">
@@ -4632,85 +4638,45 @@
             </tr>
 
             <tr>
-              <td>Typical location</td>
-              <td>
-                Can affect any part of the GI tract, from mouth to anus.
-                Terminal ileum and colon are commonly involved.
-                Classically has skip lesions.
-              </td>
-              <td>
-                Limited to the colon and rectum.
-                Usually starts in the rectum and extends proximally in a continuous pattern:
-                proctitis → left-sided colitis → extensive colitis/pancolitis.
-              </td>
+              <td>Location</td>
+              <td>Anywhere from mouth to anus; terminal ileum/colon common; skip lesions</td>
+              <td>Colon and rectum only; usually starts in rectum and spreads continuously proximally</td>
             </tr>
 
             <tr>
-              <td>Age of onset</td>
-              <td>
-                Commonly presents in young adults, but can occur at any age.
-              </td>
-              <td>
-                Commonly presents in young adults, with a second smaller peak in later adulthood.
-              </td>
+              <td>Age</td>
+              <td>Peak 15–30 yo (can happen any age)</td>
+              <td>Bimodal: 15–30 yo + second peak ~60–80 yo</td>
             </tr>
 
             <tr>
-              <td>Depth of inflammation</td>
-              <td>
-                Transmural inflammation.
-                This explains fistulae, abscesses, strictures and perforation risk.
-              </td>
-              <td>
-                Mainly mucosal inflammation.
-                This explains bleeding, friability, pseudopolyps and crypt abscesses.
-                Fistulae are not typical.
-              </td>
+              <td>Inflammation depth</td>
+              <td>Transmural → fistulae, abscesses, strictures, perforation</td>
+              <td>Mucosal ± submucosal → bleeding, friability, pseudopolyps, crypt abscesses</td>
             </tr>
 
             <tr>
-              <td>Macroscopic appearance</td>
-              <td>
-                Patchy inflammation, linear ulcers, fissures, cobblestoning,
-                bowel wall thickening and creeping fat.
-                Terminal ileal stricturing may produce a “string sign”.
-              </td>
-              <td>
-                Continuous friable granular mucosa with superficial ulceration.
-                Chronic disease may cause pseudopolyps and loss of haustra
-                (“lead pipe” colon).
-              </td>
+              <td>Macroscopy</td>
+              <td>Patchy disease, cobblestoning, linear ulcers, fissures, thickened bowel, creeping fat, “string sign”</td>
+              <td>Continuous friable granular mucosa, superficial ulceration, pseudopolyps, chronic “lead pipe” colon</td>
             </tr>
 
             <tr>
               <td>Microscopy</td>
-              <td>
-                Transmural inflammation.
-                Non-caseating granulomas may be present, but are not required for diagnosis.
-              </td>
-              <td>
-                Cryptitis, crypt abscesses and architectural distortion.
-                Granulomas are not typical.
-              </td>
+              <td>Transmural inflammation; non-caseating granulomas may occur but are not required</td>
+              <td>Cryptitis, crypt abscesses and architectural distortion; granulomas are not typical</td>
             </tr>
 
             <tr>
-              <td>Typical symptoms</td>
-              <td>
-                Chronic diarrhoea, abdominal pain, weight loss and fatigue.
-                Right iliac fossa pain suggests terminal ileal disease.
-                Terminal ileal involvement can cause B12 and bile salt malabsorption.
-              </td>
-              <td>
-                Bloody diarrhoea, mucus, urgency, tenesmus and lower abdominal cramping.
-                Nocturnal diarrhoea suggests organic disease rather than IBS.
-              </td>
+              <td>Symptoms</td>
+              <td>Chronic diarrhoea, abdominal/RIF pain, weight loss, fatigue, B12/bile salt malabsorption if ileal disease</td>
+              <td>Bloody diarrhoea, mucus, urgency, tenesmus, lower abdominal cramps; nocturnal diarrhoea suggests organic disease</td>
             </tr>
 
             <tr>
-              <td>Extraintestinal features</td>
+              <td>Extraintestinal</td>
               <td colspan="2">
-                <strong>Skin:</strong> erythema nodosum, pyoderma gangrenosum.
+                <strong>Skin:</strong> erythema nodosum (parallels disease activity), pyoderma gangrenosum.
                 <br>
                 <strong>Eyes:</strong> episcleritis, uveitis.
                 <br>
@@ -4718,58 +4684,34 @@
                 <br>
                 <strong>Mouth:</strong> aphthous ulcers.
                 <br>
-                <strong>Hepatobiliary:</strong> primary sclerosing cholangitis, especially with UC.
+                <strong>Hepatobiliary:</strong> PSC, especially with UC.
                 <br>
-                <strong>Stones:</strong> Crohn's ileal disease can increase risk of gallstones and renal oxalate stones.
+                <strong>Stones:</strong> bile salt malabsorption → gallstones | fat malabsorption → increased oxalate absorption → kidney stones
               </td>
             </tr>
 
             <tr>
               <td>Serology</td>
-              <td>
-                ASCA may be positive, but is not diagnostic.
-              </td>
-              <td>
-                pANCA may be positive, but is not diagnostic.
-              </td>
+              <td>ASCA may be positive; not diagnostic</td>
+              <td>pANCA may be positive; not diagnostic</td>
             </tr>
 
             <tr>
-              <td>Colorectal cancer risk</td>
-              <td>
-                Increased if there is Crohn's colitis, especially with extensive or long-standing colonic inflammation.
-                Surveillance is risk-stratified.
-              </td>
-              <td>
-                Increased with extensive and long-standing colitis.
-                Surveillance is risk-stratified.
-                PSC increases CRC risk and requires earlier/more frequent surveillance.
-              </td>
+              <td>CRC risk</td>
+              <td>Increased with extensive/long-standing Crohn colitis; risk-stratified surveillance</td>
+              <td>Increased with extensive/long-standing colitis; PSC increases risk and needs earlier surveillance</td>
             </tr>
 
             <tr>
-              <td>Specific complications</td>
-              <td>
-                Fistulae, strictures, small bowel obstruction, abscesses,
-                perianal disease and malnutrition.
-              </td>
-              <td>
-                Acute severe colitis, toxic megacolon, severe bleeding,
-                perforation and dysplasia/cancer.
-              </td>
+              <td>Complications</td>
+              <td>Fistulae, strictures, SBO, abscesses, perianal disease, malnutrition</td>
+              <td>Acute severe colitis, toxic megacolon, severe bleeding, perforation, dysplasia/cancer</td>
             </tr>
 
             <tr>
               <td>Surgery</td>
-              <td>
-                Surgery treats complications but is not curative.
-                Recurrence can occur, including near an anastomosis.
-                Bowel-sparing surgery is preferred where possible.
-              </td>
-              <td>
-                Colectomy removes colonic disease and can be curative for intestinal UC.
-                Options include panproctocolectomy with ileal pouch-anal anastomosis.
-              </td>
+              <td>Treats complications but is not curative; recurrence can occur, often near anastomosis</td>
+              <td>Colectomy can cure intestinal UC; options include panproctocolectomy with IPAA</td>
             </tr>
           </table>
         </div>
@@ -4782,55 +4724,14 @@
             </div>
 
             <ul>
-              <li>
-                <strong>Mild–moderate UC induction:</strong>
-                mesalazine/5-ASA is first-line. Use oral and/or rectal therapy depending on disease extent.
-                Rectal suppositories are useful for proctitis; enemas are useful for left-sided disease.
-              </li>
-
-              <li>
-                <strong>UC maintenance:</strong>
-                mesalazine is commonly used long-term. Immunomodulators or advanced therapies are considered
-                for steroid-dependent, frequently relapsing or moderate–severe disease.
-              </li>
-
-              <li>
-                <strong>Moderate–severe UC flare:</strong>
-                oral corticosteroids may be used for outpatient flares.
-                Acute severe UC requires hospital assessment, IV corticosteroids and early gastroenterology/surgical input.
-                Rescue therapy may include infliximab or ciclosporin if IV steroids fail.
-              </li>
-
-              <li>
-                <strong>Crohn's induction:</strong>
-                corticosteroids are used for active inflammatory disease.
-                Budesonide may be used for mild ileocaecal Crohn's.
-                5-ASA has limited benefit in Crohn's and is not a key treatment.
-              </li>
-
-              <li>
-                <strong>Moderate–severe Crohn's:</strong>
-                biologic or small-molecule therapy may be needed, depending on phenotype, severity and PBS eligibility.
-                Options include anti-TNF therapy, vedolizumab, ustekinumab and other advanced agents.
-              </li>
-
-              <li>
-                <strong>Perianal Crohn's:</strong>
-                requires MRI pelvis, examination under anaesthesia when indicated,
-                antibiotics for sepsis control, drainage/seton if abscess or fistula,
-                and often anti-TNF therapy.
-              </li>
-
-              <li>
-                <strong>Before immunosuppression/biologics:</strong>
-                check infection risk, vaccination status, TB, hepatitis B/C, VZV immunity where relevant,
-                and baseline bloods.
-              </li>
-
-              <li>
-                <strong>Faecal calprotectin:</strong>
-                useful to distinguish inflammatory from functional symptoms and to monitor disease activity.
-              </li>
+              <li><strong>Mild–moderate UC:</strong> mesalazine/5-ASA first-line; oral ± rectal depending on extent. Suppository for proctitis, enema for left-sided disease</li>
+              <li><strong>UC maintenance:</strong> long-term mesalazine; immunomodulators or advanced therapy if steroid-dependent, relapsing or moderate–severe</li>
+              <li><strong>Moderate–severe UC flare:</strong> oral steroids if outpatient; acute severe UC needs hospital care, IV steroids and early gastro/surgical input. Rescue: infliximab or ciclosporin</li>
+              <li><strong>Crohn induction:</strong> corticosteroids for active disease; budesonide for mild ileocaecal disease. 5-ASA has limited benefit and is not core therapy</li>
+              <li><strong>Moderate–severe Crohn:</strong> biologic/small-molecule therapy depending on phenotype, severity and PBS criteria; options include anti-TNF, vedolizumab, ustekinumab and newer agents</li>
+              <li><strong>Perianal Crohn:</strong> MRI pelvis, EUA if needed, antibiotics for sepsis, drainage/seton for abscess/fistula, often anti-TNF therapy</li>
+              <li><strong>Before immunosuppression/biologics:</strong> check infection risk, vaccination status, TB, hepatitis B/C, VZV immunity and baseline bloods</li>
+              <li><strong>Faecal calprotectin:</strong> helps distinguish inflammatory from functional symptoms and monitor disease activity</li>
             </ul>
           </div>
 
@@ -4840,102 +4741,31 @@
             </div>
 
             <ul>
-              <li>
-                <strong>Colonoscopy with biopsy:</strong>
-                key test for diagnosis, disease extent and histology.
-              </li>
-
-              <li>
-                <strong>Stool tests:</strong>
-                stool MCS/PCR and C. difficile testing are important during acute presentations or flares.
-              </li>
-
-              <li>
-                <strong>Bloods:</strong>
-                FBE, CRP/ESR, UEC, LFT, albumin, iron studies, B12/folate and vitamin D depending on context.
-              </li>
-
-              <li>
-                <strong>MRI enterography:</strong>
-                preferred for small bowel Crohn's assessment, strictures and fistulae because it avoids radiation.
-              </li>
-
-              <li>
-                <strong>CT abdomen/pelvis:</strong>
-                useful when acute complications are suspected, such as abscess, obstruction or perforation.
-              </li>
-
-              <li>
-                <strong>Capsule endoscopy:</strong>
-                useful for suspected small bowel Crohn's only after stricture risk is considered.
-              </li>
-
-              <li>
-                <strong>Therapeutic drug monitoring:</strong>
-                trough and anti-drug antibody levels may guide biologic dose adjustment or switching.
-              </li>
-
-              <li>
-                <strong>CRC surveillance:</strong>
-                generally begins about 8 years after onset of colitis symptoms in patients with extensive UC
-                or Crohn's colitis. Timing then depends on risk factors such as extent, inflammation severity,
-                family history, previous dysplasia and PSC.
-              </li>
+              <li><strong>Colonoscopy + biopsy:</strong> key test for diagnosis, extent and histology</li>
+              <li><strong>Stool tests:</strong> MCS/PCR and C. difficile testing during acute presentations or flares</li>
+              <li><strong>Bloods:</strong> FBE, CRP/ESR, UEC, LFT, albumin, iron studies, B12/folate and vitamin D as relevant</li>
+              <li><strong>MRI enterography:</strong> preferred for small bowel Crohn, strictures and fistulae; avoids radiation</li>
+              <li><strong>CT abdomen/pelvis:</strong> useful for acute complications such as abscess, obstruction or perforation</li>
+              <li><strong>Capsule endoscopy:</strong> for suspected small bowel Crohn only after stricture risk is considered</li>
+              <li><strong>Drug monitoring:</strong> biologic trough and anti-drug antibody levels can guide dosing or switching</li>
+              <li><strong>CRC surveillance:</strong> usually starts about 8 years after colitis symptom onset in extensive UC or Crohn colitis; interval depends on extent, inflammation, family history, dysplasia and PSC</li>
             </ul>
           </div>
 
-          <div class="section-box" style="grid-column: 1 / -1">
-            <div class="section-label sl-hx" >
+          <div class="section-box full-span">
+            <div class="section-label sl-hx">
               <span class="icon">🗺️</span> Approach to Diarrhoea
             </div>
 
             <ul>
-              <li>
-                <strong>Acute diarrhoea:</strong>
-                consider infection first, especially with fever, travel, food exposure, outbreaks,
-                immunosuppression or recent antibiotics.
-              </li>
-
-              <li>
-                <strong>Initial tests if concerning:</strong>
-                stool MCS/PCR, C. difficile testing, FBE, CRP and UEC.
-                Supportive care and hydration are central.
-              </li>
-
-              <li>
-                <strong>Bloody diarrhoea:</strong>
-                consider IBD, infectious colitis, ischaemic colitis, diverticular bleeding,
-                colorectal cancer and radiation proctitis depending on context.
-              </li>
-
-              <li>
-                <strong>Chronic diarrhoea:</strong>
-                assess for IBD, IBS, coeliac disease, microscopic colitis, bile acid diarrhoea,
-                malabsorption, medication causes, endocrine causes and colorectal cancer.
-              </li>
-
-              <li>
-                <strong>Useful chronic diarrhoea tests:</strong>
-                faecal calprotectin, coeliac serology, FBE, CRP, UEC, LFT, TFTs and iron studies.
-                Consider faecal elastase if steatorrhoea or pancreatic insufficiency is suspected.
-              </li>
-
-              <li>
-                <strong>Red flags:</strong>
-                weight loss, iron deficiency anaemia, persistent rectal bleeding, nocturnal symptoms,
-                palpable mass, family history of bowel cancer, new symptoms in older adults,
-                or significant change in bowel habit.
-              </li>
-
-              <li>
-                <strong>STEC/EHEC concern:</strong>
-                avoid empiric antibiotics and antimotility agents because of haemolytic uraemic syndrome risk.
-              </li>
-
-              <li>
-                <strong>C. difficile:</strong>
-                treat with guideline-directed therapy such as oral vancomycin or fidaxomicin rather than routine metronidazole first-line.
-              </li>
+              <li><strong>Acute diarrhoea:</strong> consider infection first, especially fever, travel, food exposure, outbreak, immunosuppression or recent antibiotics</li>
+              <li><strong>Initial tests if concerning:</strong> stool MCS/PCR, C. difficile, FBE, CRP and UEC; prioritise hydration/supportive care</li>
+              <li><strong>Bloody diarrhoea:</strong> consider IBD, infectious colitis, ischaemic colitis, diverticular bleeding, CRC and radiation proctitis</li>
+              <li><strong>Chronic diarrhoea:</strong> consider IBD, IBS, coeliac disease, microscopic colitis, bile acid diarrhoea, malabsorption, medication/endocrine causes and CRC</li>
+              <li><strong>Useful chronic tests:</strong> faecal calprotectin, coeliac serology, FBE, CRP, UEC, LFT, TFTs, iron studies; faecal elastase if steatorrhoea/pancreatic insufficiency suspected</li>
+              <li><strong>Red flags:</strong> weight loss, iron-deficiency anaemia, persistent rectal bleeding, nocturnal symptoms, palpable mass, family history of bowel cancer, older age/new symptoms or major bowel habit change</li>
+              <li><strong>STEC/EHEC concern:</strong> avoid empiric antibiotics and antimotility agents due to HUS risk</li>
+              <li><strong>C. difficile:</strong> treat with guideline-directed therapy such as oral vancomycin or fidaxomicin rather than routine first-line metronidazole</li>
             </ul>
           </div>
         </div>
@@ -4944,54 +4774,22 @@
           <strong>⚡ High Yield</strong>
 
           <ul>
-            <li>
-              <strong>UC:</strong>
-              colon-only disease, usually rectal onset, continuous inflammation,
-              bloody diarrhoea, mucosal disease, PSC association, colectomy can be curative for intestinal disease.
-            </li>
-
-            <li>
-              <strong>Crohn's:</strong>
-              mouth-to-anus disease, skip lesions, transmural inflammation,
-              strictures, fistulae, abscesses, perianal disease and recurrence after surgery.
-            </li>
-
-            <li>
-              <strong>Toxic megacolon:</strong>
-              systemic toxicity with colonic dilatation.
-              Avoid antimotility agents and unnecessary colonoscopy.
-              Requires urgent medical and surgical involvement.
-            </li>
-
-            <li>
-              <strong>5-ASA:</strong>
-              mainly useful in UC. It is not a core therapy for Crohn's disease.
-            </li>
-
-            <li>
-              <strong>Biologics/small molecules:</strong>
-              used for moderate–severe or refractory IBD depending on phenotype,
-              disease severity, previous therapy and PBS criteria.
-            </li>
-
-            <li>
-              <strong>PSC + IBD:</strong>
-              think of PSC if cholestatic LFTs, pruritus, jaundice or recurrent cholangitis.
-              PSC increases colorectal and cholangiocarcinoma risk.
-            </li>
-
-            <li>
-              <strong>Smoking:</strong>
-              worsens Crohn's disease and increases relapse/complication risk.
-              Smoking may appear protective for UC epidemiologically, but it should never be recommended as treatment.
-            </li>
+            <li><strong>UC:</strong> colon-only, usually rectal onset, continuous mucosal inflammation, bloody diarrhoea, PSC association; colectomy can cure intestinal disease</li>
+            <li><strong>Crohn:</strong> mouth-to-anus, skip lesions, transmural inflammation, strictures, fistulae, abscesses, perianal disease; surgery is not curative</li>
+            <li><strong>Toxic megacolon:</strong> systemic toxicity + colonic dilatation; avoid antimotility agents/unnecessary colonoscopy; urgent medical and surgical input</li>
+            <li><strong>5-ASA:</strong> main role in UC; limited benefit in Crohn and not routine core therapy</li>
+            <li><strong>Advanced therapy:</strong> biologics/small molecules for moderate–severe or refractory IBD depending on phenotype, severity and PBS criteria</li>
+            <li><strong>PSC + IBD:</strong> suspect with cholestatic LFTs, pruritus, jaundice or cholangitis; increases CRC and cholangiocarcinoma risk</li>
+            <li><strong>PSC correlation:</strong> 70–80% of PSC patients have UC but only a minority of UC patients develop PSC</li>
+            <li><strong>Smoking:</strong> worsens Crohn and increases relapse/complications. It may appear protective in UC epidemiology, but should never be recommended</li>
           </ul>
         </div>
 
       </div>
     </div>
-    
+        
 
+    <!-- GIS-12: Colorectal Cancer -->
     <!-- GIS-12: Colorectal Cancer -->
     <div class="condition" id="crc">
       <div class="condition-header" onclick="toggle(this)">
@@ -5000,75 +4798,80 @@
         <span class="rank-badge r1">R1</span>
         <span class="chevron">▼</span>
       </div>
+
       <div class="condition-body">
         <div class="sections-grid">
+
           <div class="section-box">
             <div class="section-label sl-etio"><span class="icon">🧬</span> Epidemiology &amp; Risk Factors</div>
             <ul>
-              <li>2nd most common cause of cancer death in Australia (after lung cancer); ~16,000 new cases/year in Australia</li>
-              <li><strong>Sporadic (75%):</strong> adenoma-carcinoma sequence; APC → KRAS → TP53 mutations; average age &gt;50</li>
-              <li><strong>Hereditary (25%):</strong> Familial Adenomatous Polyposis (FAP) — APC gene; Lynch syndrome (HNPCC) — MLH1/MSH2/MSH6/PMS2 mutations; Peutz-Jeghers; MUTYH-associated polyposis</li>
-              <li><strong>Risk factors:</strong> adenomatous polyps, age &gt;50, personal/family history of CRC or polyps, IBD (pancolitis &gt;8 years), smoking, obesity, red/processed meat diet, low fibre diet, alcohol, DM type 2</li>
-              <li><strong>Protective:</strong> aspirin/NSAIDs (COX-2 inhibition), HRT in females, statins, high-fibre diet, exercise</li>
+              <li>Major cause of cancer death in Australia; risk rises with age</li>
+              <li><strong>Most cases are sporadic:</strong> adenoma–carcinoma sequence: APC → KRAS → TP53</li>
+              <li><strong>Inherited syndromes:</strong> Lynch syndrome, FAP, MUTYH-associated polyposis, Peutz–Jeghers</li>
+              <li><strong>Risk factors:</strong> age, adenomatous polyps, family history, IBD colitis, smoking, alcohol, obesity, type 2 diabetes, red/processed meat</li>
+              <li><strong>Protective:</strong> exercise, healthy weight, fibre-rich diet, reduced alcohol and processed meat. Aspirin only for selected patients</li>
             </ul>
           </div>
+
           <div class="section-box">
             <div class="section-label sl-sx"><span class="icon">💬</span> Clinical Presentation</div>
             <ul>
-              <li><strong>Right-sided (caecum/ascending):</strong> Often asymptomatic; iron-deficiency anaemia (occult bleeding); weight loss; palpable mass; diarrhoea; obstruction less common (wide lumen)</li>
-              <li><strong>Left-sided (descending/sigmoid/rectum):</strong> Change in bowel habit (↓calibre stools, alternating constipation/diarrhoea); haematochezia; rectal bleeding; obstruction (narrow lumen); tenesmus (rectal)</li>
-              <li><strong>Red flags requiring urgent investigation:</strong> rectal bleeding + change in bowel habit ≥6 weeks (especially &gt;40 years), unexplained iron-deficiency anaemia, palpable rectal/abdominal mass, unexplained weight loss</li>
-              <li>DRE: essential in all patients with bowel symptoms; low rectal cancers palpable</li>
+              <li><strong>Right-sided:</strong> occult bleeding, iron-deficiency anaemia, fatigue, weight loss, vague pain</li>
+              <li><strong>Left-sided:</strong> change in bowel habit, visible bleeding, constipation/diarrhoea, obstruction</li>
+              <li><strong>Rectal cancer:</strong> rectal bleeding, mucus, urgency, tenesmus, altered bowel habit</li>
+              <li><strong>Red flags:</strong> IDA, persistent rectal bleeding, weight loss, abdominal/rectal mass, new bowel symptoms in older adults</li>
+              <li><strong>DRE:</strong> important if rectal cancer or anorectal pathology is suspected</li>
             </ul>
           </div>
+
           <div class="section-box">
-            <div class="section-label sl-dx"><span class="icon">🔬</span> Screening (Australian — NBCSP)</div>
+            <div class="section-label sl-dx"><span class="icon">🔬</span> Screening &amp; Diagnosis</div>
             <ul>
-              <li><strong>National Bowel Cancer Screening Program (NBCSP):</strong> FREE iFOBT (immunochemical faecal occult blood test) mailed every 2 years to all Australians aged 45–74 years. Positive iFOBT → colonoscopy (bulk-billed)</li>
-              <li><strong>High-risk patients:</strong> Colonoscopy at 40 or 10 years before earliest affected first-degree relative; 3–5 yearly if polyps found</li>
-              <li><strong>IBD:</strong> Colonoscopy from 8 years after diagnosis; then every 1–2 years</li>
-              <li><strong>Diagnosis:</strong> Colonoscopy + biopsy (gold standard); CT colonography (virtual colonoscopy) if colonoscopy contraindicated; flexible sigmoidoscopy (left-sided lesions only)</li>
-              <li>CEA (carcinoembryonic antigen): NOT for diagnosis; used for monitoring treatment response and detecting recurrence</li>
-              <li>CT chest/abdomen/pelvis: staging</li>
-              <li>MRI rectum (staging of rectal cancer — essential for surgical planning)</li>
-              <li>PET-CT: metastasis detection</li>
+              <li><strong>NBCSP:</strong> FIT/iFOBT every 2 years for eligible Australians aged 45–74</li>
+              <li>Positive FIT → colonoscopy. FIT is a screening test, not diagnostic</li>
+              <li><strong>Diagnosis:</strong> colonoscopy + biopsy</li>
+              <li><strong>Staging:</strong> CT chest/abdomen/pelvis; MRI pelvis for rectal cancer</li>
+              <li><strong>CEA:</strong> not diagnostic; useful for baseline and recurrence monitoring</li>
+              <li><strong>High-risk patients:</strong> need individualised surveillance, not NBCSP alone</li>
             </ul>
           </div>
+
           <div class="section-box">
             <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
             <ul>
-              <li><strong>Colonic cancer:</strong> Hemicolectomy (right/left) with D3 lymphadenectomy; laparoscopic preferred. Adjuvant chemotherapy for stage III (node positive): FOLFOX or CAPOX (capecitabine + oxaliplatin)</li>
-              <li><strong>Rectal cancer:</strong> Total mesorectal excision (TME) — gold standard; anterior resection (high rectal) or abdominoperineal resection (APR — low rectal). Neoadjuvant long-course chemoradiotherapy (5-FU-based) or short-course RT for locally advanced rectal cancer</li>
-              <li><strong>Metastatic:</strong> FOLFOX, FOLFIRI; targeted therapy — bevacizumab (anti-VEGF), cetuximab/panitumumab (anti-EGFR — only if RAS wild-type); pembrolizumab/nivolumab if MSI-H/MMR-deficient (PBS-listed)</li>
-              <li>Liver metastases: surgical resection if feasible (potentially curative); ablation (RFA)</li>
-              <li>Lynch syndrome: 6-monthly colonoscopy from 25 years; annual endometrial biopsy; surveillance for associated cancers</li>
-              <li>FAP: Prophylactic colectomy typically in late teens/early 20s</li>
+              <li><strong>Colon cancer:</strong> surgical resection + lymphadenectomy; adjuvant chemotherapy for stage III and selected high-risk stage II</li>
+              <li><strong>Rectal cancer:</strong> MRI-guided staging; total mesorectal excision ± neoadjuvant chemoradiotherapy</li>
+              <li><strong>Metastatic disease:</strong> chemotherapy, targeted therapy or immunotherapy depending on RAS/BRAF/MSI/MMR status</li>
+              <li><strong>Lynch/FAP:</strong> genetic counselling and specialist surveillance; FAP usually needs prophylactic colectomy</li>
             </ul>
           </div>
         </div>
-        <div class="section-box" style="margin-bottom:12px">
+
+        <div class="section-box mb-12">
           <div class="section-label sl-path"><span class="icon">🔬</span> Molecular Pathways</div>
-          <div class="table-scroll"><table class="mini">
-            <tr><th>Pathway</th><th>Mechanism</th><th>Key Mutations</th><th>Associated Syndrome</th><th>Feature</th></tr>
-            <tr><td>Chromosomal Instability (CIN) — 70%</td><td>Adenoma → carcinoma sequence; chromosomal deletions/amplifications</td><td>APC → KRAS → SMAD4 → TP53</td><td>FAP (APC germline), sporadic CRC</td><td>Left-sided predominance; CIN (aneuploidy); older patients</td></tr>
-            <tr><td>Microsatellite Instability (MSI) — 15%</td><td>Defective mismatch repair → microsatellite instability</td><td>MLH1 (often methylated), MSH2/6, PMS2</td><td>Lynch syndrome (HNPCC); ~15% sporadic (MLH1 methylation)</td><td>Right-sided; better prognosis; responds to immunotherapy (pembrolizumab); tumour-infiltrating lymphocytes</td></tr>
-            <tr><td>CIMP / Serrated pathway — 15%</td><td>CpG island methylation phenotype → MLH1 silencing → MSI or BRAF mutations</td><td>BRAF V600E, MLH1 methylation</td><td>Sporadic via sessile serrated lesions</td><td>Proximal colon; BRAF V600E inhibitors (vemurafenib in MSI-H)</td></tr>
-          </table></div>
+          <div class="table-scroll">
+            <table class="mini">
+              <tr><th>Pathway</th><th>Key Mechanism</th><th>Clinical Point</th></tr>
+              <tr><td>Chromosomal instability</td><td>APC → KRAS → TP53 adenoma–carcinoma sequence</td><td>Most common; associated with sporadic CRC and FAP</td></tr>
+              <tr><td>MSI/MMR-deficient</td><td>Defective mismatch repair: MLH1, MSH2, MSH6, PMS2</td><td>Lynch syndrome or sporadic MLH1 methylation; predicts immunotherapy response</td></tr>
+              <tr><td>Serrated/CIMP</td><td>BRAF mutation and CpG methylation from serrated lesions</td><td>Often proximal; sessile serrated lesions can be subtle</td></tr>
+            </table>
+          </div>
         </div>
+
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
           <ul>
-            <li>NBCSP (Australia): FREE iFOBT every 2 years for ages 45–74 — bowel cancer screening nation-wide program</li>
-            <li>Right-sided CRC → iron-deficiency anaemia; Left-sided → haematochezia + change in bowel habit</li>
-            <li>Lynch syndrome: mismatch repair gene mutations (MLH1, MSH2, MSH6, PMS2) → CRC + endometrial + ovarian cancer</li>
-            <li>FAP: 100% progress to CRC without surgery; APC gene (chr 5q21); prophylactic colectomy</li>
-            <li>MSI-H tumours → respond to checkpoint inhibitors (pembrolizumab); PBS-listed in Australia</li>
-            <li>TME (total mesorectal excision) = gold standard for rectal cancer surgery; ↓local recurrence from ~25% to &lt;5%</li>
-            <li>CEA: monitoring recurrence — if normalises post-op then rises = recurrence</li>
+            <li>Right-sided CRC → iron-deficiency anaemia; left-sided CRC → change in bowel habit/obstruction</li>
+            <li>Lynch = mismatch-repair gene defect → increased CRC and endometrial cancer risk; ovarian and other cancers also occur</li>
+            <li>FAP = APC mutation → very high CRC risk without colectomy</li>
+            <li>Positive FIT needs colonoscopy; CEA is for monitoring, not diagnosis</li>
+            <li>MRI pelvis is essential for rectal cancer staging</li>
           </ul>
         </div>
       </div>
     </div>
+
 
     <!-- GIS-13: Diverticular Disease -->
     <div class="condition" id="diverticular">
@@ -5078,66 +4881,70 @@
         <span class="rank-badge r1">R1</span>
         <span class="chevron">▼</span>
       </div>
+
       <div class="condition-body">
         <div class="sections-grid">
+
           <div class="section-box">
-            <div class="section-label sl-etio"><span class="icon">🧬</span> Pathophysiology &amp; Diverticulosis</div>
+            <div class="section-label sl-etio"><span class="icon">🧬</span> Pathophysiology</div>
             <ul>
-              <li>False diverticula (pseudo-diverticula): mucosa + submucosa herniate through weaknesses in muscularis where vasa recta penetrate</li>
-              <li>Sigmoid colon most commonly affected (left-sided in Western countries); right-sided more common in Asian populations</li>
-              <li>Risk factors: low-fibre diet (most important), obesity, constipation, ageing, sedentary lifestyle, red meat, NSAIDs</li>
-              <li>Prevalence: ~50% of people &gt;60 years; ~70% &gt;80 years in Australia</li>
-              <li><strong>Diverticulosis:</strong> Asymptomatic (80%); incidental finding on colonoscopy/CT. May cause painless haematochezia (diverticular bleeding — vasa recta rupture into diverticulum)</li>
-              <li><strong>Diverticular bleeding:</strong> Most common cause of significant lower GI bleeding in adults &gt;40 years; usually right-sided paradoxically; stops spontaneously in 80%; colonoscopy for diagnosis and haemostasis</li>
+              <li>False diverticula: mucosa/submucosa herniate through weak points near vasa recta</li>
+              <li>Most common in sigmoid colon in Western populations</li>
+              <li><strong>Risk factors:</strong> age, obesity, smoking, low activity, constipation, red meat, NSAIDs, steroids, opioids, immunosuppression</li>
+              <li><strong>Diverticulosis:</strong> usually asymptomatic; incidental on CT/colonoscopy</li>
+              <li><strong>Bleeding:</strong> painless haematochezia; often self-limiting but can be severe</li>
             </ul>
           </div>
+
           <div class="section-box">
-            <div class="section-label sl-sx"><span class="icon">💬</span> Diverticulitis — Clinical Features</div>
+            <div class="section-label sl-sx"><span class="icon">💬</span> Diverticulitis Features</div>
             <ul>
-              <li>LLQ/left iliac fossa pain (acute, constant, worse with movement), fever, nausea/vomiting</li>
-              <li>Leukocytosis, ↑CRP</li>
-              <li>Altered bowel habit (constipation/diarrhoea)</li>
-              <li>Urinary frequency and dysuria from bladder irritation; recurrent UTIs, pneumaturia or faecaluria suggest colovesical fistula</li>
-              <li>LLQ tenderness with guarding ± localised rebound; may palpate tender sigmoid</li>
-              <li><strong>Complicated:</strong> abscess, fistula (especially colovesical), bowel obstruction, perforation → generalised peritonitis</li>
+              <li>Acute left iliac fossa pain, fever, nausea, anorexia and altered bowel habit</li>
+              <li>Exam: local tenderness ± guarding; generalised peritonitis suggests perforation</li>
+              <li>Bloods often show leukocytosis and raised CRP</li>
+              <li>Pneumaturia, faecaluria or recurrent UTIs suggest colovesical fistula</li>
+              <li><strong>Complicated:</strong> abscess, perforation, fistula, obstruction, sepsis or peritonitis</li>
             </ul>
           </div>
+
           <div class="section-box">
             <div class="section-label sl-dx"><span class="icon">🔬</span> Investigations</div>
             <ul>
-              <li><strong>CT abdomen/pelvis with IV contrast:</strong> gold standard; pericolic fat stranding, bowel wall thickening, diverticula, ± abscess/air/fluid</li>
-              <li>FBC, CRP, urine MCS (colovesical fistula)</li>
-              <li>AXR: rarely useful; free air if perforation</li>
-              <li>Colonoscopy: AVOID in acute attack (perforation risk); perform 6–8 weeks after resolution to exclude malignancy</li>
-              <li><strong>Hinchey Classification (CT-based):</strong> I=pericolic abscess; II=pelvic abscess; III=purulent peritonitis; IV=faecal peritonitis</li>
+              <li><strong>CT abdomen/pelvis with IV contrast:</strong> preferred test if diagnosis is uncertain or complications suspected</li>
+              <li>CT: diverticula, bowel wall thickening, fat stranding, abscess, free air or obstruction</li>
+              <li>Bloods: FBE, CRP, UEC; urine testing if urinary symptoms</li>
+              <li><strong>Avoid colonoscopy during acute attack</strong></li>
+              <li>Consider colonoscopy after recovery if complicated disease, alarm symptoms, atypical imaging or no recent colonoscopy</li>
             </ul>
           </div>
+
           <div class="section-box">
             <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
             <ul>
-              <li><strong>Uncomplicated diverticulitis (Hinchey I without abscess):</strong> Oral antibiotics — amoxicillin/clavulanate (Augmentin®) OR ciprofloxacin + metronidazole; liquid diet; outpatient if mild + can tolerate oral; 5–7 days</li>
-              <li><strong>Moderate/hospitalised:</strong> IV antibiotics (ceftriaxone + metronidazole); bowel rest; IV fluids</li>
-              <li><strong>Pericolic abscess (Hinchey I small &lt;3cm):</strong> antibiotics alone. Large abscess (Hinchey I/II &gt;3cm): CT-guided percutaneous drainage + IV antibiotics</li>
-              <li><strong>Purulent peritonitis (Hinchey III):</strong> Laparoscopic peritoneal washout ± drain is a viable option for selected cases (LADIES trial); or primary resection and anastomosis (Hartmann-avoided if possible)</li>
-              <li><strong>Faecal peritonitis (Hinchey IV):</strong> Emergency Hartmann's procedure (resection + end colostomy; closure 3–6 months later) or primary resection with anastomosis (selected fit patients)</li>
-              <li><strong>Elective sigmoid resection:</strong> After 2+ episodes, complicated disease, young patients, immunocompromised; laparoscopic preferred; 6–8 weeks after acute episode resolves</li>
-              <li><strong>Dietary advice:</strong> High-fibre diet long-term; evidence does NOT support avoiding seeds/nuts/popcorn</li>
+              <li><strong>Mild uncomplicated:</strong> outpatient care, fluids, analgesia, safety-netting</li>
+              <li><strong>Antibiotics:</strong> selective, not automatic; use if systemic features, immunosuppression, frailty or complicated disease</li>
+              <li><strong>Hospitalised/complicated:</strong> IV fluids, analgesia, IV antibiotics and surgical review if severe</li>
+              <li><strong>Abscess:</strong> antibiotics ± image-guided drainage depending on size and stability</li>
+              <li><strong>Perforation/peritonitis/sepsis:</strong> urgent surgical review</li>
+              <li><strong>Elective surgery:</strong> individualised; not based only on number of episodes</li>
+              <li><strong>Prevention:</strong> fibre-rich diet, exercise, weight optimisation, smoking cessation. No need to avoid nuts/seeds/popcorn</li>
             </ul>
           </div>
         </div>
+
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
           <ul>
-            <li>Diverticulitis = LLQ pain + fever + leukocytosis; "left-sided appendicitis"</li>
-            <li>Diverticulitis risk factors: Age >50, low‑fibre Western diet, high red‑meat intake, obesity, smoking, low physical activity; plus NSAIDs, steroids, opioids, and comorbidities (e.g. obesity, HTN, diabetes, immunosuppression)</li>
-            <li>Colovesical fistula (most common): pneumaturia (air in urine) + faecaluria (faeces in urine)</li>
-            <li>Hinchey classification guides surgical decision: Hinchey III — laparoscopic washout vs Hartmann's; Hinchey IV — Hartmann's</li>
-            <li>Diverticular bleeding: painless haematochezia; usually right-sided despite left-sided disease; colonoscopy for haemostasis</li>
-            <li>Colonoscopy AFTER recovery (6–8 weeks) to exclude CRC — diverticulitis can mask a cancer</li>
+            <li>Diverticulitis = left iliac fossa pain + fever + raised inflammatory markers</li>
+            <li>Uncomplicated diverticulitis does not always need antibiotics</li>
+            <li>Complicated = abscess, perforation, fistula, obstruction or sepsis</li>
+            <li>Colovesical fistula = recurrent UTIs + pneumaturia/faecaluria</li>
+            <li>Avoid colonoscopy during acute diverticulitis</li>
           </ul>
         </div>
       </div>
     </div>
+
 
     <!-- GIS-14: Abdominal / Groin Hernias -->
     <div class="condition" id="hernias">
@@ -5147,48 +4954,94 @@
         <span class="rank-badge r1">R1</span>
         <span class="chevron">▼</span>
       </div>
+
       <div class="condition-body">
-        <div class="table-scroll"><table class="mini">
-          <tr><th>Type</th><th>Anatomy</th><th>Epidemiology</th><th>Clinical Features</th><th>Management</th></tr>
-          <tr><td><strong>Indirect Inguinal</strong></td><td>Through deep inguinal ring (lateral to inferior epigastric vessels) → inguinal canal → may enter scrotum. Follows path of testicular descent; covered by all 3 layers of spermatic fascia. Congenital (patent processus vaginalis) or acquired.</td><td>Most common hernia overall; predominantly males; can occur at any age including infants</td><td>Reducible lump in groin (reduces lying down); may descend to scrotum. Impulse on coughing. Deep ring occlusion (finger medial to ASIS): impulse abolished</td><td>Elective Lichtenstein mesh repair (open, gold standard); laparoscopic (TAPP or TEP) — preferred for bilateral/recurrent. Urgent if incarcerated/strangulated.</td></tr>
-          <tr><td><strong>Direct Inguinal</strong></td><td>Through Hesselbach's triangle (medial to inferior epigastric vessels, lateral to rectus). Weakness of transversalis fascia. NOT into scrotum. Covered by external spermatic fascia only.</td><td>Older males (acquired weakness); associated with ↑intraabdominal pressure (chronic cough, obesity, constipation)</td><td>Medial inguinal bulge; rarely reaches scrotum; less likely to incarcerate. Deep ring occlusion: impulse persists (comes through medially)</td><td>Elective mesh repair (Lichtenstein or laparoscopic); same approach as indirect</td></tr>
-          <tr><td><strong>Femoral</strong></td><td>Through femoral canal (medial to femoral vein, below inguinal ligament, lateral to pubic tubercle)</td><td>More common in females (but overall inguinal hernias remain most common in women too). NEVER common overall.</td><td>Small, often irreducible lump below and lateral to pubic tubercle. HIGH risk of incarceration/strangulation (narrow neck)</td><td>Repair promptly even if asymptomatic (high strangulation risk). McEvedy, Lockwood, or laparoscopic approach.</td></tr>
-          <tr><td><strong>Umbilical</strong></td><td>Through umbilical ring/linea alba at umbilicus</td><td>Congenital (infants — most close spontaneously by age 4); Adults — obesity, pregnancy, ascites, multiparity</td><td>Soft reducible paraumbilical bulge; ↑with Valsalva/coughing</td><td>Infants: observe until age 4 (most close spontaneously). Adults: elective repair (Mayo repair or mesh); urgent if strangulated.</td></tr>
-          <tr><td><strong>Incisional</strong></td><td>Through previous surgical incision site (scar weakness)</td><td>~10% of laparotomies; ↑risk: obesity, infection, steroids, malnutrition, poor technique, large incision</td><td>Bulge at scar site; often large; high risk of bowel obstruction</td><td>Elective mesh repair; laparoscopic (IPOM) or open; optimise risk factors first (weight loss, smoking cessation)</td></tr>
-          <tr><td><strong>Paraumbilical</strong></td><td>Just above/below umbilicus (in adults; distinct from true umbilical)</td><td>Obese, multiparous women; adult onset</td><td>Similar to umbilical; usually does not close spontaneously</td><td>Elective mesh repair recommended</td></tr>
-          <tr><td><strong>Hiatal</strong></td><td>Sliding (most common; GEJ + cardia herniate): associated with GORD. Paraesophageal (rolling; fundus herniation, GEJ remains below): risk of gastric volvulus, strangulation — surgical repair indicated</td><td>Very common (sliding); increases with age and obesity</td><td>Sliding: heartburn, regurgitation. Paraesophageal: chest pain, dysphagia, early satiety; may be asymptomatic</td><td>Sliding: lifestyle + PPI. Paraesophageal: laparoscopic Nissen fundoplication + crural repair (elective; urgent if volvulus/strangulation)</td></tr>
-        </table></div>
-        <div class="sections-grid" style="margin-top:14px">
+        <div class="table-scroll">
+          <table class="mini">
+            <tr>
+              <th>Type</th>
+              <th>Anatomy</th>
+              <th>Clinical Features</th>
+              <th>Management</th>
+            </tr>
+
+            <tr>
+              <td><strong>Indirect inguinal</strong></td>
+              <td>Lateral to inferior epigastric vessels; through deep ring; may enter scrotum</td>
+              <td>Most common groin hernia; groin lump above/medial to pubic tubercle</td>
+              <td>Observe if minimally symptomatic; repair if symptomatic, enlarging or complicated</td>
+            </tr>
+
+            <tr>
+              <td><strong>Direct inguinal</strong></td>
+              <td>Medial to inferior epigastric vessels; through Hesselbach's triangle</td>
+              <td>Older adults; acquired posterior wall weakness; less likely to strangulate</td>
+              <td>Open mesh or laparoscopic repair depending on patient/surgeon factors</td>
+            </tr>
+
+            <tr>
+              <td><strong>Femoral</strong></td>
+              <td>Below inguinal ligament; medial to femoral vein; below/lateral to pubic tubercle</td>
+              <td>More common in females; high risk of strangulation</td>
+              <td>Prompt surgical repair, even if minimally symptomatic</td>
+            </tr>
+
+            <tr>
+              <td><strong>Umbilical</strong></td>
+              <td>Defect at umbilical ring</td>
+              <td>Infants; adults with obesity, pregnancy, ascites</td>
+              <td>Infants often close spontaneously; adults repair if symptomatic/enlarging/complicated</td>
+            </tr>
+
+            <tr>
+              <td><strong>Incisional</strong></td>
+              <td>Through previous surgical scar</td>
+              <td>Risk: wound infection, obesity, smoking, diabetes, steroids</td>
+              <td>Optimise risk factors; mesh repair often used</td>
+            </tr>
+
+            <tr>
+              <td><strong>Hiatus</strong></td>
+              <td>Sliding: GEJ above diaphragm. Paraesophageal: stomach herniates beside oesophagus</td>
+              <td>Sliding → reflux. Paraesophageal → dysphagia, chest discomfort, anaemia or volvulus</td>
+              <td>Sliding: lifestyle/PPI. Paraesophageal: surgical referral if symptomatic, large or complicated</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sections-grid mt-14">
+
           <div class="section-box">
             <div class="section-label sl-comp"><span class="icon">⚠️</span> Complications</div>
             <ul>
-              <li><strong>Reducible:</strong> contents return spontaneously or with manual pressure; no urgency</li>
-              <li><strong>Incarcerated:</strong> contents cannot be reduced (stuck); bowel obstruction may occur; needs urgent repair</li>
-              <li><strong>Strangulated:</strong> compromised blood supply → ischaemia → necrosis; SURGICAL EMERGENCY; features: constant pain (previously colicky), fever, peritonism, erythema overlying hernia, haemodynamic instability</li>
-              <li><strong>Obstructed:</strong> bowel obstruction without vascular compromise (yet)</li>
-              <li>Richter's hernia: partial bowel wall strangulation (Richter = partial) — may strangulate without complete obstruction</li>
-              <li>Maydl's hernia: W-shaped loop; middle portion strangulates while other portions reduce</li>
+              <li><strong>Reducible:</strong> contents return spontaneously or with gentle pressure</li>
+              <li><strong>Incarcerated:</strong> stuck and cannot be reduced</li>
+              <li><strong>Obstructed:</strong> bowel obstruction from trapped bowel</li>
+              <li><strong>Strangulated:</strong> blood supply compromised → surgical emergency</li>
+              <li><strong>Red flags:</strong> severe constant pain, fever, vomiting, peritonism, erythema/dusky skin, sepsis</li>
+              <li><strong>Richter's hernia:</strong> strangulation can occur without complete obstruction</li>
             </ul>
           </div>
+
           <div class="section-box">
-            <div class="section-label sl-key"><span class="icon">⭐</span> MDs Don't Lie</div>
+            <div class="section-label sl-key"><span class="icon">⭐</span> Anatomy Shortcuts</div>
             <ul>
-              <li><strong>Medial</strong> to inferior epigastric vessels = <strong>Direct</strong> inguinal hernia</li>
-              <li><strong>Lateral</strong> to inferior epigastric vessels = indirect (indirect) inguinal hernia</li>
-              <li>Femoral hernia: <strong>below</strong> inguinal ligament, <strong>medial</strong> to femoral vein</li>
-              <li>Indirect inguinal = most common hernia in BOTH males AND females overall</li>
-              <li>Femoral hernia = more common in females; but overall more women have inguinal than femoral</li>
-              <li>Strangulation risk: femoral &gt; indirect inguinal &gt; direct inguinal</li>
+              <li><strong>Direct:</strong> medial to inferior epigastric vessels</li>
+              <li><strong>Indirect:</strong> lateral to inferior epigastric vessels</li>
+              <li><strong>Femoral:</strong> below inguinal ligament, medial to femoral vein</li>
+              <li><strong>Pubic tubercle:</strong> inguinal = above/medial; femoral = below/lateral</li>
+              <li><strong>Highest strangulation risk:</strong> femoral hernia</li>
             </ul>
           </div>
         </div>
+
         <div class="hy-box">
           <strong>⚡ High Yield</strong>
           <ul>
-            <li>Indirect inguinal hernia: most common hernia overall; lateral to inferior epigastric vessels; covered by ALL 3 layers of spermatic fascia; follows path of testicular descent</li>
-            <li>Femoral hernia: HIGHEST strangulation risk; below inguinal ligament; lateral to pubic tubercle; prompt repair even if asymptomatic</li>
-            <li>Strangulation = emergency: constant pain + fever + peritonism + red/dusky skin over hernia → urgent surgery</li>
-            <li>Paraesophageal (rolling) hiatal hernia: risk of gastric volvulus → surgical repair indicated even if asymptomatic</li>
+            <li>Indirect inguinal = lateral; direct inguinal = medial</li>
+            <li>Femoral hernia has the highest strangulation risk</li>
+            <li>Strangulated hernia = painful irreducible lump + systemic/skin signs → emergency</li>
+            <li>Sliding hiatus hernia causes reflux; paraesophageal hernia can volvulise</li>
           </ul>
         </div>
       </div>
@@ -5241,7 +5094,7 @@
           <div class="section-box">
             <div class="section-label sl-mx"><span class="icon">💊</span> Management</div>
             <ul>
-              <li><strong>Strict lifelong gluten-free diet (GFD):</strong> Avoid wheat, rye, barley; oats controversial (most tolerate, but some sensitive). Rice, corn, potato, quinoa safe.</li>
+              <li><strong>Strict lifelong gluten-free diet (GFD):</strong> Avoid wheat, rye, barley; oats controversial (most tolerate, but some sensitive). Rice, corn, potato, quinoa safe</li>
               <li>Dietitian referral (essential); Coeliac Australia membership and support</li>
               <li>Repeat serology at 3–6 months and 12 months (anti-tTG levels fall with GFD compliance)</li>
               <li>Repeat duodenal biopsy in adults at 1–2 years to confirm mucosal healing (some recommend)</li>
@@ -5448,7 +5301,7 @@
   margin-top: 0px;
 ">
   <p style="margin-bottom: 6px;">
-    <strong style="color: var(--text);">Last updated:</strong> 29 April 2026
+    <strong style="color: var(--text);">Last updated:</strong> 30 April 2026
   </p>
   <p style="margin-bottom: 8px;">
     <strong style="color: var(--text);">Disclaimer:</strong>
