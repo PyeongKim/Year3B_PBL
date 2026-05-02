@@ -1,0 +1,30 @@
+{
+  "gallstones": [
+    "gallstone disease",
+    "gall stone disease",
+    "cholelithiasis",
+    "biliary colic",
+    "cholecystitis",
+    "acute cholecystitis",
+    "choledocholithiasis",
+    "common bile duct stone",
+    "cbd stone",
+    "cholangitis",
+    "acute cholangitis",
+    "ascending cholangitis",
+    "biliary obstruction",
+    "gallbladder disease"
+  ],
+  "cirrhosis": [
+    "liver cirrhosis",
+    "chronic liver disease",
+    "liver fibrosis"
+  ],
+  "chf": [
+    "ccf",
+    "chf",
+    "apo",
+    "congestive cardiac failure",
+    "congestive heart failure"
+  ]
+}

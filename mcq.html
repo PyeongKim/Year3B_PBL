@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta
+      content="Year 3B PBL MCQ question bank with system-based review and explanations."
+      name="description"
+    />
+    <title>Year 3B Core Conditions MCQs</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Source+Sans+3:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("pbl_theme_choice");
+          const systemTheme =
+            typeof window.matchMedia === "function" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          document.documentElement.dataset.theme =
+            savedTheme === "light" || savedTheme === "dark"
+              ? savedTheme
+              : systemTheme;
+        } catch (_) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+    <link href="assets/css/styles.css" rel="stylesheet" />
+    <script defer src="assets/js/app.js"></script>
+    <script defer src="data/question-banks/question-banks.js"></script>
+    <script defer src="assets/js/mcq.js"></script>
+  </head>
+  <body class="site-body mcq-page" id="top">
+    <a class="skip-link" href="#main-content"> Skip to content </a>
+    <div aria-label="Login" aria-modal="true" id="login-overlay" role="dialog">
+      <div class="login-shell">
+        <div class="login-card">
+          <div class="login-logo">
+            <span class="title"> Year 3B Notes </span>
+            <span class="sub">
+              CVS &middot; Resp &middot; Hepatobiliary &middot; GI
+            </span>
+          </div>
+          <div class="login-dots">
+            <div class="login-dot cvs"></div>
+            <div class="login-dot resp"></div>
+            <div class="login-dot hep"></div>
+          </div>
+          <div class="login-field">
+            <label for="login-id"> Username </label>
+            <input
+              autocomplete="username"
+              autofocus
+              id="login-id"
+              placeholder="Enter username"
+              type="text"
+            />
+          </div>
+          <div class="login-field">
+            <label for="login-pw"> Password </label>
+            <input
+              autocomplete="current-password"
+              id="login-pw"
+              placeholder="Enter password"
+              type="password"
+            />
+          </div>
+          <button class="login-btn" type="button">Sign In</button>
+          <div aria-live="polite" class="login-error" id="login-error">
+            Incorrect username or password
+          </div>
+        </div>
+        <p class="login-note">
+          Personal study notes &mdash; authorised access only
+        </p>
+      </div>
+    </div>
+    <header aria-label="Site header" class="masthead" role="banner">
+      <div class="masthead-row1">
+        <button
+          aria-controls="mcqNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          class="hamburger"
+          type="button"
+        >
+          <span class="hamburger-lines" aria-hidden="true"></span>
+        </button>
+        <div class="masthead-title-block">
+          <h1 class="masthead-title">Year 3B MCQs</h1>
+          <p class="masthead-sub">Core condition question bank</p>
+        </div>
+        <nav
+          aria-label="MCQ system shortcuts unavailable"
+          class="toc-bar toc-bar-disabled"
+        >
+          <span aria-disabled="true" class="toc-btn cvs is-disabled">CVS</span>
+          <span aria-disabled="true" class="toc-btn resp is-disabled"
+            >Resp</span
+          >
+          <span aria-disabled="true" class="toc-btn hep is-disabled"
+            >Hepatobiliary</span
+          >
+          <span aria-disabled="true" class="toc-btn gi is-disabled">GI</span>
+        </nav>
+      </div>
+      <div class="masthead-row2">
+        <div aria-label="Font size controls" class="font-size-controls">
+          <button
+            aria-label="Decrease font size"
+            class="expand-btn font-size-btn"
+            id="fontDecreaseBtn"
+            title="Decrease font size"
+            type="button"
+          >
+            A-
+          </button>
+          <span aria-live="polite" class="font-size-value" id="fontSizeValue">
+            100%
+          </span>
+          <button
+            aria-label="Increase font size"
+            class="expand-btn font-size-btn"
+            id="fontIncreaseBtn"
+            title="Increase font size"
+            type="button"
+          >
+            A+
+          </button>
+        </div>
+        <div class="filter-divider"></div>
+        <div aria-label="Theme controls" class="theme-controls" role="group">
+          <button
+            aria-pressed="false"
+            class="expand-btn theme-btn"
+            data-theme-choice="light"
+            type="button"
+          >
+            Light
+          </button>
+          <button
+            aria-pressed="false"
+            class="expand-btn theme-btn"
+            data-theme-choice="dark"
+            type="button"
+          >
+            Dark
+          </button>
+        </div>
+      </div>
+    </header>
+    <div aria-hidden="true" class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="page-wrap">
+      <nav aria-label="MCQ navigation" class="sidebar" id="mcqNav">
+        <div class="sidebar-section">Study</div>
+        <a class="sidebar-link quiz" href="index.html">
+          Back to Notes
+          <span class="badge r3"> Notes </span>
+        </a>
+      </nav>
+      <main
+        aria-label="MCQ question bank"
+        class="content mcq-content"
+        id="main-content"
+        tabindex="-1"
+      >
+        <section class="mcq-hero mcq-setup-panel" id="mcq-top" tabindex="-1">
+          <p class="eyebrow">System-based practice</p>
+          <h2>MCQ Question Bank</h2>
+          <p class="mcq-hero-text">
+            Build a focused set from one or more question banks, choose the
+            systems, then work through one clinical vignette at a time with
+            immediate feedback.
+          </p>
+          <div class="mcq-builder" aria-label="Quiz builder">
+            <div class="mcq-builder-block">
+              <div class="mcq-builder-heading">
+                <h3>Question Banks</h3>
+                <span id="qbDefaultNote"></span>
+              </div>
+              <div class="mcq-bank-tools">
+                <label class="mcq-bank-search" for="qbSearchInput">
+                  <span>Search banks</span>
+                  <input
+                    id="qbSearchInput"
+                    placeholder="Search QB_V, date, title..."
+                    type="search"
+                  />
+                </label>
+              </div>
+              <div class="mcq-builder-actions mcq-bank-actions">
+                <button
+                  class="expand-btn"
+                  id="selectLatestBanksBtn"
+                  type="button"
+                >
+                  Latest 7
+                </button>
+                <button
+                  class="expand-btn"
+                  id="sortBanksByDateBtn"
+                  type="button"
+                >
+                  Date: Newest
+                </button>
+                <button class="expand-btn" id="selectAllBanksBtn" type="button">
+                  Select All
+                </button>
+                <button class="expand-btn" id="clearBanksBtn" type="button">
+                  Clear
+                </button>
+              </div>
+              <div class="mcq-choice-grid mcq-bank-list" id="qbList"></div>
+            </div>
+            <div class="mcq-builder-block">
+              <div class="mcq-builder-heading">
+                <h3>Systems</h3>
+              </div>
+              <div class="mcq-builder-actions mcq-system-actions">
+                <button
+                  class="expand-btn"
+                  id="selectAllSystemsBtn"
+                  type="button"
+                >
+                  Select All
+                </button>
+                <button class="expand-btn" id="clearSystemsBtn" type="button">
+                  Clear
+                </button>
+              </div>
+              <div
+                class="mcq-choice-grid systems mcq-system-list"
+                id="systemList"
+              ></div>
+            </div>
+            <div class="mcq-builder-block">
+              <div class="mcq-builder-heading">
+                <h3>Revision Tier</h3>
+              </div>
+              <div class="mcq-builder-actions mcq-rank-actions">
+                <button class="expand-btn" id="selectAllRanksBtn" type="button">
+                  Select All
+                </button>
+                <button class="expand-btn" id="clearRanksBtn" type="button">
+                  Clear
+                </button>
+              </div>
+              <div class="mcq-choice-grid mcq-rank-list" id="rankList"></div>
+            </div>
+            <div class="mcq-builder-block mcq-builder-run">
+              <label class="mcq-count-field" for="questionCountInput">
+                <span>Questions</span>
+                <input id="questionCountInput" min="1" step="1" type="number" />
+              </label>
+              <p class="mcq-builder-status" id="quizBuilderStatus"></p>
+              <div class="mcq-run-actions">
+                <button
+                  class="expand-btn mcq-primary-action"
+                  id="generateQuizBtn"
+                  type="button"
+                >
+                  Generate Quiz
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="mcq-quiz-panel" hidden id="mcqQuizPanel" tabindex="-1">
+          <div class="mcq-quiz-toolbar">
+            <div>
+              <p class="eyebrow">Active quiz</p>
+              <h2>Quiz Workspace</h2>
+            </div>
+            <button class="expand-btn" disabled id="stopReviewBtn" type="button">
+              Stop &amp; Review
+            </button>
+          </div>
+          <section
+            aria-live="polite"
+            class="mcq-review-summary"
+            hidden
+            id="reviewSummary"
+            tabindex="-1"
+          ></section>
+          <div class="mcq-system-stack" id="mcqQuestionRoot"></div>
+        </section>
+      </main>
+    </div>
+    <footer class="site-footer" role="contentinfo">
+      <p class="u-style-089">
+        <strong class="u-style-090"> Last updated: </strong>
+        1 May 2026
+      </p>
+      <p class="u-style-091">
+        <strong class="u-style-090"> Disclaimer: </strong>
+        These questions are for educational revision only and are not a
+        substitute for current clinical guidelines, local protocols, or
+        professional medical advice.
+      </p>
+    </footer>
+    <a
+      aria-label="Back to top"
+      class="scroll-top"
+      href="#top"
+      title="Back to top"
+    >
+      &uarr;
+    </a>
+  </body>
+</html>
